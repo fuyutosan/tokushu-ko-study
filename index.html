@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>特殊鋼3か月独学プログラム 学習ログ</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'Yu Gothic', sans-serif; max-width: 820px; margin: 0 auto; padding: 20px; background: #f5f5f5; color: #333; line-height: 1.8; font-size: 15px; }
+  header { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; padding: 28px 32px; border-radius: 10px; margin-bottom: 28px; }
+  header h1 { margin: 0 0 8px; font-size: 1.5em; }
+  header p { margin: 0; opacity: 0.8; font-size: 0.9em; }
+  .progress-bar-wrap { background: rgba(255,255,255,0.2); border-radius: 20px; height: 10px; margin-top: 16px; }
+  .progress-bar { background: #4fc3f7; border-radius: 20px; height: 10px; width: 1.7%; }
+  .progress-text { font-size: 0.8em; opacity: 0.75; margin-top: 6px; }
+  .week-section { background: white; border-radius: 10px; margin-bottom: 16px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); overflow: hidden; }
+  .week-header { background: #1a3a5c; color: white; padding: 12px 20px; font-weight: bold; font-size: 0.95em; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+  .week-header .badge { background: rgba(255,255,255,0.25); font-size: 0.8em; padding: 2px 8px; border-radius: 10px; }
+  .week-body { padding: 8px 0; }
+  .session-item { display: flex; align-items: center; padding: 10px 20px; border-bottom: 1px solid #f0f0f0; text-decoration: none; color: #333; transition: background 0.15s; }
+  .session-item:last-child { border-bottom: none; }
+  .session-item:hover { background: #f0f6ff; }
+  .session-num { background: #1a3a5c; color: white; font-size: 0.75em; font-weight: bold; padding: 3px 8px; border-radius: 4px; margin-right: 14px; min-width: 46px; text-align: center; }
+  .session-num.friday { background: #6a1b9a; }
+  .session-title { flex: 1; font-size: 0.95em; }
+  .session-date { font-size: 0.8em; color: #999; margin-left: 12px; }
+  .session-item.locked { opacity: 0.35; pointer-events: none; }
+  .session-item.locked .session-num { background: #bbb; }
+  footer { text-align: center; margin-top: 32px; color: #999; font-size: 0.85em; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>特殊鋼3か月独学プログラム</h1>
+  <p>営業対応に必要な体系知識を60回で完成させる</p>
+  <div class="progress-bar-wrap">
+    <div class="progress-bar" style="width: 8.3%"></div>
+  </div>
+  <div class="progress-text">5 / 60 回完了</div>
+</header>
+
+<!-- W1 -->
+<div class="week-section">
+  <div class="week-header">
+    <span>第1週：鉄鋼・特殊鋼の全体像</span>
+    <span class="badge">5 / 5</span>
+  </div>
+  <div class="week-body">
+    <a class="session-item" href="第01回_鉄とは何か-純鉄・鋼・鋳鉄の境界を理解する.html">
+      <span class="session-num">第01回</span>
+      <span class="session-title">鉄とは何か：純鉄・鋼・鋳鉄の境界を理解する</span>
+      <span class="session-date">2026-06-11</span>
+    </a>
+    <a class="session-item" href="第02回_普通鋼と特殊鋼の違い-JIS分類の見方.html">
+      <span class="session-num">第02回</span>
+      <span class="session-title">普通鋼と特殊鋼の違い：JIS分類の見方</span>
+      <span class="session-date">2026-06-11</span>
+    </a>
+    <a class="session-item" href="第03回_鉄-炭素状態図の読み方-オーステナイト・フェライト・パーライト・セメンタイト.html">
+      <span class="session-num">第03回</span>
+      <span class="session-title">鉄-炭素状態図の読み方</span>
+      <span class="session-date">2026-06-11</span>
+    </a>
+    <a class="session-item" href="第04回_鋼の組織と機械的性質の関係-強度・靭性・硬さ・延性.html">
+      <span class="session-num">第04回</span>
+      <span class="session-title">鋼の組織と機械的性質の関係</span>
+      <span class="session-date">2026-06-11</span>
+    </a>
+    <a class="session-item" href="第05回_週まとめ-鉄鋼の地図を描けるか.html">
+      <span class="session-num friday">第05回</span>
+      <span class="session-title">週まとめ＋確認テスト3問</span>
+      <span class="session-date">2026-06-11</span>
+    </a>
+  </div>
+</div>
+
+<!-- W2 -->
+<div class="week-section">
+  <div class="week-header">
+    <span>第2週：炭素鋼と合金元素の役割</span>
+    <span class="badge">0 / 5</span>
+  </div>
+  <div class="week-body">
+    <span class="session-item locked"><span class="session-num">第06回</span><span class="session-title">炭素量で何が変わるか：低炭素・中炭素・高炭素鋼</span></span>
+    <span class="session-item locked"><span class="session-num">第07回</span><span class="session-title">Cr（クロム）の役割：耐食性と硬化能</span></span>
+    <span class="session-item locked"><span class="session-num">第08回</span><span class="session-title">Ni（ニッケル）の役割：オーステナイト安定化と靭性</span></span>
+    <span class="session-item locked"><span class="session-num">第09回</span><span class="session-title">Mo・Mn・V・Wの役割：高温強度・焼入性・析出硬化</span></span>
+    <span class="session-item locked"><span class="session-num friday">第10回</span><span class="session-title">週まとめ＋確認テスト3問</span></span>
+  </div>
+</div>
+
+<!-- W3 -->
+<div class="week-section">
+  <div class="week-header">
+    <span>第3週：ステンレスの世界</span>
+    <span class="badge">0 / 5</span>
+  </div>
+  <div class="week-body">
+    <span class="session-item locked"><span class="session-num">第11回</span><span class="session-title">ステンレスの5分類</span></span>
+    <span class="session-item locked"><span class="session-num">第12回</span><span class="session-title">なぜ錆びないのか：不動態皮膜の正体</span></span>
+    <span class="session-item locked"><span class="session-num">第13回</span><span class="session-title">Schaefflerの組織図の見方</span></span>
+    <span class="session-item locked"><span class="session-num">第14回</span><span class="session-title">ステンレスの代表鋼種一覧</span></span>
+    <span class="session-item locked"><span class="session-num friday">第15回</span><span class="session-title">週まとめ＋確認テスト3問</span></span>
+  </div>
+</div>
+
+<!-- W4 -->
+<div class="week-section">
+  <div class="week-header">
+    <span>第4週：オーステナイト系ステンレス深掘り</span>
+    <span class="badge">0 / 5</span>
+  </div>
+  <div class="week-body">
+    <span class="session-item locked"><span class="session-num">第16回</span><span class="session-title">SUS304の組成・特性・用途</span></span>
+    <span class="session-item locked"><span class="session-num">第17回</span><span class="session-title">SUS316とMoの効果</span></span>
+    <span class="session-item locked"><span class="session-num">第18回</span><span class="session-title">加工硬化と磁性</span></span>
+    <span class="session-item locked"><span class="session-num">第19回</span><span class="session-title">鋭敏化と粒界腐食</span></span>
+    <span class="session-item locked"><span class="session-num friday">第20回</span><span class="session-title">週まとめ＋確認テスト3問</span></span>
+  </div>
+</div>
+
+<!-- W5 -->
+<div class="week-section">
+  <div class="week-header">
+    <span>第5週：鋳物冶金 基礎</span>
+    <span class="badge">0 / 5</span>
+  </div>
+  <div class="week-body">
+    <span class="session-item locked"><span class="session-num">第21回</span><span class="session-title">鋳鉄と鋳鋼の違い</span></span>
+    <span class="session-item locked"><span class="session-num">第22回</span><span class="session-title">ねずみ鋳鉄・ダクタイル鋳鉄・白鋳鉄・可鍛鋳鉄</span></span>
+    <span class="session-item locked"><span class="session-num">第23回</span><span class="session-title">ステンレス鋳鋼（SCS鋼種）</span></span>
+    <span class="session-item locked"><span class="session-num">第24回</span><span class="session-title">耐熱鋳鋼（SCH）と耐熱合金（HK・HP）</span></span>
+    <span class="session-item locked"><span class="session-num friday">第25回</span><span class="session-title">週まとめ＋確認テスト3問</span></span>
+  </div>
+</div>
+
+<!-- W6〜W12 折りたたみ -->
+<div class="week-section">
+  <div class="week-header"><span>第6週：鋳造プロセスと欠陥</span><span class="badge">0 / 5</span></div>
+  <div class="week-body">
+    <span class="session-item locked"><span class="session-num">第26回</span><span class="session-title">砂型鋳造の流れと特徴</span></span>
+    <span class="session-item locked"><span class="session-num">第27回</span><span class="session-title">ロストワックス（精密鋳造）の原理と適用範囲</span></span>
+    <span class="session-item locked"><span class="session-num">第28回</span><span class="session-title">主要欠陥：引け巣・ガス孔・砂噛み・湯境・ヒケ</span></span>
+    <span class="session-item locked"><span class="session-num">第29回</span><span class="session-title">欠陥が品質クレームになるパターン</span></span>
+    <span class="session-item locked"><span class="session-num friday">第30回</span><span class="session-title">週まとめ＋確認テスト3問</span></span>
+  </div>
+</div>
+<div class="week-section">
+  <div class="week-header"><span>第7週：熱処理の基礎理論</span><span class="badge">0 / 5</span></div>
+  <div class="week-body">
+    <span class="session-item locked"><span class="session-num">第31回</span><span class="session-title">変態とは何か：A1・A3変態点と冷却速度</span></span>
+    <span class="session-item locked"><span class="session-num">第32回</span><span class="session-title">TTT図とCCT図の読み方</span></span>
+    <span class="session-item locked"><span class="session-num">第33回</span><span class="session-title">焼入れ・焼戻し</span></span>
+    <span class="session-item locked"><span class="session-num">第34回</span><span class="session-title">焼鈍（焼なまし）と焼ならし</span></span>
+    <span class="session-item locked"><span class="session-num friday">第35回</span><span class="session-title">週まとめ＋確認テスト3問</span></span>
+  </div>
+</div>
+<div class="week-section">
+  <div class="week-header"><span>第8週：熱処理炉の種類</span><span class="badge">0 / 5</span></div>
+  <div class="week-body">
+    <span class="session-item locked"><span class="session-num">第36回</span><span class="session-title">バッチ炉と連続炉</span></span>
+    <span class="session-item locked"><span class="session-num">第37回</span><span class="session-title">真空炉</span></span>
+    <span class="session-item locked"><span class="session-num">第38回</span><span class="session-title">雰囲気炉</span></span>
+    <span class="session-item locked"><span class="session-num">第39回</span><span class="session-title">ピット炉・台車炉・メッシュベルト炉</span></span>
+    <span class="session-item locked"><span class="session-num friday">第40回</span><span class="session-title">週まとめ＋確認テスト3問</span></span>
+  </div>
+</div>
+<div class="week-section">
+  <div class="week-header"><span>第9週：熱処理治具の役割と設計</span><span class="badge">0 / 5</span></div>
+  <div class="week-body">
+    <span class="session-item locked"><span class="session-num">第41回</span><span class="session-title">熱処理治具とは何か</span></span>
+    <span class="session-item locked"><span class="session-num">第42回</span><span class="session-title">治具材料に求められる特性</span></span>
+    <span class="session-item locked"><span class="session-num">第43回</span><span class="session-title">繰り返し使用での劣化</span></span>
+    <span class="session-item locked"><span class="session-num">第44回</span><span class="session-title">治具設計の勘所</span></span>
+    <span class="session-item locked"><span class="session-num friday">第45回</span><span class="session-title">週まとめ＋確認テスト3問</span></span>
+  </div>
+</div>
+<div class="week-section">
+  <div class="week-header"><span>第10週：顧客業界別の使い方</span><span class="badge">0 / 5</span></div>
+  <div class="week-body">
+    <span class="session-item locked"><span class="session-num">第46回</span><span class="session-title">自動車部品の熱処理</span></span>
+    <span class="session-item locked"><span class="session-num">第47回</span><span class="session-title">航空機・タービン部品の熱処理</span></span>
+    <span class="session-item locked"><span class="session-num">第48回</span><span class="session-title">産業機械・建機部品の熱処理</span></span>
+    <span class="session-item locked"><span class="session-num">第49回</span><span class="session-title">電気電子・半導体・金型業界の熱処理</span></span>
+    <span class="session-item locked"><span class="session-num friday">第50回</span><span class="session-title">週まとめ＋確認テスト3問</span></span>
+  </div>
+</div>
+<div class="week-section">
+  <div class="week-header"><span>第11週：規格・試験・品質保証</span><span class="badge">0 / 5</span></div>
+  <div class="week-body">
+    <span class="session-item locked"><span class="session-num">第51回</span><span class="session-title">JIS・ASTMの規格番号の読み方</span></span>
+    <span class="session-item locked"><span class="session-num">第52回</span><span class="session-title">ミルシート（材料証明書）の見方</span></span>
+    <span class="session-item locked"><span class="session-num">第53回</span><span class="session-title">機械試験：引張・硬さ・衝撃・クリープ</span></span>
+    <span class="session-item locked"><span class="session-num">第54回</span><span class="session-title">非破壊検査：PT・MT・UT・RT</span></span>
+    <span class="session-item locked"><span class="session-num friday">第55回</span><span class="session-title">週まとめ＋確認テスト3問</span></span>
+  </div>
+</div>
+<div class="week-section">
+  <div class="week-header"><span>第12週：営業現場想定 総復習Q&A</span><span class="badge">0 / 5</span></div>
+  <div class="week-body">
+    <span class="session-item locked"><span class="session-num">第56回</span><span class="session-title">引合い時によくある質問パターン10問</span></span>
+    <span class="session-item locked"><span class="session-num">第57回</span><span class="session-title">材質選定の相談に応えるパターン10問</span></span>
+    <span class="session-item locked"><span class="session-num">第58回</span><span class="session-title">不具合・クレーム対応の質問パターン10問</span></span>
+    <span class="session-item locked"><span class="session-num">第59回</span><span class="session-title">納期・コスト・改善提案の質問パターン10問</span></span>
+    <span class="session-item locked"><span class="session-num friday">第60回</span><span class="session-title">修了：3か月の振り返りと教科書化チェックリスト</span></span>
+  </div>
+</div>
+
+<footer>特殊鋼3か月独学プログラム — 2026年6月スタート</footer>
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第03回 鉄-炭素状態図の読み方 - 特殊鋼学習</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'Yu Gothic', sans-serif; max-width: 820px; margin: 0 auto; padding: 20px; background: #f5f5f5; color: #333; line-height: 1.9; font-size: 15px; }
+  a { color: #2d6a9f; }
+  header { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; padding: 24px 28px; border-radius: 10px; margin-bottom: 24px; }
+  header .session { font-size: 0.85em; opacity: 0.75; margin-bottom: 6px; }
+  header h1 { margin: 0 0 10px; font-size: 1.45em; line-height: 1.4; }
+  header .week { font-size: 0.9em; background: rgba(255,255,255,0.2); display: inline-block; padding: 4px 10px; border-radius: 4px; }
+  .summary { background: #e8f5e9; border-left: 5px solid #388e3c; padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 28px; }
+  .summary h2 { margin: 0 0 10px; color: #2e7d32; font-size: 1em; }
+  .summary ul { margin: 0; padding-left: 20px; }
+  .summary li { margin-bottom: 6px; }
+  .card { background: white; border-radius: 10px; padding: 24px 28px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+  h2 { color: #1a3a5c; font-size: 1.15em; border-bottom: 2px solid #1a3a5c; padding-bottom: 6px; margin-top: 0; margin-bottom: 18px; }
+  h3 { color: #2d6a9f; font-size: 1em; margin-top: 22px; margin-bottom: 10px; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.95em; }
+  th { background: #1a3a5c; color: white; padding: 9px 14px; text-align: left; }
+  td { border: 1px solid #ddd; padding: 9px 14px; }
+  tr:nth-child(even) td { background: #f8f8f8; }
+  .qa-block { background: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+  .qa-q { color: #c0392b; font-weight: bold; margin-bottom: 10px; }
+  .qa-point { font-size: 0.9em; color: #555; margin-top: 10px; background: #fff3e0; padding: 8px 12px; border-radius: 4px; }
+  blockquote { background: #e3f2fd; border-left: 4px solid #1976d2; margin: 10px 0; padding: 12px 16px; border-radius: 0 6px 6px 0; font-size: 0.95em; }
+  .vocab { background: #fffde7; border: 1px solid #f9a825; border-radius: 8px; padding: 16px 20px; }
+  .vocab dl { margin: 0; }
+  .vocab dt { font-weight: bold; color: #1a3a5c; margin-top: 10px; }
+  .vocab dt:first-child { margin-top: 0; }
+  .vocab dd { margin: 4px 0 0 16px; font-size: 0.95em; }
+  .answer { background: #e8eaf6; border: 1px solid #5c6bc0; border-radius: 8px; padding: 18px 20px; }
+  .answer h2 { color: #283593; border-color: #5c6bc0; }
+  .answer .q-restate { font-weight: bold; color: #555; margin-bottom: 10px; font-size: 0.95em; }
+  .answer .key-msg { font-size: 0.9em; background: #fff3e0; padding: 8px 12px; border-radius: 4px; margin-top: 10px; }
+  .quiz { background: #f3e5f5; border: 1px solid #9c27b0; border-radius: 8px; padding: 18px 20px; }
+  .quiz h2 { color: #6a1b9a; border-color: #9c27b0; }
+  .quiz .q-text { font-weight: bold; margin-bottom: 8px; }
+  .quiz .note { font-size: 0.85em; color: #777; margin-top: 12px; }
+  footer { text-align: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid #ddd; }
+  footer a { color: #2d6a9f; text-decoration: none; padding: 8px 20px; border: 1px solid #2d6a9f; border-radius: 5px; font-size: 0.9em; }
+  footer a:hover { background: #2d6a9f; color: white; }
+  strong { color: #1a3a5c; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="session">第03回 ・ 2026-06-11</div>
+  <h1>鉄-炭素状態図の読み方：オーステナイト・フェライト・パーライト・セメンタイト</h1>
+  <span class="week">第1週：鉄鋼・特殊鋼の全体像</span>
+</header>
+
+<div class="summary">
+  <h2>今日の3行サマリ</h2>
+  <ul>
+    <li>鉄-炭素状態図の縦軸は温度、横軸は炭素量。温度と組成の組み合わせで「鉄がどんな組織になるか」を読む地図</li>
+    <li>フェライト（柔らかい）・パーライト（中程度）・セメンタイト（硬い・脆い）の3組織が炭素量と温度で使い分けられる</li>
+    <li>自社の治具・鋳物・SUSは、それぞれ状態図上の異なる領域に対応する材料であり、用途に合わせて組織が設計されている</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>本文</h2>
+
+  <h3>状態図の読み方：縦軸と横軸の意味</h3>
+  <p>鉄-炭素状態図（Fe-C状態図）は、「炭素量がX%で温度がY℃のとき、鉄は何という組織になるか」を示した図だ。縦軸は温度（℃）、横軸は炭素量（mass%）で表される。</p>
+  <p>重要な境界となる炭素量は2点ある。</p>
+  <ul>
+    <li><strong>0.77%</strong>：共析組成。この組成の鋼を共析鋼と呼び、冷却時にオーステナイトが一気にパーライトに変わる</li>
+    <li><strong>2.14%</strong>：鋼と鋳鉄の境界。これより多いと鋳鉄の領域に入る</li>
+  </ul>
+  <p>温度の主要境界線はA1変態点（723℃付近）とA3変態点（炭素量で変動）だ。この線を境に「高温側の組織」と「低温側の組織」が切り替わる。</p>
+
+  <h3>各組織の特徴</h3>
+  <p><strong>オーステナイト（Austenite）</strong><br>
+  A1変態点以上の高温で現れる面心立方格子（FCC）構造の相。炭素を最大2.14%まで固溶できる。軟らかく加工しやすいため、熱処理の「出発点」となる組織だ。ステンレス（SUS304・SUS316）は合金元素（Ni・Mn）の効果で常温でもオーステナイト組織を維持する。</p>
+  <p><strong>フェライト（Ferrite）</strong><br>
+  体心立方格子（BCC）構造の相。炭素の固溶量が最大0.02%と少なく、軟らかく延性が高い。純鉄に近い状態。強度は低いが変形しやすいため、成形性を要求される材料に向く。</p>
+  <p><strong>セメンタイト（Cementite、Fe₃C）</strong><br>
+  炭素と鉄が化合した硬質の金属間化合物（炭化鉄）。非常に硬いが脆い。炭素量が高くなるほど量が増え、材料の硬さは上がるが靭性は下がる。</p>
+  <p><strong>パーライト（Pearlite）</strong><br>
+  フェライトとセメンタイトが交互に層状に並んだ複合組織（共析組織）。強度と延性のバランスが取れており、機械構造用鋼（S45Cなど）の基本組織だ。</p>
+
+  <h3>自社製品との関連</h3>
+  <table>
+    <tr><th>製品カテゴリ</th><th>代表材料</th><th>常温での主組織</th></tr>
+    <tr><td>熱処理治具</td><td>SCH22・HK合金</td><td>オーステナイト（Cr・Ni多量添加で安定化）</td></tr>
+    <tr><td>鋳物（構造用）</td><td>SCS13・FC250</td><td>オーステナイト系（SCS）／パーライト＋フェライト（FC）</td></tr>
+    <tr><td>オーステナイト系SUS</td><td>SUS304・SUS316</td><td>オーステナイト（常温）</td></tr>
+  </table>
+  <p>熱処理治具に使う耐熱鋳鋼（SCH22）がオーステナイト組織を保つのは、Cr・Niが大量に添加されていてA1変態点が大きく下がっているからだ。常温でもオーステナイトのまま安定しているため、繰り返し加熱・冷却を受けても相変態による体積変化が起きにくく、割れにくい。</p>
+
+  <h3>営業現場での意味づけ</h3>
+  <p>状態図を知っていると、「この材料を加熱したらどうなるか」という問いに方向性を持って答えられるようになる。たとえば「S45Cを900℃に加熱するとオーステナイトになり、その後の冷やし方で組織が変わる（焼入れなら硬くなる・徐冷なら軟らかいパーライトになる）」といった説明が、状態図を頭に入れていれば自然に出てくる。</p>
+</div>
+
+<div class="card">
+  <h2>営業からの相談に効く知識</h2>
+
+  <div class="qa-block">
+    <div class="qa-q">ケース1：「客先が"熱処理後に割れた"って言ってるけど、なんで割れるの？」</div>
+    <blockquote>焼入れ時の急冷で組織が高速に変化するとき、体積変化に追いつけず内部応力が集中して割れることがある（焼割れ）。もう一点は「脱炭（表面の炭素が抜けた層）」がある状態で焼入れすると、表面と内部で硬さが急変して割れやすくなる。「何の材料を何℃で焼入れしたか」「冷却媒体は水・油・空気どれか」を確認してもらうと原因が絞れる。</blockquote>
+    <div class="qa-point">ポイント：割れの原因特定には冷却条件と材料情報が必須。聞くべき項目を営業に渡してから動く。</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-q">ケース2：「材質証明書に"パーライト組織"って書いてあったけど、それって良いの？」</div>
+    <blockquote>機械構造用途なら一般的に問題なし。パーライトはフェライトとセメンタイトの複合組織で、バランスのいい強度・延性を持つ。問題は「どれくらい細かいか（ラメラ間隔）」で、細かいほど強度が高い。S45Cのような中炭素鋼で「パーライト組織」と記載があれば、焼入れせず焼なまし（軟化）した状態と判断できる。</blockquote>
+    <div class="qa-point">ポイント：組織名が分かれば「どんな状態か」の説明が一言で出来る。営業の信頼を高める情報の一つ。</div>
+  </div>
+</div>
+
+<div class="card vocab">
+  <h2>用語メモ</h2>
+  <dl>
+    <dt>共析変態（eutectoid transformation）</dt>
+    <dd>炭素量0.77%の鋼が723℃（A1変態点）以下に冷えるとき、オーステナイトが同時にフェライトとセメンタイトを析出してパーライトになる変態</dd>
+    <dt>A1変態点</dt>
+    <dd>炭素鋼においてオーステナイトとパーライトが相互変換する温度（約723℃）。熱処理の基準温度として頻出</dd>
+    <dt>面心立方格子（FCC）</dt>
+    <dd>原子が立方体の各頂点と各面の中央に配置された結晶構造。オーステナイトはFCC。炭素を多く含められる</dd>
+    <dt>体心立方格子（BCC）</dt>
+    <dd>原子が立方体の各頂点と中心1か所に配置された結晶構造。フェライトはBCC。FCCより炭素固溶量が少ない</dd>
+    <dt>マルテンサイト（Martensite）</dt>
+    <dd>オーステナイトを急冷したときにできる過飽和の組織。非常に硬いが脆い。焼戻しで靭性を付与する</dd>
+  </dl>
+</div>
+
+<div class="card answer">
+  <h2>昨日の小テスト解答</h2>
+  <div class="q-restate">問：営業から「客先の担当者が"今使ってる治具、S45CからSUSに変えたい。コストが上がってもいいから品質を安定させたい"って言ってるんだけど、なんでS45Cでうまくいってないと思う？SUSにする意味と、どの系統のSUSを勧めればいいか教えて」という相談が来た。S45Cで起きている問題を推測し、SUSへの変更理由と選定の方向性をどう返すか。</div>
+  <p>S45C（炭素量0.45%の機械構造用炭素鋼）は普通鋼の範疇で、耐食性・耐熱性ともに低い。治具として使う場面では主に2つの問題が起きやすい。</p>
+  <p><strong>①錆び・表面劣化</strong>：S45CはCrをほとんど含まないため、湿気・水・薬液がある環境で発錆しやすい。発錆した治具が製品に接触すると製品の表面品質に影響が出る（錆汁・汚染）。</p>
+  <p><strong>②熱による変形・組織変化</strong>：S45Cを繰り返し加熱すると、A1変態点（723℃）付近で相変態が起き、治具の寸法が安定しない。精密な位置保持が必要な治具では寸法変化がそのまま品質不良に直結する。</p>
+  <p>SUSへの変更で解決できることは「発錆なし（不動態皮膜による耐食性）」と「相変態なし（オーステナイト系SUSは常温からオーステナイト組織で安定）」の2点だ。鋼種の方向性としては<strong>オーステナイト系（SUS304・SUS316）</strong>を基本に検討する。耐食性だけなら304、塩素系薬液・腐食性環境が絡む場合は316（Mo添加で耐食性強化）を提案。高温（500℃超）なら309・310Sも候補。</p>
+  <div class="key-msg">営業に渡すキーメッセージ：「S45Cは錆びと変態の2つが治具品質を不安定にしている。SUSなら両方解決。使用温度と接触液体を確認してもらえれば304か316か絞る。見積ベースは304で出す。」</div>
+</div>
+
+<div class="card quiz">
+  <h2>今日の小テスト1問</h2>
+  <div class="q-text">問：営業から「客先の設備の鋳物部品（FC材）が最近割れやすいって言ってるんだけど、鋳鉄って急に冷やしたらいけないの？状態図的にどう考えればいい？」という相談が来た。FC材（ねずみ鋳鉄）の割れやすさと熱衝撃の関係、および生産管理としてどう返すかを答えよ。</div>
+  <div class="note">解答は次回配信</div>
+</div>
+
+<footer>
+  <a href="index.html">← 目次に戻る</a>
+</footer>
+
+</body>
+</html>

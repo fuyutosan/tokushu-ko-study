@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第04回 鋼の組織と機械的性質の関係 - 特殊鋼学習</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'Yu Gothic', sans-serif; max-width: 820px; margin: 0 auto; padding: 20px; background: #f5f5f5; color: #333; line-height: 1.9; font-size: 15px; }
+  a { color: #2d6a9f; }
+  header { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; padding: 24px 28px; border-radius: 10px; margin-bottom: 24px; }
+  header .session { font-size: 0.85em; opacity: 0.75; margin-bottom: 6px; }
+  header h1 { margin: 0 0 10px; font-size: 1.45em; line-height: 1.4; }
+  header .week { font-size: 0.9em; background: rgba(255,255,255,0.2); display: inline-block; padding: 4px 10px; border-radius: 4px; }
+  .summary { background: #e8f5e9; border-left: 5px solid #388e3c; padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 28px; }
+  .summary h2 { margin: 0 0 10px; color: #2e7d32; font-size: 1em; }
+  .summary ul { margin: 0; padding-left: 20px; }
+  .summary li { margin-bottom: 6px; }
+  .card { background: white; border-radius: 10px; padding: 24px 28px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+  h2 { color: #1a3a5c; font-size: 1.15em; border-bottom: 2px solid #1a3a5c; padding-bottom: 6px; margin-top: 0; margin-bottom: 18px; }
+  h3 { color: #2d6a9f; font-size: 1em; margin-top: 22px; margin-bottom: 10px; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.95em; }
+  th { background: #1a3a5c; color: white; padding: 9px 14px; text-align: left; }
+  td { border: 1px solid #ddd; padding: 9px 14px; }
+  tr:nth-child(even) td { background: #f8f8f8; }
+  .qa-block { background: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+  .qa-q { color: #c0392b; font-weight: bold; margin-bottom: 10px; }
+  .qa-point { font-size: 0.9em; color: #555; margin-top: 10px; background: #fff3e0; padding: 8px 12px; border-radius: 4px; }
+  blockquote { background: #e3f2fd; border-left: 4px solid #1976d2; margin: 10px 0; padding: 12px 16px; border-radius: 0 6px 6px 0; font-size: 0.95em; }
+  .vocab { background: #fffde7; border: 1px solid #f9a825; border-radius: 8px; padding: 16px 20px; }
+  .vocab dl { margin: 0; }
+  .vocab dt { font-weight: bold; color: #1a3a5c; margin-top: 10px; }
+  .vocab dt:first-child { margin-top: 0; }
+  .vocab dd { margin: 4px 0 0 16px; font-size: 0.95em; }
+  .answer { background: #e8eaf6; border: 1px solid #5c6bc0; border-radius: 8px; padding: 18px 20px; }
+  .answer h2 { color: #283593; border-color: #5c6bc0; }
+  .answer .q-restate { font-weight: bold; color: #555; margin-bottom: 10px; font-size: 0.95em; }
+  .answer .key-msg { font-size: 0.9em; background: #fff3e0; padding: 8px 12px; border-radius: 4px; margin-top: 10px; }
+  .quiz { background: #f3e5f5; border: 1px solid #9c27b0; border-radius: 8px; padding: 18px 20px; }
+  .quiz h2 { color: #6a1b9a; border-color: #9c27b0; }
+  .quiz .q-text { font-weight: bold; margin-bottom: 8px; }
+  .quiz .note { font-size: 0.85em; color: #777; margin-top: 12px; }
+  footer { text-align: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid #ddd; }
+  footer a { color: #2d6a9f; text-decoration: none; padding: 8px 20px; border: 1px solid #2d6a9f; border-radius: 5px; font-size: 0.9em; }
+  footer a:hover { background: #2d6a9f; color: white; }
+  strong { color: #1a3a5c; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="session">第04回 ・ 2026-06-11</div>
+  <h1>鋼の組織と機械的性質の関係：強度・靭性・硬さ・延性</h1>
+  <span class="week">第1週：鉄鋼・特殊鋼の全体像</span>
+</header>
+
+<div class="summary">
+  <h2>今日の3行サマリ</h2>
+  <ul>
+    <li>鋼の「強度・硬さ・靭性・延性」は相互にトレードオフ関係にあり、組織（フェライト・パーライト・マルテンサイト等）がその値を決める</li>
+    <li>硬くすれば脆くなる。このトレードオフを焼戻しや合金設計で制御するのが熱処理の本質</li>
+    <li>自社製品（治具・鋳物・SUS）の性質差を「組織の違い」で説明できると、営業への技術的な説得力が一段上がる</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>本文</h2>
+
+  <h3>機械的性質の4つの指標</h3>
+  <table>
+    <tr><th>指標</th><th>意味</th><th>単位の目安</th></tr>
+    <tr><td>強度（引張強さ）</td><td>破断するまでに耐えられる最大応力</td><td>MPa（N/mm²）</td></tr>
+    <tr><td>硬さ</td><td>表面に物体を押し込んだときの抵抗</td><td>HRC・HV・HB</td></tr>
+    <tr><td>靭性</td><td>衝撃や亀裂に対して粘り強く抵抗する能力</td><td>J（シャルピー衝撃値）</td></tr>
+    <tr><td>延性</td><td>破断するまでにどれだけ変形できるか</td><td>伸び%・絞り%</td></tr>
+  </table>
+  <p>硬さと靭性はトレードオフの関係にある。硬い材料は一般に脆く（靭性低）、粘り強い材料は硬さが低い。これを制御するのが熱処理と組織設計の役割だ。</p>
+
+  <h3>組織と機械的性質の対応</h3>
+  <p><strong>フェライト</strong>：BCC構造で炭素固溶量が少ない。強度・硬さは低いが延性・靭性が高い。成形加工向きの組織。</p>
+  <p><strong>パーライト</strong>：フェライトとセメンタイトの層状複合組織。バランス型。炭素量と層の細かさで強度が変わる。S45Cの焼きならし後の基本組織。</p>
+  <p><strong>マルテンサイト</strong>：急冷（焼入れ）で得られる過飽和の格子歪み組織。非常に硬いが脆い。そのまま使うことはほぼなく、焼戻しで靭性を回復させてから実用に供する。</p>
+  <p><strong>焼戻しマルテンサイト</strong>：マルテンサイトを低〜中温で焼戻しした組織。焼戻し温度が高いほど硬さが下がり靭性が上がる。実際の焼入れ・焼戻し品（歯車・シャフト等）の最終組織。</p>
+  <p><strong>オーステナイト（常温安定型）</strong>：SUS304・SUS316・SCH22など。強度は中程度だが加工硬化しやすく、靭性が非常に高い。低温脆性がほぼない点も特徴。</p>
+
+  <h3>「硬い＝強い」は正しくない</h3>
+  <p>硬さ（HRC・HV）は表面の押し込み抵抗であり、引張強さとは異なる指標だ。</p>
+  <ul>
+    <li>高速度工具鋼（SKH）はHRC60超と硬いが、衝撃に弱く折れやすい</li>
+    <li>SCH22（耐熱鋳鋼）はHRCで見ると低めだが、高温での靭性と強度維持が優れる</li>
+    <li>SUS304はHRCでは柔らかい部類だが、延性と靭性が抜群で衝撃荷重に強い</li>
+  </ul>
+  <p>「何に対して強いか」を分けて考えることが重要だ。</p>
+
+  <h3>自社製品の組織と性質の読み方</h3>
+  <table>
+    <tr><th>製品カテゴリ</th><th>代表材料</th><th>主組織</th><th>強み・弱み</th></tr>
+    <tr><td>熱処理治具</td><td>SCH22</td><td>オーステナイト</td><td>高温靭性○ 常温硬さ低め</td></tr>
+    <tr><td>鋳物（構造用）</td><td>FC250</td><td>パーライト＋黒鉛</td><td>圧縮強さ○ 引張・衝撃に弱</td></tr>
+    <tr><td>機械構造用途</td><td>S45C焼入戻し</td><td>焼戻しマルテンサイト</td><td>硬さ・強度○ 素材より靭性↑</td></tr>
+    <tr><td>SUS</td><td>SUS304</td><td>オーステナイト</td><td>延性・靭性○ 高温強度は高くない</td></tr>
+  </table>
+  <p>FC250（ねずみ鋳鉄）に黒鉛が含まれるのがポイントで、黒鉛が応力集中点になるため引張荷重・衝撃に弱い。圧縮に強いのは黒鉛が圧縮で閉じる方向に働くから。</p>
+
+  <h3>営業現場での意味づけ</h3>
+  <p>「なぜSCH22は高温でも使えるのか」「なぜFC材は割れやすいと言われるのか」を組織の言葉で答えられると、技術的な問い合わせに対して短く的確に返せるようになる。数値の暗記より「組織が違う→性質が違う」の論理を押さえることが先だ。</p>
+</div>
+
+<div class="card">
+  <h2>営業からの相談に効く知識</h2>
+
+  <div class="qa-block">
+    <div class="qa-q">ケース1：「客先が"硬さはHV500以上出してほしい"って言ってるんだけど、うちの鋳物で出せる？」</div>
+    <blockquote>鋳物の種類によって上限が全然違う。FC材（ねずみ鋳鉄）は焼入れができないのでHV500は基本出せない。SCS系（ステンレス鋳鋼）は焼入れ系でなければ硬さは高くない。もしHV500が必要なら焼入れ可能な鋼種を選定し直す必要がある。まず「なぜHV500が必要か（耐摩耗？耐傷？）」を確認してほしい。</blockquote>
+    <div class="qa-point">ポイント：硬さ要求の背景（耐摩耗・耐傷・寸法安定）を聞かずに答えるのは危険。目的が変われば材料選定も変わる。</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-q">ケース2：「衝撃に強い材料が欲しいんだけど、硬い方がいいの？」</div>
+    <blockquote>逆です。衝撃に強い＝靭性が必要で、硬い材料は脆いことが多い。靭性優先なら低・中炭素鋼の焼入れ焼戻し品か、オーステナイト系SUS（304・316）を検討する。使用温度と荷重条件を教えてもらえれば絞れる。</blockquote>
+    <div class="qa-point">ポイント：「硬い＝衝撃に強い」は典型的な誤解。靭性と硬さのトレードオフを正しく伝えるのが生産管理の役割。</div>
+  </div>
+</div>
+
+<div class="card vocab">
+  <h2>用語メモ</h2>
+  <dl>
+    <dt>引張強さ（UTS）</dt>
+    <dd>材料が破断する直前の最大引張荷重を断面積で割った値。単位はMPa（N/mm²）</dd>
+    <dt>シャルピー衝撃値</dt>
+    <dd>規定の切り欠き試験片をハンマーで破断するときのエネルギー吸収量。靭性の指標。値が大きいほど粘り強い</dd>
+    <dt>硬さ試験の種類</dt>
+    <dd>HRC（ロックウェルC）：焼入れ品に多用。HV（ビッカース）：広い硬さ域をカバー。HB（ブリネル）：鋳鉄・軟鋼向け</dd>
+    <dt>ラメラ間隔</dt>
+    <dd>パーライト中のフェライト層とセメンタイト層の繰り返し周期。細かいほど強度が高くなる</dd>
+    <dt>低温脆性</dt>
+    <dd>温度が下がると靭性が急激に低下する現象。BCC金属（フェライト等）で起きやすく、FCC金属（オーステナイト系SUS）では起きにくい</dd>
+  </dl>
+</div>
+
+<div class="card answer">
+  <h2>昨日の小テスト解答</h2>
+  <div class="q-restate">問：営業から「客先の設備の鋳物部品（FC材）が最近割れやすいって言ってるんだけど、鋳鉄って急に冷やしたらいけないの？状態図的にどう考えればいい？」という相談が来た。FC材（ねずみ鋳鉄）の割れやすさと熱衝撃の関係、および生産管理としてどう返すかを答えよ。</div>
+  <p>FC材（ねずみ鋳鉄）は炭素が黒鉛として析出した組織を持ち、この黒鉛が「応力集中の起点」になる。引張荷重・衝撃荷重に弱い理由はここにある。</p>
+  <p>状態図で見ると、FC材は炭素量が2.5〜4.0%と鋼より多く、鋳鉄領域に入る。急激な冷却（熱衝撃）が問題になる理由は2点ある。</p>
+  <p><strong>①黒鉛と基地（パーライト）の熱膨張率の差</strong>：急冷によって部位ごとに温度差が生じ、膨張・収縮のタイミングがずれる。この熱応力が黒鉛周辺で集中し、亀裂に進展しやすい。</p>
+  <p><strong>②組織の不均質性</strong>：鋳物は断面内で冷却速度が異なるため、表面と内部で硬さ・組織が違う。急冷でその差が広がると、境界で割れが進む。</p>
+  <div class="key-msg">営業に渡すキーメッセージ：「FC材は本来、熱衝撃に弱い材料。急冷が繰り返される用途ならダクタイル鋳鉄（FCD）か鋳鋼（SC材）への変更を検討すべき。まず"どこで割れているか"と"どんな温度変化を受けているか"を確認してきてほしい。」</div>
+</div>
+
+<div class="card quiz">
+  <h2>今日の小テスト1問</h2>
+  <div class="q-text">問：営業から「客先が熱処理後の部品（S45C、焼入れ焼戻し品）に"もっと硬くしてほしい"と言っているけど、現在HRC40、要求はHRC55。これは可能？やるとしたらどうすれば良いか？リスクも含めて教えて」という相談が来た。S45Cの硬さの限界と、HRC55を達成するための方向性、その際のリスクをどう返すか。</div>
+  <div class="note">解答は次回配信</div>
+</div>
+
+<footer>
+  <a href="index.html">← 目次に戻る</a>
+</footer>
+
+</body>
+</html>
