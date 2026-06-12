@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第10回 週まとめ＋確認テスト3問 - 特殊鋼学習</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'Yu Gothic', sans-serif; max-width: 820px; margin: 0 auto; padding: 20px; background: #f5f5f5; color: #333; line-height: 1.9; font-size: 15px; }
+  a { color: #2d6a9f; }
+  header { background: linear-gradient(135deg, #4a1070, #6a1b9a); color: white; padding: 24px 28px; border-radius: 10px; margin-bottom: 24px; }
+  header .session { font-size: 0.85em; opacity: 0.75; margin-bottom: 6px; }
+  header h1 { margin: 0 0 10px; font-size: 1.45em; line-height: 1.4; }
+  header .week { font-size: 0.9em; background: rgba(255,255,255,0.2); display: inline-block; padding: 4px 10px; border-radius: 4px; }
+  .summary { background: #e8f5e9; border-left: 5px solid #388e3c; padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 28px; }
+  .summary h2 { margin: 0 0 10px; color: #2e7d32; font-size: 1em; }
+  .summary ul { margin: 0; padding-left: 20px; }
+  .summary li { margin-bottom: 6px; }
+  .card { background: white; border-radius: 10px; padding: 24px 28px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+  h2 { color: #1a3a5c; font-size: 1.15em; border-bottom: 2px solid #1a3a5c; padding-bottom: 6px; margin-top: 0; margin-bottom: 18px; }
+  h3 { color: #2d6a9f; font-size: 1em; margin-top: 22px; margin-bottom: 10px; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.95em; }
+  th { background: #1a3a5c; color: white; padding: 9px 14px; text-align: left; }
+  td { border: 1px solid #ddd; padding: 9px 14px; }
+  tr:nth-child(even) td { background: #f8f8f8; }
+  .qa-block { background: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+  .qa-q { color: #c0392b; font-weight: bold; margin-bottom: 10px; }
+  .qa-point { font-size: 0.9em; color: #555; margin-top: 10px; background: #fff3e0; padding: 8px 12px; border-radius: 4px; }
+  blockquote { background: #e3f2fd; border-left: 4px solid #1976d2; margin: 10px 0; padding: 12px 16px; border-radius: 0 6px 6px 0; font-size: 0.95em; }
+  .vocab { background: #fffde7; border: 1px solid #f9a825; border-radius: 8px; padding: 16px 20px; }
+  .vocab dl { margin: 0; }
+  .vocab dt { font-weight: bold; color: #1a3a5c; margin-top: 10px; }
+  .vocab dt:first-child { margin-top: 0; }
+  .vocab dd { margin: 4px 0 0 16px; font-size: 0.95em; }
+  .quiz { background: #f3e5f5; border: 1px solid #9c27b0; border-radius: 8px; padding: 18px 20px; }
+  .quiz h2 { color: #6a1b9a; border-color: #9c27b0; }
+  .quiz .q-text { font-weight: bold; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px dashed #ce93d8; }
+  .quiz .q-text:last-of-type { border-bottom: none; margin-bottom: 4px; padding-bottom: 0; }
+  .quiz .note { font-size: 0.85em; color: #777; margin-top: 12px; }
+  .answer-card { background: #e8eaf6; border: 1px solid #5c6bc0; border-radius: 8px; padding: 18px 20px; margin-bottom: 20px; }
+  .answer-card h2 { color: #283593; border-color: #5c6bc0; }
+  .answer-q { font-weight: bold; margin-bottom: 12px; color: #333; }
+  footer { text-align: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid #ddd; }
+  footer a { color: #2d6a9f; text-decoration: none; padding: 8px 20px; border: 1px solid #2d6a9f; border-radius: 5px; font-size: 0.9em; }
+  footer a:hover { background: #2d6a9f; color: white; }
+  strong { color: #1a3a5c; }
+  ol { padding-left: 20px; }
+  ol li { margin-bottom: 6px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="session">第10回（金曜・週まとめ） ・ 2026-06-12</div>
+  <h1>週まとめ＋確認テスト3問（合金元素クイズ）</h1>
+  <span class="week">第2週：炭素鋼と合金元素の役割</span>
+</header>
+
+<div class="summary">
+  <h2>今週の3行サマリ</h2>
+  <ul>
+    <li>第2週は「炭素量」と「主要合金元素（Cr・Ni・Mo・Mn・V・W）」の役割を体系的に押さえた</li>
+    <li>各元素の効果は「耐食」「焼入れ性」「高温強度」「析出硬化」の4カテゴリに整理できる</li>
+    <li>合金元素の組み合わせが鋼種名（SCM・SUS316・HP合金）に直結している</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>今週の振り返り（4回分の要点まとめ）</h2>
+
+  <h3>第6回：炭素量で何が変わるか</h3>
+  <p>炭素量は鋼の「性格」を決める最も基本的なパラメータだ。</p>
+
+  <table>
+    <tr><th>区分</th><th>炭素量</th><th>主な特性</th><th>代表用途</th></tr>
+    <tr><td>低炭素鋼</td><td>＜0.3%</td><td>軟らかい・溶接性良好</td><td>板金・配管・構造材</td></tr>
+    <tr><td>中炭素鋼</td><td>0.3〜0.6%</td><td>焼入れで高強度化</td><td>シャフト・歯車・工具</td></tr>
+    <tr><td>高炭素鋼</td><td>＞0.6%</td><td>高硬度・耐摩耗</td><td>ばね・刃物・レール</td></tr>
+  </table>
+  <p>炭素量が増えると強度・硬さは上がるが、靭性（粘り）と溶接性は低下する。特殊鋼はこの炭素量ベースに合金元素で特性を追加する設計思想だ。</p>
+
+  <h3>第7回：Cr（クロム）の役割</h3>
+  <p>Crは特殊鋼の根幹元素だ。効果は2本柱：</p>
+  <p><strong>① 不動態皮膜による耐食性</strong><br>
+  Cr10.5%超でCr₂O₃の薄い保護皮膜が表面に形成される。この皮膜は自己修復性を持ち、それ以上の腐食を止める。ステンレス鋼が「錆びない」のはこの仕組みだ。Crが少ない環境（13%未満）では酸や塩化物に侵される。</p>
+  <p><strong>② 焼入れ性（硬化能）の向上</strong><br>
+  Crはオーステナイトからパーライトやフェライトへの変態を遅らせる。これにより断面の大きな部品でも芯部まで均一に硬化できる。SCr（クロム鋼）・SCM（Cr-Mo鋼）の焼入れ性の高さはCrがあってこそだ。</p>
+
+  <h3>第8回：Ni（ニッケル）の役割</h3>
+  <p>Niはオーステナイト相を安定化する元素（γ安定化元素）だ。</p>
+  <p><strong>① オーステナイト組織を常温に「固定」する</strong><br>
+  Niを約8%以上添加するとA変態点が室温以下に下がり、常温でもオーステナイト組織が維持される。SUS304（Cr18-Ni8系）はこの原理。非磁性・高延性・成形性に優れ、自社の主戦場であるオーステナイト系ステンレス製品の基幹組成だ。</p>
+  <p><strong>② 靭性と低温特性の改善</strong><br>
+  CrとNiはいわば「対の元素」。Crが硬化・耐食を担う側とすれば、Niは靭性と低温衝撃特性を引き上げる側だ。SNCM（Ni-Cr-Mo鋼）はSCMより靭性が高く、繰り返し衝撃荷重がかかる大型鍛造品（クランク・大型シャフト）の定番材だ。</p>
+
+  <h3>第9回：Mo・Mn・V・Wの役割</h3>
+  <p>第2週の締め。4元素を一覧で整理する：</p>
+
+  <table>
+    <tr><th>元素</th><th>主な効果</th><th>自社との関連</th></tr>
+    <tr><td>Mo</td><td>高温強度・焼入れ性・孔食耐性</td><td>HP合金への添加、SUS316の耐孔食</td></tr>
+    <tr><td>Mn</td><td>脱酸・焼入れ性（Niの安価な代替）</td><td>汎用鋼全般の精錬段階で必須</td></tr>
+    <tr><td>V</td><td>析出硬化・結晶粒微細化</td><td>SKH系工具鋼・高強度合金鋼</td></tr>
+    <tr><td>W</td><td>赤熱硬度・超高温耐摩耗</td><td>高速度工具鋼（SKH51等）</td></tr>
+  </table>
+  <p>Mo・Wは高温でも強さを保つ「高温強度担当」、VはCrと組み合わせて析出硬化を引き出す「強化設計担当」、Mnは精錬段階から鋼に必ず入る「下地担当」と整理するとわかりやすい。</p>
+</div>
+
+<div class="card">
+  <h2>営業からの相談に効く知識</h2>
+  <p><strong>第2週の総合力：「材料名→元素→特性」を即答できるか</strong></p>
+  <p>営業が持ち込む相談は「SCM440で大丈夫？」「316とどう違うの？」のように材料名で来る。生産管理は材料名から元素・特性・用途を即座に引き出せなければならない。</p>
+
+  <div class="qa-block">
+    <div class="qa-q">第2週でおさえた材料名→元素→特性のマッピング</div>
+    <blockquote>
+      SCM440 → Cr-Mo系、中炭素（C≈0.4%）、焼入れ性優秀 → シャフト・ギア<br>
+      SUS316 → Cr18-Ni12-Mo2系、PREN≈25 → 塩化物環境対応<br>
+      SNCM439 → Ni-Cr-Mo系 → 高靭性、大型衝撃荷重部品<br>
+      SKH51 → W-Mo-Cr-V系高速度鋼 → 赤熱硬度が最重要
+    </blockquote>
+    <div class="qa-point">「この材料を選ぶのはなぜか」に元素レベルで答えられると、客先の「なぜ」に営業が詰まったとき、即座に根拠を渡せる生産管理になれる。</div>
+  </div>
+</div>
+
+<div class="card vocab">
+  <h2>用語メモ</h2>
+  <dl>
+    <dt>不動態皮膜</dt>
+    <dd>Cr10.5%以上で形成されるCr₂O₃の薄膜。腐食から保護し自己修復する</dd>
+    <dt>焼入れ性（硬化能）</dt>
+    <dd>焼入れによって断面の芯部まで硬化できる能力。CrとMoが高める</dd>
+    <dt>PREN（耐孔食指数）</dt>
+    <dd>Cr% + 3.3×Mo% + 16×N%。値が高いほど塩化物環境への耐性が高い。海水対応には40以上が目安</dd>
+    <dt>析出硬化</dt>
+    <dd>微細な炭化物・窒化物が析出し転位の動きを妨げる高強度化機構</dd>
+    <dt>赤熱硬度</dt>
+    <dd>600℃超の高温でも硬さを維持する性質。W・Moが付与する</dd>
+  </dl>
+</div>
+
+<div class="answer-card">
+  <h2>昨日の小テスト解答</h2>
+  <div class="answer-q">問：営業から「客先が"Mo添加のSUS316なのに海水環境で点状の腐食が出た。なぜか"と言っている。Moの効果の限界と、次に提案できる材料の方向性を教えてほしい」という相談が来た。</div>
+  <p>SUS316のMo添加（約2%）は孔食耐性を高めるが、海水（塩化物濃度が極めて高い環境）では力不足になるケースがある。耐孔食指数PRENで評価するとSUS316は約25程度だが、海水での長期使用には40以上が推奨される。</p>
+  <p>原因は<strong>臨界孔食電位を海水の腐食電位が超えている</strong>こと。温海水・干満帯・滞留域では塩化物イオンが不動態皮膜を局所的に破壊し、孔内部でアノード反応が加速する。Mo2%ではこの臨界電位を十分に引き上げられていない。</p>
+  <p>提案方向：</p>
+  <ol>
+    <li><strong>スーパーデュプレックス系（SAF2507等、PREN≈42）</strong>：高Cr・高Mo・高N設計で海水耐性大幅向上</li>
+    <li><strong>6Mo系オーステナイト（254SMO等、PREN≈43）</strong>：成形性を維持したい場合</li>
+    <li><strong>チタン（Ti）</strong>：コスト高だが海水最強クラスの耐食性</li>
+  </ol>
+  <div class="qa-point">営業に渡すキーメッセージ：「SUS316の海水使用は条件によってはアウト。使用温度・流速・滞留有無を確認してきてください。高PREN材またはチタンへの切替え提案が必要です。」</div>
+</div>
+
+<div class="card quiz">
+  <h2>今週の確認テスト3問</h2>
+  <div class="q-text">問1：営業から「客先が炉内で使う治具をSCM440で作れないかと言ってきた。使用温度は900℃、連続使用で年中稼働」という相談が来た。可否と理由、代替案を生産管理として返せ。</div>
+  <div class="q-text">問2：食品工場向けメッシュベルトの受注相談が来た。客先の使用条件は「連続焼成炉（炉内温度300℃）・洗浄は次亜塩素酸ナトリウム系・搬送物は惣菜」。営業は「SUS430でコストを下げたい」と言っている。生産管理としてSUS430の採用可否を判断し、理由と代替案（必要なら）を答えよ。</div>
+  <div class="q-text">問3：1000℃超の熱処理炉で使う耐熱治具（炉内ラック）の材料を選定する。以下の2候補について、Cr・Ni・Moの各元素が果たす役割の観点から比較し、どちらが適切かを答えよ。<br>　　候補A：SCH22（Cr約20%・Ni約10%・Mo微量）<br>　　候補B：HP合金（Cr約25%・Ni約35%・Mo約2〜3%）</div>
+  <div class="note">解答は来週月曜の第11回配信で発表</div>
+</div>
+
+<footer>
+  <a href="index.html">← 目次に戻る</a>
+</footer>
+
+</body>
+</html>
