@@ -6,146 +6,382 @@
 <title>第07回 Cr（クロム）の役割 - 特殊鋼学習</title>
 <style>
   * { box-sizing: border-box; }
-  body { font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'Yu Gothic', sans-serif; max-width: 820px; margin: 0 auto; padding: 20px; background: #f5f5f5; color: #333; line-height: 1.9; font-size: 15px; }
+  body { font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'Yu Gothic', sans-serif; max-width: 820px; margin: 0 auto; padding: 20px; background: #f5f5f5; color: #333; line-height: 1.9; font-size: 15px; transition: background 0.4s; }
   a { color: #2d6a9f; }
-  header { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; padding: 24px 28px; border-radius: 10px; margin-bottom: 24px; }
+
+  /* ---- Normal mode ---- */
+  header { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; padding: 24px 28px; border-radius: 10px; margin-bottom: 24px; transition: background 0.4s; }
   header .session { font-size: 0.85em; opacity: 0.75; margin-bottom: 6px; }
   header h1 { margin: 0 0 10px; font-size: 1.45em; line-height: 1.4; }
   header .week { font-size: 0.9em; background: rgba(255,255,255,0.2); display: inline-block; padding: 4px 10px; border-radius: 4px; }
-  .summary { background: #e8f5e9; border-left: 5px solid #388e3c; padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 28px; }
+  .summary { background: #e8f5e9; border-left: 5px solid #388e3c; padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 28px; transition: background 0.4s, border-color 0.4s; }
   .summary h2 { margin: 0 0 10px; color: #2e7d32; font-size: 1em; }
   .summary ul { margin: 0; padding-left: 20px; }
   .summary li { margin-bottom: 6px; }
-  .card { background: white; border-radius: 10px; padding: 24px 28px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
-  h2 { color: #1a3a5c; font-size: 1.15em; border-bottom: 2px solid #1a3a5c; padding-bottom: 6px; margin-top: 0; margin-bottom: 18px; }
-  h3 { color: #2d6a9f; font-size: 1em; margin-top: 22px; margin-bottom: 10px; }
+  .card { background: white; border-radius: 10px; padding: 24px 28px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); transition: border 0.4s; }
+  h2 { color: #1a3a5c; font-size: 1.15em; border-bottom: 2px solid #1a3a5c; padding-bottom: 6px; margin-top: 0; margin-bottom: 18px; transition: color 0.3s, border-color 0.3s; }
+  h3 { color: #2d6a9f; font-size: 1em; margin-top: 22px; margin-bottom: 10px; transition: color 0.3s; }
   table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.95em; }
-  th { background: #1a3a5c; color: white; padding: 9px 14px; text-align: left; }
+  th { background: #1a3a5c; color: white; padding: 9px 14px; text-align: left; transition: background 0.3s; }
   td { border: 1px solid #ddd; padding: 9px 14px; }
   tr:nth-child(even) td { background: #f8f8f8; }
   .qa-block { background: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
   .qa-q { color: #c0392b; font-weight: bold; margin-bottom: 10px; }
   .qa-point { font-size: 0.9em; color: #555; margin-top: 10px; background: #fff3e0; padding: 8px 12px; border-radius: 4px; }
   blockquote { background: #e3f2fd; border-left: 4px solid #1976d2; margin: 10px 0; padding: 12px 16px; border-radius: 0 6px 6px 0; font-size: 0.95em; }
-  .vocab { background: #fffde7; border: 1px solid #f9a825; border-radius: 8px; padding: 16px 20px; }
+  .vocab { background: #fffde7; border: 1px solid #f9a825; border-radius: 8px; padding: 16px 20px; transition: background 0.4s, border-color 0.4s; }
   .vocab dl { margin: 0; }
-  .vocab dt { font-weight: bold; color: #1a3a5c; margin-top: 10px; }
+  .vocab dt { font-weight: bold; color: #1a3a5c; margin-top: 10px; transition: color 0.3s; }
   .vocab dt:first-child { margin-top: 0; }
   .vocab dd { margin: 4px 0 0 16px; font-size: 0.95em; }
-  .answer { background: #e8eaf6; border: 1px solid #5c6bc0; border-radius: 8px; padding: 18px 20px; }
+  .answer { background: #e8eaf6; border: 1px solid #5c6bc0; border-radius: 8px; padding: 18px 20px; transition: background 0.4s; }
   .answer h2 { color: #283593; border-color: #5c6bc0; }
   .answer .q-restate { font-weight: bold; color: #555; margin-bottom: 10px; font-size: 0.95em; }
   .answer .key-msg { font-size: 0.9em; background: #fff3e0; padding: 8px 12px; border-radius: 4px; margin-top: 10px; }
-  .quiz { background: #f3e5f5; border: 1px solid #9c27b0; border-radius: 8px; padding: 18px 20px; }
+  .quiz { background: #f3e5f5; border: 1px solid #9c27b0; border-radius: 8px; padding: 18px 20px; transition: background 0.4s, border-color 0.4s; }
   .quiz h2 { color: #6a1b9a; border-color: #9c27b0; }
   .quiz .q-text { font-weight: bold; margin-bottom: 8px; }
   .quiz .note { font-size: 0.85em; color: #777; margin-top: 12px; }
   footer { text-align: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid #ddd; }
   footer a { color: #2d6a9f; text-decoration: none; padding: 8px 20px; border: 1px solid #2d6a9f; border-radius: 5px; font-size: 0.9em; }
   footer a:hover { background: #2d6a9f; color: white; }
-  strong { color: #1a3a5c; }
+  strong { color: #1a3a5c; transition: color 0.3s; }
+
+  /* ---- Content visibility ---- */
+  .easy-only { display: none; }
+  .normal-only { display: block; }
+
+  /* ---- Mode toggle button ---- */
+  .mode-btn {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 1000;
+    background: linear-gradient(135deg, #f6d365, #fda085);
+    color: #3d1800;
+    border: none;
+    border-radius: 24px;
+    padding: 10px 18px;
+    font-size: 0.88em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+    font-family: inherit;
+    transition: all 0.3s;
+    white-space: nowrap;
+  }
+  .mode-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.3); }
+
+  /* ---- Easy mode overrides ---- */
+  body.easy-mode { background: linear-gradient(160deg, #fff9f0 0%, #f0f4ff 100%); font-size: 16px; }
+  body.easy-mode .mode-btn { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; }
+  body.easy-mode header { background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; }
+  body.easy-mode header .week { background: rgba(255,255,255,0.55); color: #5d2d00; }
+  body.easy-mode .summary { background: linear-gradient(to right, #fff0f5, #ffe0ee); border-color: #f06292; }
+  body.easy-mode .summary h2 { color: #c2185b; }
+  body.easy-mode .summary li { font-size: 1.05em; line-height: 2.1; }
+  body.easy-mode .card { border-top: 5px solid #ce93d8; }
+  body.easy-mode h2 { color: #6a1b9a; border-color: #ce93d8; }
+  body.easy-mode h3 { color: #e65100; font-size: 1.08em; }
+  body.easy-mode th { background: #7b1fa2; }
+  body.easy-mode strong { color: #ad1457; }
+  body.easy-mode .vocab { background: linear-gradient(to bottom right, #e8f5e9, #f1f8e9); border-color: #66bb6a; }
+  body.easy-mode .vocab dt { color: #1b5e20; }
+  body.easy-mode .answer { background: #e3f2fd; border-color: #42a5f5; }
+  body.easy-mode .answer h2 { color: #0d47a1; border-color: #42a5f5; }
+  body.easy-mode .quiz { background: linear-gradient(to right, #fff8e1, #fff3e0); border-color: #ff8f00; }
+  body.easy-mode .quiz h2 { color: #e65100; border-color: #ff8f00; }
+  body.easy-mode .easy-only { display: block; }
+  body.easy-mode .normal-only { display: none; }
+
+  /* ---- Easy mode elements ---- */
+  .easy-bubble-q, .easy-bubble-a { border-radius: 16px; padding: 14px 18px; margin: 14px 0; }
+  .easy-bubble-q { background: #fce4ec; border: 2px solid #f48fb1; }
+  .easy-bubble-a { background: #e3f2fd; border: 2px solid #90caf9; }
+  .easy-speaker { font-size: 0.82em; font-weight: bold; display: block; margin-bottom: 6px; }
+  .easy-bubble-q .easy-speaker { color: #b71c1c; }
+  .easy-bubble-a .easy-speaker { color: #0d47a1; }
+  .easy-point { background: #fff9c4; border-left: 4px solid #f9a825; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 12px 0; font-size: 0.95em; }
+  .easy-example { background: #e8f5e9; border-radius: 10px; padding: 12px 16px; margin: 14px 0; font-size: 0.95em; }
+  .easy-example .eg-label { font-weight: bold; color: #2e7d32; margin-bottom: 6px; display: block; }
+  .easy-steps { background: #e8eaf6; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .easy-steps ol { margin: 8px 0 0; padding-left: 24px; }
+  .easy-steps li { margin-bottom: 8px; line-height: 1.8; }
 </style>
 </head>
 <body>
 
+<button class="mode-btn" onclick="toggleMode()" id="modeBtn">🌟 やさしいとくしゅこうで読む</button>
+
 <header>
-  <div class="session">第07回 ・ 2026-06-11</div>
-  <h1>Cr（クロム）の役割：耐食性と硬化能</h1>
-  <span class="week">第2週：炭素鋼と合金元素の役割</span>
+  <div class="normal-only">
+    <div class="session">第07回 ・ 2026-06-11</div>
+    <h1>Cr（クロム）の役割：耐食性と硬化能</h1>
+    <span class="week">第2週：炭素鋼と合金元素の役割</span>
+  </div>
+  <div class="easy-only">
+    <div class="session">第07回 ・ 2026-06-11</div>
+    <h1>さびない鉄のひみつ🛡️ 魔法の金属「クロム」を大解剖！</h1>
+    <span class="week">✨ 第2週：鉄をスーパーパワーアップさせる材料たち</span>
+  </div>
 </header>
 
 <div class="summary">
-  <h2>今日の3行サマリ</h2>
-  <ul>
-    <li>Crは不動態皮膜を形成し耐食性を付与する。SUSにCr≧10.5%が必要な理由はここにある</li>
-    <li>Crは焼入れ性を高め、厚肉部でも硬化できる「硬化能向上元素」でもある</li>
-    <li>自社のSCH22・SCS13・SUS304はすべてCrが主骨格。役割を炉温・腐食環境で使い分ける</li>
-  </ul>
+  <div class="normal-only">
+    <h2>今日の3行サマリ</h2>
+    <ul>
+      <li>Crは不動態皮膜を形成し耐食性を付与する。SUSにCr≧10.5%が必要な理由はここにある</li>
+      <li>Crは焼入れ性を高め、厚肉部でも硬化できる「硬化能向上元素」でもある</li>
+      <li>自社のSCH22・SCS13・SUS304はすべてCrが主骨格。役割を炉温・腐食環境で使い分ける</li>
+    </ul>
+  </div>
+  <div class="easy-only">
+    <h2>🎯 今日わかること 3つ！</h2>
+    <ul>
+      <li>🛡️ クロムを鉄にまぜると「見えない鎧」ができて、さびなくなる！</li>
+      <li>💪 クロムのおかげで、分厚い鉄でも芯まで硬くできる！</li>
+      <li>🏭 うちの会社の製品はほとんどクロムのおかげで動いている！</li>
+    </ul>
+  </div>
 </div>
 
 <div class="card">
-  <h2>本文</h2>
+  <div class="normal-only">
+    <h2>本文</h2>
 
-  <h3>Crが果たす2つの顔</h3>
-  <p>クロム（Cr）は特殊鋼において最も基本的な合金元素だ。その働きは大きく2系統に分かれる——「耐食性の付与」と「焼入れ性の向上」。どちらも別々の仕組みで機能するが、同じCr添加によって同時に得られるため、合金鋼の中でも特に費用対効果の高い元素として広く使われる。</p>
+    <h3>Crが果たす2つの顔</h3>
+    <p>クロム（Cr）は特殊鋼において最も基本的な合金元素だ。その働きは大きく2系統に分かれる——「耐食性の付与」と「焼入れ性の向上」。どちらも別々の仕組みで機能するが、同じCr添加によって同時に得られるため、合金鋼の中でも特に費用対効果の高い元素として広く使われる。</p>
 
-  <h3>不動態皮膜と耐食性</h3>
-  <p>Crを<strong>10.5%以上</strong>含む鋼は、大気中の酸素と反応してごく薄い酸化皮膜（Cr₂O₃）を表面に自発的に形成する。この皮膜を「<strong>不動態皮膜（passive film）</strong>」と呼ぶ。厚さはわずか数nm（ナノメートル）だが、緻密で密着性が高く、内部の鉄が腐食環境にさらされるのを防ぐ。傷がついても大気中では数秒〜数分で自己修復するのが大きな特徴だ。</p>
-  <p>SUS304はCr約18%、SUS316はCr約17%と、下限をはるかに超えた含有量にしてより安定した不動態皮膜を確保している。</p>
+    <h3>不動態皮膜と耐食性</h3>
+    <p>Crを<strong>10.5%以上</strong>含む鋼は、大気中の酸素と反応してごく薄い酸化皮膜（Cr₂O₃）を表面に自発的に形成する。この皮膜を「<strong>不動態皮膜（passive film）</strong>」と呼ぶ。厚さはわずか数nm（ナノメートル）だが、緻密で密着性が高く、内部の鉄が腐食環境にさらされるのを防ぐ。傷がついても大気中では数秒〜数分で自己修復するのが大きな特徴だ。</p>
+    <p>SUS304はCr約18%、SUS316はCr約17%と、下限をはるかに超えた含有量にしてより安定した不動態皮膜を確保している。</p>
 
-  <h3>硬化能への寄与</h3>
-  <p>Crには焼入れ性（鋼が焼入れ時に深部まで硬化する能力）を高める効果もある。炭素鋼だけでは冷却速度が速い表面付近しか硬化しないが、Crを加えることで「臨界冷却速度」が遅くなり、厚肉部でも均一に硬化できる。クロムモリブデン鋼（SCM440など）がシャフト・大型ボルトに使われるのは、Cr（とMo）が焼入れ性を高めて断面全体で均質な強度を出せるからだ。</p>
+    <h3>硬化能への寄与</h3>
+    <p>Crには焼入れ性（鋼が焼入れ時に深部まで硬化する能力）を高める効果もある。炭素鋼だけでは冷却速度が速い表面付近しか硬化しないが、Crを加えることで「臨界冷却速度」が遅くなり、厚肉部でも均一に硬化できる。クロムモリブデン鋼（SCM440など）がシャフト・大型ボルトに使われるのは、Cr（とMo）が焼入れ性を高めて断面全体で均質な強度を出せるからだ。</p>
 
-  <h3>Cr含有量と用途の対応</h3>
-  <table>
-    <tr><th>Cr量（概略）</th><th>主な用途・鋼種</th><th>機能</th></tr>
-    <tr><td>1〜3%</td><td>SCM（クロムモリブデン鋼）</td><td>焼入れ性向上・高強度</td></tr>
-    <tr><td>10.5〜13%</td><td>マルテンサイト系SUS（SUS410など）</td><td>耐食性＋高硬度</td></tr>
-    <tr><td>17〜18%</td><td>SUS304・SUS316</td><td>耐食性優先</td></tr>
-    <tr><td>20〜30%</td><td>耐熱鋳鋼（SCH22など）</td><td>高温酸化防止</td></tr>
-  </table>
+    <h3>Cr含有量と用途の対応</h3>
+    <table>
+      <tr><th>Cr量（概略）</th><th>主な用途・鋼種</th><th>機能</th></tr>
+      <tr><td>1〜3%</td><td>SCM（クロムモリブデン鋼）</td><td>焼入れ性向上・高強度</td></tr>
+      <tr><td>10.5〜13%</td><td>マルテンサイト系SUS（SUS410など）</td><td>耐食性＋高硬度</td></tr>
+      <tr><td>17〜18%</td><td>SUS304・SUS316</td><td>耐食性優先</td></tr>
+      <tr><td>20〜30%</td><td>耐熱鋳鋼（SCH22など）</td><td>高温酸化防止</td></tr>
+    </table>
 
-  <h3>自社製品との関連</h3>
-  <p>SCH22はCr約20%・Ni約10%と高Cr設計で、1000℃超の熱処理炉内で使用される。この高温域では不動態皮膜より「酸化スケール（Cr₂O₃を主体とする保護層）」が高温酸化防止に機能する。同じCrの酸化物でも常温での不動態皮膜と高温スケールは環境が違うが、根本メカニズムは同じ「Crの選択酸化」だ。SCS13（Cr約19%）はCrが耐食性に特化した設計、SUS304・316は薄肉・溶接部でも不動態皮膜を維持することを重視している。</p>
-  <p>自社製品の<strong>メッシュベルト（工業用・食品用）</strong>はSUS304またはSUS316素線を編んで作る。高温炉内を搬送帯として走行する用途ではSUS310S（Cr25%）を採用するケースもあるが、食品向けはSUS304の耐食性と食品安全規格の両立が選定理由だ。Crが「錆びない・有害物質を出さない」の2条件を同時に満たす。</p>
-  <p><strong>ヒーターエレメント</strong>（電気抵抗発熱体）に使われるNiCr線もCrが不可欠だ。NiCr合金（Ni80%-Cr20%程度が代表）は高温大気中での表面にCr₂O₃スケールを形成し、発熱体本体の酸化消耗を防ぐ。Crがなければ発熱体は高温で急速に酸化・断線する。</p>
+    <h3>自社製品との関連</h3>
+    <p>SCH22はCr約20%・Ni約10%と高Cr設計で、1000℃超の熱処理炉内で使用される。この高温域では不動態皮膜より「酸化スケール（Cr₂O₃を主体とする保護層）」が高温酸化防止に機能する。同じCrの酸化物でも常温での不動態皮膜と高温スケールは環境が違うが、根本メカニズムは同じ「Crの選択酸化」だ。SCS13（Cr約19%）はCrが耐食性に特化した設計、SUS304・316は薄肉・溶接部でも不動態皮膜を維持することを重視している。</p>
+    <p>自社製品の<strong>メッシュベルト（工業用・食品用）</strong>はSUS304またはSUS316素線を編んで作る。高温炉内を搬送帯として走行する用途ではSUS310S（Cr25%）を採用するケースもあるが、食品向けはSUS304の耐食性と食品安全規格の両立が選定理由だ。Crが「錆びない・有害物質を出さない」の2条件を同時に満たす。</p>
+    <p><strong>ヒーターエレメント</strong>（電気抵抗発熱体）に使われるNiCr線もCrが不可欠だ。NiCr合金（Ni80%-Cr20%程度が代表）は高温大気中での表面にCr₂O₃スケールを形成し、発熱体本体の酸化消耗を防ぐ。Crがなければ発熱体は高温で急速に酸化・断線する。</p>
+  </div>
+
+  <div class="easy-only">
+    <h2>🔬 今日のひみつ！</h2>
+
+    <h3>🌟 クロムは鉄の「最強のパートナー」</h3>
+    <p>クロム（Cr）は、鉄に入れる材料の中で一番よく使われる「助っ人」。ひとりで<strong>2種類の仕事</strong>をこなしてくれます！</p>
+
+    <h3>🛡️ ひみつ① 「見えない鎧」で鉄をさびから守る</h3>
+    <p>クロムを鉄に<strong>10.5%以上</strong>まぜると、鉄の表面にものすごーく薄い膜ができます。</p>
+    <p>その厚さは、なんと<strong>髪の毛の1万分の1以下</strong>！</p>
+    <p>でも、この薄さでさびをしっかりブロック。しかも傷がついても<strong>数秒〜数分で自分で治ってしまう</strong>スゴい力があります。これを「不動態皮膜（ふどうたいひまく）」といいます。</p>
+    <div class="easy-example">
+      <span class="eg-label">💡 身近な例えで考えよう！</span>
+      キッチンのシンクや料理のフォーク・スプーンが長年使ってもさびないのは、表面にこの「見えない鎧」があるから！
+    </div>
+
+    <h3>💪 ひみつ② 分厚い鉄でも芯まで硬くできる</h3>
+    <p>「<strong>焼き入れ</strong>」という工程があります。鉄を高温に熱してから、急に冷やす作業のことです。</p>
+    <p>ふつうの鉄だと<strong>表面しか硬くなりません</strong>。でもクロムを入れると、分厚い鉄でも<strong>芯のほうまで均一に硬く</strong>なります。この「芯まで硬くできる力」を「硬化能（こうかのう）」といいます。</p>
+    <div class="easy-example">
+      <span class="eg-label">💡 身近な例えで考えよう！</span>
+      外カリ・中ふんわりのパン → 普通の鉄（表面しか硬くなれない）<br>
+      全部ぎっしりカリカリのクッキー → クロム入りの鉄（芯まで硬くなれる）<br>
+      大きな車のシャフト（回転する軸）やボルトが折れないのは、このおかげ！
+    </div>
+
+    <h3>📊 クロムの量を変えると「得意技」が変わる！</h3>
+    <table>
+      <tr><th>クロムの量</th><th>どんな材料？</th><th>得意技</th></tr>
+      <tr><td>1〜3%</td><td>車のシャフト・大きなボルト</td><td>芯まで硬くなる → 折れにくい</td></tr>
+      <tr><td>10.5〜13%</td><td>包丁・はさみ・歯科器具</td><td>さびにくい＋硬い</td></tr>
+      <tr><td>17〜18%</td><td>キッチン用品・工業部品</td><td>とにかくさびない</td></tr>
+      <tr><td>20〜30%</td><td>1000℃超の炉の中の道具</td><td>超高温でも酸化しない！</td></tr>
+    </table>
+
+    <h3>🏭 うちの会社でのクロムの活躍！</h3>
+    <p><strong>🔥 熱処理炉の中の治具（じぐ）</strong>（道具や部品を支える台）<br>
+    1000℃を超えても壊れない特別な鉄を使ってます。クロム20〜30%入り！</p>
+    <p><strong>🕸️ メッシュベルト</strong>（金属の網のベルト。食品工場や工業炉で動く）<br>
+    食品に触れるものは「さびない」「有害物質を出さない」の両方が必須。クロムがその2つを同時にクリアしてる！</p>
+    <p><strong>⚡ ヒーターエレメント</strong>（電気を熱に変える線）<br>
+    ニッケル80%＋クロム20%で作られてる。クロムの薄い膜が発熱体を守ってくれて、酸化しにくくなってる。これがなかったらすぐ断線してしまう！</p>
+  </div>
 </div>
 
 <div class="card">
-  <h2>営業からの相談に効く知識</h2>
+  <div class="normal-only">
+    <h2>営業からの相談に効く知識</h2>
 
-  <div class="qa-block">
-    <div class="qa-q">ケース1：「客先が"SCM440でいいから安く作ってほしい"って言ってるんだけど、SUS430で代替できない？」</div>
-    <blockquote>SCM440とSUS430は用途が全然違います。SCM440は焼入れして高強度にするための合金鋼。SUS430はCr17%の耐食性重視フェライト系SUSで、強度用途向きではない。「何に使うか・熱処理するか」を確認してから代替検討してください。</blockquote>
-    <div class="qa-point">ポイント：Cr量だけで鋼種を比べるのは危険。用途（強度か耐食か）で全く別の設計思想になる。</div>
+    <div class="qa-block">
+      <div class="qa-q">ケース1：「客先が"SCM440でいいから安く作ってほしい"って言ってるんだけど、SUS430で代替できない？」</div>
+      <blockquote>SCM440とSUS430は用途が全然違います。SCM440は焼入れして高強度にするための合金鋼。SUS430はCr17%の耐食性重視フェライト系SUSで、強度用途向きではない。「何に使うか・熱処理するか」を確認してから代替検討してください。</blockquote>
+      <div class="qa-point">ポイント：Cr量だけで鋼種を比べるのは危険。用途（強度か耐食か）で全く別の設計思想になる。</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">ケース2：「客先の指定がSUS304なんだけど、なぜSUSにしないといけないか聞かれた」</div>
+      <blockquote>SUS304はCr18%で安定した不動態皮膜を持ち、屋外・湿潤環境・食品接触面で腐食しない。普通鋼（S45Cなど）では数週間で赤錆が出る環境でも長期使用できる。「腐食しないことが製品寿命と安全性の前提になっている」と伝えてください。</blockquote>
+      <div class="qa-point">ポイント：「SUSでないといけない理由」を使用環境から説明できると客先の理解が深まる。</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">ケース3：「食品工場向けのメッシュベルト、SUS304じゃないといけない？コスト削減でSUS430にできないか」</div>
+      <blockquote>SUS430はCr17%のフェライト系SUSで耐食性はある程度あるが、食品接触用途では問題が出る可能性がある。①加工硬化しにくいため素線の折り曲げ加工で割れが出やすい、②Niがゼロで延性が低く耐久サイクルが劣る、③洗浄剤（塩素系）環境での耐食性がSUS304より低い。食品向けメッシュベルトはSUS304が基本。使用環境（洗浄方法・温度・搬送物）を確認した上で判断してください。</blockquote>
+      <div class="qa-point">ポイント：メッシュベルトの素材選定はCr量だけでなく、加工性（Niの有無）と洗浄環境への耐性がセットで判断基準になる。</div>
+    </div>
   </div>
 
-  <div class="qa-block">
-    <div class="qa-q">ケース2：「客先の指定がSUS304なんだけど、なぜSUSにしないといけないか聞かれた」</div>
-    <blockquote>SUS304はCr18%で安定した不動態皮膜を持ち、屋外・湿潤環境・食品接触面で腐食しない。普通鋼（S45Cなど）では数週間で赤錆が出る環境でも長期使用できる。「腐食しないことが製品寿命と安全性の前提になっている」と伝えてください。</blockquote>
-    <div class="qa-point">ポイント：「SUSでないといけない理由」を使用環境から説明できると客先の理解が深まる。</div>
-  </div>
+  <div class="easy-only">
+    <h2>💬 こんな相談が来たら？</h2>
 
-  <div class="qa-block">
-    <div class="qa-q">ケース3：「食品工場向けのメッシュベルト、SUS304じゃないといけない？コスト削減でSUS430にできないか」</div>
-    <blockquote>SUS430はCr17%のフェライト系SUSで耐食性はある程度あるが、食品接触用途では問題が出る可能性がある。①加工硬化しにくいため素線の折り曲げ加工で割れが出やすい、②Niがゼロで延性が低く耐久サイクルが劣る、③洗浄剤（塩素系）環境での耐食性がSUS304より低い。食品向けメッシュベルトはSUS304が基本。使用環境（洗浄方法・温度・搬送物）を確認した上で判断してください。</blockquote>
-    <div class="qa-point">ポイント：メッシュベルトの素材選定はCr量だけでなく、加工性（Niの有無）と洗浄環境への耐性がセットで判断基準になる。</div>
+    <div class="easy-bubble-q">
+      <span class="easy-speaker">👨 営業さん</span>
+      「お客さんが"SCM440を安くしたいからSUS430でいい？"って言ってるんだけど、どうかな？」
+    </div>
+    <div class="easy-bubble-a">
+      <span class="easy-speaker">🧑‍💼 生産管理の返し方</span>
+      それはNGです！クロムの量は似てても目的が全然違います。<br>
+      SCM440 → 「焼き入れして超硬くする」ための鉄（強度用）<br>
+      SUS430 → 「とにかくさびない」ための鉄（強度用には向かない）<br>
+      まず「何に使うのか・熱処理するのか」を確認してから考えましょう。
+    </div>
+    <div class="easy-point">💡 ポイント：クロムの「量」だけを見て比べるのは危険！目的が違えば全く別の鉄です。</div>
+
+    <div class="easy-bubble-q">
+      <span class="easy-speaker">👨 営業さん</span>
+      「お客さんに"なんでステンレス（SUS）じゃないといけないの？"って聞かれた。どう答えればいい？」
+    </div>
+    <div class="easy-bubble-a">
+      <span class="easy-speaker">🧑‍💼 生産管理の返し方</span>
+      「普通の鉄は湿った場所や食品に触れると数週間で赤さびが出ます。SUS304はクロム18%のおかげで"見えない鎧"ができていて、さびません。製品の寿命と安全のために必要なんです」と伝えてください。
+    </div>
+    <div class="easy-point">💡 ポイント：「なぜSUSなのか」は使う場所の環境（水・食品・屋外など）から説明するとお客さんに伝わりやすい。</div>
+
+    <div class="easy-bubble-q">
+      <span class="easy-speaker">👨 営業さん</span>
+      「食品工場のメッシュベルト、コスト削減でSUS430にできない？」
+    </div>
+    <div class="easy-bubble-a">
+      <span class="easy-speaker">🧑‍💼 生産管理の返し方</span>
+      食品用途でSUS430はリスクあり。3つの問題があります：<br>
+      ①素線を曲げ加工するとき割れやすい（ニッケルがないから粘り気が弱い）<br>
+      ②耐久サイクルがSUS304より劣る<br>
+      ③食品工場で使う塩素系洗浄剤への耐性が低い<br>
+      食品向けはSUS304が基本です。
+    </div>
+    <div class="easy-point">💡 ポイント：素材選びはクロムの量だけじゃなく、ニッケルの有無と洗浄環境もセットで確認！</div>
   </div>
 </div>
 
 <div class="card vocab">
-  <h2>用語メモ</h2>
-  <dl>
-    <dt>不動態皮膜</dt>
-    <dd>Cr₂O₃を主体とした数nmの酸化皮膜。傷がついても自己修復する</dd>
-    <dt>硬化能（hardenability）</dt>
-    <dd>焼入れで深部まで硬化する能力。Crは硬化能を高める代表元素</dd>
-    <dt>臨界冷却速度</dt>
-    <dd>マルテンサイト（硬い組織）を形成するのに必要な最低冷却速度</dd>
-    <dt>SCM（クロムモリブデン鋼）</dt>
-    <dd>Cr＋Moを添加した機械構造用特殊鋼。焼入れ性が高い</dd>
-    <dt>選択酸化</dt>
-    <dd>複数の金属が存在するとき、より酸化しやすい元素が優先的に酸化する現象</dd>
-  </dl>
+  <div class="normal-only">
+    <h2>用語メモ</h2>
+    <dl>
+      <dt>不動態皮膜</dt>
+      <dd>Cr₂O₃を主体とした数nmの酸化皮膜。傷がついても自己修復する</dd>
+      <dt>硬化能（hardenability）</dt>
+      <dd>焼入れで深部まで硬化する能力。Crは硬化能を高める代表元素</dd>
+      <dt>臨界冷却速度</dt>
+      <dd>マルテンサイト（硬い組織）を形成するのに必要な最低冷却速度</dd>
+      <dt>SCM（クロムモリブデン鋼）</dt>
+      <dd>Cr＋Moを添加した機械構造用特殊鋼。焼入れ性が高い</dd>
+      <dt>選択酸化</dt>
+      <dd>複数の金属が存在するとき、より酸化しやすい元素が優先的に酸化する現象</dd>
+    </dl>
+  </div>
+  <div class="easy-only">
+    <h2>📖 おぼえておきたい言葉</h2>
+    <dl>
+      <dt>🛡️ 不動態皮膜（ふどうたいひまく）</dt>
+      <dd>鉄の表面にできる「透明な見えない鎧」。クロムと空気が反応して自然にできる、髪の毛の1万分の1の薄さの保護膜。傷がついても自己修復する！</dd>
+      <dt>💪 硬化能（こうかのう）</dt>
+      <dd>焼き入れで「どこまで深く硬くできるか」という能力。クロムが入ると芯まで深く硬くできる</dd>
+      <dt>⚡ 臨界冷却速度（りんかいれいきゃくそくど）</dt>
+      <dd>鉄を硬くするために必要な「冷まし方のスピード」の下限。クロムを入れるとゆっくり冷ましてもちゃんと硬くなる</dd>
+      <dt>🔩 SCM（クロムモリブデン鋼）</dt>
+      <dd>クロム＋モリブデンを入れた特別な鉄の略名。強くて芯まで硬くなる。車のボルトやシャフトに使う</dd>
+      <dt>🎯 選択酸化（せんたくさんか）</dt>
+      <dd>複数の金属が一緒にあるとき、酸化しやすい方が「先に守りに出る」現象。クロムが先に反応して鉄の本体を守ってくれる！</dd>
+    </dl>
+  </div>
 </div>
 
 <div class="card answer">
-  <h2>昨日の小テスト解答</h2>
-  <div class="q-restate">問：営業から「客先から"SUS304の部品を溶接してから腐食が出た。材料が悪いのか？"という指摘が来ているんだけど、どう考える？」</div>
-  <p>材料不良ではなく、溶接後の「<strong>鋭敏化（sensitization）</strong>」が原因である可能性が高い。SUS304（C≦0.08%）を500〜850℃の温度域に一定時間さらすと、粒界にCrとCが結合したCr₂₃C₆が析出し、粒界周辺にCr欠乏帯ができる。このCr欠乏帯は不動態皮膜を維持できず、腐食環境に触れると粒界腐食を起こす。溶接の熱影響部（HAZ）がまさにこの温度帯にさらされる。</p>
-  <p>対策として①超低炭素グレードの<strong>SUS304L</strong>（C≦0.03%）に変更、②Ti・Nbで炭素を安定化させたSUS321・SUS347の使用、③溶接後に固溶化熱処理（1050℃〜急冷）でCr₂₃C₆を再固溶させる——の3択がある。</p>
-  <div class="key-msg">営業に渡すキーメッセージ：「材料ではなく溶接プロセス由来の問題。次回からSUS304Lに変更するか、溶接後熱処理の手配を相談させてください。」</div>
+  <div class="normal-only">
+    <h2>昨日の小テスト解答</h2>
+    <div class="q-restate">問：営業から「客先から"SUS304の部品を溶接してから腐食が出た。材料が悪いのか？"という指摘が来ているんだけど、どう考える？」</div>
+    <p>材料不良ではなく、溶接後の「<strong>鋭敏化（sensitization）</strong>」が原因である可能性が高い。SUS304（C≦0.08%）を500〜850℃の温度域に一定時間さらすと、粒界にCrとCが結合したCr₂₃C₆が析出し、粒界周辺にCr欠乏帯ができる。このCr欠乏帯は不動態皮膜を維持できず、腐食環境に触れると粒界腐食を起こす。溶接の熱影響部（HAZ）がまさにこの温度帯にさらされる。</p>
+    <p>対策として①超低炭素グレードの<strong>SUS304L</strong>（C≦0.03%）に変更、②Ti・Nbで炭素を安定化させたSUS321・SUS347の使用、③溶接後に固溶化熱処理（1050℃〜急冷）でCr₂₃C₆を再固溶させる——の3択がある。</p>
+    <div class="key-msg">営業に渡すキーメッセージ：「材料ではなく溶接プロセス由来の問題。次回からSUS304Lに変更するか、溶接後熱処理の手配を相談させてください。」</div>
+  </div>
+  <div class="easy-only">
+    <h2>✅ 昨日の問題、答え合わせ！</h2>
+    <div class="q-restate">問：「SUS304の部品を溶接してから腐食が出た。材料が悪いのか？」</div>
+    <p>実は<strong>材料は悪くない！</strong> これは「<strong>鋭敏化（えいびんか）</strong>」という現象が原因です。</p>
+    <div class="easy-example">
+      <span class="eg-label">🔍 どういうこと？</span>
+      溶接の熱（500〜850℃）でクロムが炭素とくっついて「固まり」を作ってしまいます。すると固まりの周りのクロムが減ってしまい、そこだけ「見えない鎧」が薄くなってしまう。さびにくいはずのステンレスが、その部分だけさびやすくなってしまった！というワケ。
+    </div>
+    <div class="easy-steps">
+      <strong>🛠️ 対策は3つ：</strong>
+      <ol>
+        <li><strong>SUS304L</strong>を使う（Lは"Low carbon"＝炭素が少ないバージョン。固まりが作られにくい）</li>
+        <li><strong>SUS321・SUS347</strong>を使う（炭素が別の材料と先にくっつくように設計されてる）</li>
+        <li>溶接後に<strong>1050℃以上で加熱→急冷</strong>してリセット！</li>
+      </ol>
+    </div>
+    <div class="easy-point">💬 営業さんへの返し方：「材料の問題じゃなく、溶接の熱による現象です。次はSUS304Lにするか、溶接後に熱処理を追加しましょう」</div>
+  </div>
 </div>
 
 <div class="card quiz">
-  <h2>今日の小テスト1問</h2>
-  <div class="q-text">問：営業から「客先が"SUS316の方がSUS304より高いのに、何が違うの？"って聞いてきた。一言で違いを説明してほしい」という相談が来た。Crの役割に加えて次回学ぶ「Moの追加効果」を念頭に、生産管理として営業に返す言葉を考えよ。</div>
-  <div class="note">解答は次回配信</div>
+  <div class="normal-only">
+    <h2>今日の小テスト1問</h2>
+    <div class="q-text">問：営業から「客先が"SUS316の方がSUS304より高いのに、何が違うの？"って聞いてきた。一言で違いを説明してほしい」という相談が来た。Crの役割に加えて次回学ぶ「Moの追加効果」を念頭に、生産管理として営業に返す言葉を考えよ。</div>
+    <div class="note">解答は次回配信</div>
+  </div>
+  <div class="easy-only">
+    <h2>🎯 今日のチャレンジ問題！</h2>
+    <div class="q-text">問：営業さんから「お客さんに"SUS316はSUS304より値段が高いのに、何が違うの？"って聞かれたんだけど、どう説明すればいい？」と相談が来た。<br><br>今日学んだクロムの話をふまえて、自分の言葉で答えてみよう！<br>（ヒント：次回登場する「Mo（モリブデン）」という金属が関係してるよ🔑）</div>
+    <div class="note">解答は次回配信。まず自分で考えてみよう！</div>
+  </div>
 </div>
 
 <footer>
   <a href="index.html">← 目次に戻る</a>
 </footer>
+
+<script>
+function toggleMode() {
+  const body = document.body;
+  const btn = document.getElementById('modeBtn');
+  if (body.classList.contains('easy-mode')) {
+    body.classList.remove('easy-mode');
+    btn.textContent = '🌟 やさしいとくしゅこうで読む';
+    localStorage.setItem('studyMode', 'normal');
+  } else {
+    body.classList.add('easy-mode');
+    btn.textContent = '📚 通常モードに戻す';
+    localStorage.setItem('studyMode', 'easy');
+  }
+}
+(function() {
+  if (localStorage.getItem('studyMode') === 'easy') {
+    document.body.classList.add('easy-mode');
+    document.getElementById('modeBtn').textContent = '📚 通常モードに戻す';
+  }
+})();
+</script>
 
 </body>
 </html>
