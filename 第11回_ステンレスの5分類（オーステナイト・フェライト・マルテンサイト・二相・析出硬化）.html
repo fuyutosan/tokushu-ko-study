@@ -36,103 +36,245 @@
   .quiz h2 { color: #6a1b9a; border-color: #9c27b0; }
   .quiz .q-text { font-weight: bold; margin-bottom: 8px; }
   .quiz .note { font-size: 0.85em; color: #777; margin-top: 12px; }
+  .answer { background: #e8eaf6; border: 1px solid #5c6bc0; border-radius: 8px; padding: 18px 20px; }
+  .answer h2 { color: #283593; border-color: #5c6bc0; }
+  .answer .q-restate { font-weight: bold; color: #555; margin-bottom: 10px; font-size: 0.95em; }
+  .answer .key-msg { font-size: 0.9em; background: #fff3e0; padding: 8px 12px; border-radius: 4px; margin-top: 10px; }
   footer { text-align: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid #ddd; }
   footer a { color: #2d6a9f; text-decoration: none; padding: 8px 20px; border: 1px solid #2d6a9f; border-radius: 5px; font-size: 0.9em; }
   footer a:hover { background: #2d6a9f; color: white; }
   strong { color: #1a3a5c; }
+  /* ===== Easy Mode ===== */
+  .easy-only { display: none; }
+  .normal-only { display: block; }
+  body.easy-mode .easy-only { display: block; }
+  body.easy-mode .normal-only { display: none; }
+  body.easy-mode { background: linear-gradient(160deg, #fff9f0 0%, #f0f4ff 100%); font-size: 16px; }
+  body.easy-mode header { background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; }
+  body.easy-mode .card { border-top: 5px solid #ce93d8; }
+  body.easy-mode h2 { color: #6a1b9a; border-color: #ce93d8; }
+  body.easy-mode h3 { color: #e65100; }
+  body.easy-mode .summary { background: #fce4ec; border-left-color: #f48fb1; }
+  body.easy-mode .summary h2 { color: #c2185b; }
+  .easy-bubble-q { background: #fce4ec; border: 2px solid #f48fb1; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-bubble-a { background: #e3f2fd; border: 2px solid #90caf9; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-point { background: #fff9c4; border-left: 4px solid #f9a825; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 12px 0; }
+  .easy-example { background: #e8f5e9; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .easy-steps { background: #e8eaf6; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .easy-steps ol { padding-left: 20px; margin: 8px 0 0; }
+  .mode-btn { position: fixed; top: 16px; right: 16px; z-index: 1000; background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; border: none; border-radius: 24px; padding: 10px 18px; font-size: 0.9em; font-weight: bold; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  body.easy-mode .mode-btn { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="session">第11回 ・ 2026-06-12</div>
-  <h1>ステンレスの5分類（オーステナイト・フェライト・マルテンサイト・二相・析出硬化）</h1>
-  <span class="week">第3週：ステンレスの世界</span>
+  <div class="session">第11回 ・ 2026-06-13</div>
+  <div class="normal-only">
+    <h1>ステンレスの5分類：オーステナイト・フェライト・マルテンサイト・二相・析出硬化</h1>
+  </div>
+  <div class="easy-only">
+    <h1>SUSって5種類あるの知ってた？🤔 それぞれ得意技がまったく違う！</h1>
+  </div>
+  <span class="week">第3週：ステンレス鋼の詳細分類</span>
 </header>
 
 <div class="summary">
-  <h2>今日の3行サマリ</h2>
-  <ul>
-    <li>ステンレスは組成・組織の違いで5系統に分かれ、それぞれ特性・用途が根本的に異なる</li>
-    <li>オーステナイト系（SUS304/316）が最も汎用的で非磁性。フェライト・マルテンサイト系は磁性あり</li>
-    <li>自社製品（熱処理治具・オーステナイト系鋳物）がなぜその鋼種を使うかを理解するための入口になる回</li>
-  </ul>
+  <div class="normal-only">
+    <h2>今日の3行サマリ</h2>
+    <ul>
+      <li>SUSは5系統に分類される。組織（オーステナイト・フェライト・マルテンサイト・二相・析出硬化）で性質が大きく異なる</li>
+      <li>「SUSだから非磁性」は誤解。フェライト系・マルテンサイト系・析出硬化系は磁性体</li>
+      <li>800℃＋H₂S環境では硫化腐食が支配的。SUSの不動態皮膜は酸素のない高温硫化環境には弱い</li>
+    </ul>
+  </div>
+  <div class="easy-only">
+    <h2>🎯 今日わかること 3つ！</h2>
+    <ul>
+      <li>🗂️ SUSは5種類。組織によって磁性・強度・耐食性がぜんぜん違う！</li>
+      <li>🧲 「SUS＝非磁性」は間違い！フェライト系・マルテンサイト系は磁石につく！</li>
+      <li>🌡️ 800℃以上のH₂S（硫化水素）環境はSUSでも腐食する——硫化腐食という特殊なトラブル</li>
+    </ul>
+  </div>
 </div>
 
 <div class="card">
-  <h2>本文</h2>
+  <div class="normal-only">
+    <h2>本文</h2>
 
-  <h3>1. 「ステンレス」は1種類ではない</h3>
-  <p>「ステンレスで作れますか？」と営業から相談が来たとき、正確な返答は「どのステンレスかによる」です。ステンレスとはCr（クロム）を10.5%以上含む耐食鋼の総称であり、組成・組織・製造プロセスによって性質がまったく異なる5つのファミリーに分かれます。5分類の地図を頭に入れておかないと、材質選定の相談に正確に答えることができません。</p>
-  <p>すべてのステンレスに共通するのは「<strong>Cr≧10.5%</strong>」という条件だけです。この閾値が不動態皮膜（表面の保護酸化膜）を安定して形成できる最低限のCr量で、詳しくは第12回で扱います。</p>
+    <h3>ステンレス鋼の5分類一覧</h3>
+    <table>
+      <tr><th>系統</th><th>代表鋼種</th><th>組織</th><th>磁性</th><th>主な特徴</th></tr>
+      <tr><td>オーステナイト系</td><td>SUS304、SUS316、SCS13</td><td>FCC（オーステナイト）</td><td>非磁性（常磁性）</td><td>耐食・溶接性・靭性に優れる。最も広く使用</td></tr>
+      <tr><td>フェライト系</td><td>SUS430、SUS410L</td><td>BCC（フェライト）</td><td>磁性あり</td><td>Niなしで低コスト。耐食はオーステナイト系以下。熱膨張率が低い</td></tr>
+      <tr><td>マルテンサイト系</td><td>SUS410、SUS420J2</td><td>BCC（マルテンサイト）</td><td>磁性あり</td><td>焼入れ可能で高硬度。刃物・ポンプシャフト。耐食はSUS中最低</td></tr>
+      <tr><td>二相系（デュプレックス）</td><td>SUS329J4L、SAF2507</td><td>オーステナイト＋フェライト</td><td>弱磁性</td><td>高強度・高耐孔食性。海水・化学プラント向け</td></tr>
+      <tr><td>析出硬化系</td><td>SUS630（17-4PH）</td><td>マルテンサイト＋析出物</td><td>磁性あり</td><td>時効処理で高強度。航空・医療機器向け。腐食環境には限界あり</td></tr>
+    </table>
 
-  <h3>2. 5分類の概要</h3>
+    <h3>「SUSは非磁性」という誤解</h3>
+    <p>客先や現場から「SUSなのに磁石につく」という問い合わせは多い。実際には5系統のうちフェライト系・マルテンサイト系・析出硬化系は明確に磁性体だ。SUS430（フェライト系）のキッチン用品が磁石でくっつくのはそのためで、品質上の問題ではない。誘導加熱炉の治具や非磁性要求品ではオーステナイト系（SUS304・316・SCS13・SCH22など）を明示して選定する必要がある。</p>
 
-  <table>
-    <tr><th>系統</th><th>代表組成</th><th>組織</th><th>磁性</th><th>代表鋼種</th></tr>
-    <tr><td><strong>オーステナイト系</strong></td><td>18Cr-8Ni</td><td>FCC</td><td>非磁性</td><td>SUS304, 316, 310S</td></tr>
-    <tr><td><strong>フェライト系</strong></td><td>17Cr</td><td>BCC</td><td>磁性あり</td><td>SUS430, 444</td></tr>
-    <tr><td><strong>マルテンサイト系</strong></td><td>13Cr-高C</td><td>BCT</td><td>磁性あり</td><td>SUS410, 420J2</td></tr>
-    <tr><td><strong>二相（デュプレックス）系</strong></td><td>22Cr-5Ni-3Mo</td><td>FCC+BCC</td><td>弱磁性</td><td>SUS329J1</td></tr>
-    <tr><td><strong>析出硬化（PH）系</strong></td><td>17Cr-4Ni-4Cu</td><td>各種</td><td>鋼種による</td><td>SUS630（17-4PH）</td></tr>
-  </table>
+    <h3>ケーススタディ：800℃＋H₂S環境での腐食</h3>
+    <p>石油精製・ガス処理・硫黄回収装置など高温硫化環境では、SUSの不動態皮膜（Cr₂O₃）がH₂Sによって硫化Cr₂S₃に置換され保護能を失う。これを「高温硫化腐食（sulfidation）」と呼ぶ。SUS304・316ではこの環境に耐えられないケースが多い。対策材料としてはNi基合金（Inconel 625・800Hなど）や高Cr-Niアロイが検討される。</p>
+    <p>自社でこの環境向けの製品（反応管・ハンガー・ラジアントチューブ）を受注する際は、単にSUSの番手を上げるだけでは不十分な場合があることを認識しておく。H₂S分圧・温度・使用時間のデータを取り寄せて材料選定の根拠を作る必要がある。</p>
 
-  <p><strong>① オーステナイト系</strong>：Cr 16〜26% + Ni 6〜22%が基本組成。面心立方（FCC）の安定した組織で、常温では非磁性。耐食性・延性・溶接性に優れ、ステンレスの中で最も流通量が多い。熱処理で硬化させることはできないが、加工硬化によって強度を上げることができる。</p>
-
-  <p><strong>② フェライト系</strong>：Cr 11〜30%、Niをほとんど含まない。体心立方（BCC）の組織で磁性あり。オーステナイト系よりコストが低く、Niなしで耐食性を確保。靭性がやや低く、溶接後の粒成長による脆化に注意が必要。</p>
-
-  <p><strong>③ マルテンサイト系</strong>：Cr 12〜18% + Cを比較的多く含む。焼入れによってマルテンサイト変態が起こり硬度化できる唯一のステンレス。刃物・タービンブレード・弁体・軸受に使用。耐食性はオーステナイト・フェライト系より劣る。溶接前の予熱・後熱が必要。</p>
-
-  <p><strong>④ 二相（デュプレックス）系</strong>：オーステナイトとフェライトが約50:50で共存する複合組織。強度がオーステナイト系の約2倍に達し、応力腐食割れ（SCC：塩化物環境で発生する割れ）への耐性が高い。化学プラント・海洋設備で採用されるが、加工・溶接が難しく専門知識が必要。</p>
-
-  <p><strong>⑤ 析出硬化（PH）系</strong>：Al・Ti・Cu・NbなどのPH元素を加え、時効処理（aging）によって微細析出物を形成して高強度化。高強度と耐食性を両立し、航空機構造材・医療機器・高精度シャフトに使用。組織によりマルテンサイト型・半オーステナイト型・オーステナイト型に細分される。</p>
-
-  <h3>3. 自社製品との接点</h3>
-  <p>自社のオーステナイト系ステンレス製品（SUS304・SUS316・SUS310S系）は、延性・成形性・溶接性のバランスが最も優れるため、食品機械・化学装置・熱処理治具用途で標準材として選択されます。</p>
-  <p>熱処理治具では特に高温酸化環境での耐久性が求められるため、Cr/Ni量を高めた耐熱グレード（SUS310S: 25Cr-20Ni）が使われます。同じ「オーステナイト系」でもCr・Ni量が多いほど高温耐性が上がる、というグラデーションがある点も押さえておくと、鋼種選定の相談で即答できます。鋳物製品ではSCS13・SCH22がどちらもオーステナイト系の耐食性・高温特性を鋳造形状で実現したものです。</p>
-</div>
-
-<div class="card">
-  <h2>営業からの相談に効く知識</h2>
-
-  <div class="qa-block">
-    <div class="qa-q">ケース1：「客先が"ステンレスで治具作りたい"って言ってるんだけど、どのステンレスでもいいよね？」</div>
-    <blockquote>全然違います。5種類あって、用途によっては別物です。使用温度・腐食環境・強度要件を確認してください。熱処理治具なら耐熱グレードのオーステナイト系（SUS310S等）が基本。フェライト系やマルテンサイト系では高温での組織変化や耐酸化性不足で寿命が極端に短くなる場合があります。</blockquote>
-    <div class="qa-point">確認すべき3点：①使用温度の上限、②炉内雰囲気（酸化・還元・硫化等）、③繰り返し加熱の頻度<br>営業に渡すキーメッセージ：「ステンレスは5種類あります。温度と雰囲気を教えてもらえればすぐ鋼種が絞れます」</div>
+    <h3>析出硬化系SUS（SUS630）の特徴</h3>
+    <p>SUS630（17Cr-4Ni-4Cu）は固溶化処理後に時効処理（Aging Treatment）を行うことで析出物が生じ、高強度（引張強さ1000MPa超）と一定の耐食性を兼備できる。航空機部品・医療機器・精密機械の軸・スプリングに使用される。ただしCr17%でNiが4%と少ないため、SUS304・316に比べて塩化物環境での耐食性は劣る。磁石にも引き付けられる点を注意。</p>
   </div>
 
-  <div class="qa-block">
-    <div class="qa-q">ケース2：「客先から"磁石がくっつくステンレスってありますか？"と聞かれたらしいんだけど」</div>
-    <blockquote>あります。フェライト系（SUS430）とマルテンサイト系（SUS410など）は磁性あり。用途と耐食性の要件によって選択できます。SUS304（オーステナイト系）は素材状態では非磁性ですが、プレス加工後に加工硬化でマルテンサイト変態が部分的に起きると微磁性を帯びることもあります。</blockquote>
-    <div class="qa-point">「SUSなのに磁石がつく」という問い合わせは加工硬化が原因のケースが多い。材料不良ではないことを説明できると◎</div>
+  <div class="easy-only">
+    <h2>💡 やさしく解説！</h2>
+
+    <h3>🗂️ SUSの5種類——それぞれのキャラクターを知ろう！</h3>
+    <div class="easy-example">
+      <table>
+        <tr><th>タイプ</th><th>代表</th><th>磁石は？</th><th>得意なこと</th></tr>
+        <tr><td>🔵 オーステナイト系</td><td>SUS304・316</td><td>つかない</td><td>耐食・溶接・靭性。一番よく使う！</td></tr>
+        <tr><td>🟢 フェライト系</td><td>SUS430</td><td>つく</td><td>低コスト・低熱膨張。キッチン用品</td></tr>
+        <tr><td>🔴 マルテンサイト系</td><td>SUS410・420</td><td>つく</td><td>焼入れで超硬くなる。刃物・軸</td></tr>
+        <tr><td>🟡 二相系</td><td>SAF2507</td><td>弱くつく</td><td>高強度＋高耐孔食。海水配管</td></tr>
+        <tr><td>🟣 析出硬化系</td><td>SUS630</td><td>つく</td><td>時効処理で超強度。航空・医療</td></tr>
+      </table>
+    </div>
+
+    <h3>🧲 「SUS＝磁石につかない」は誤解！</h3>
+    <div class="easy-point">
+      非磁性なのはオーステナイト系（SUS304・316など）だけ！<br>
+      フェライト系（SUS430）・マルテンサイト系（SUS410）・析出硬化系は磁石につく。<br>
+      「SUSキッチン用品に磁石がくっついた！品質問題？」→ フェライト系なら正常！
+    </div>
+
+    <h3>🌡️ 800℃でH₂S（硫化水素）があるとSUSでも腐食する？</h3>
+    <div class="easy-steps">
+      <p><strong>「高温硫化腐食」という特殊な腐食メカニズム：</strong></p>
+      <ol>
+        <li>通常SUSは表面にCr₂O₃（酸化クロム）の保護皮膜がある</li>
+        <li>でも800℃以上のH₂S（硫化水素）環境では、この皮膜がCr₂S₃（硫化クロム）に変わってしまう</li>
+        <li>Cr₂S₃は保護能がない → 腐食が進む！</li>
+        <li>対策 → Ni基合金（Inconel 625など）に変更が必要</li>
+      </ol>
+    </div>
+    <div class="easy-point">📌 「高温＋H₂S＝SUSでは対応できないかも」という認識を持っておくだけで、受注前に正しい材料確認ができる！</div>
+
+    <h3>💎 析出硬化系SUS（SUS630）——時効処理で強くなる！</h3>
+    <p>固溶化処理（高温でバラバラに溶かす）→ 時効処理（低温で析出させる）の2段階熱処理で、引張強さ1000MPa超の高強度を達成！航空機・医療機器に使われる。<br>ただし磁石につく＆塩化物には弱い点に注意。</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>営業からの相談に効く知識</h2>
+
+    <div class="qa-block">
+      <div class="qa-q">ケース1：「SUS430のシンク用部品が磁石にくっつくと言われたが、品質上問題はないか？」</div>
+      <blockquote>品質上の問題はない。SUS430はフェライト系ステンレスでBCC構造を持ち、強磁性体。磁石につくのは正常な特性。SUS304（オーステナイト系）と異なり、Niを含まないためコストが低く、磁石にはつくが耐食性は十分。ただし使用環境で非磁性が要求される場合はSUS304での再設計が必要。</blockquote>
+      <div class="qa-point">ポイント：「SUS=非磁性」の誤解を解く説明を即座にできるようにしておく。使用環境次第ではSUS304への変更を提案。</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">ケース2：「硫黄回収装置の反応管材料を選んでほしい。使用温度800℃・H₂S雰囲気」</div>
+      <blockquote>800℃＋H₂S環境はSUS系では対応困難な可能性が高い。H₂Sが高温で酸化Crの不動態皮膜を硫化物に変換し腐食が進む「高温硫化腐食」が問題になる。まずH₂S分圧・使用時間・温度変動の範囲を確認してください。一般的にはNi基合金（Alloy 800H・Incoloy 825・Inconel 625など）が候補になる。弊社のSCH22系では使用条件によっては不足する可能性があるため、詳細条件をいただいてから対応可否をお伝えします。</blockquote>
+      <div class="qa-point">ポイント：高温H₂S環境はSUSの「守備範囲外」になる可能性がある。無理に受けるより条件確認→専門的提案の順序を踏む。</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">ケース3：「SUS630（17-4PH）で作ったシャフトが塩水環境でさびてきた。SUSじゃないのか？」</div>
+      <blockquote>SUS630は析出硬化系ステンレス鋼で正真正銘のSUSですが、Cr17%-Ni4%という組成はSUS304（Cr18%-Ni8%）より耐食性が低い。塩化物環境や海水での使用ではSUS316（Cr18%-Ni10%-Mo2%）以上が推奨される。用途が高強度を必要としない場合はSUS316への変更、高強度が必須ならSUS630の表面処理（電解研磨・不動態化処理）の追加を検討してください。</blockquote>
+      <div class="qa-point">ポイント：SUS630は「高強度」に特化した材料。塩化物耐食の観点では304・316に劣る。用途の優先度で判断させる。</div>
+    </div>
+  </div>
+
+  <div class="easy-only">
+    <h2>💬 営業さんとの会話で使える知識</h2>
+
+    <div class="easy-bubble-q">
+      <strong>🗣 営業さん：</strong>「SUS430のシンク部品に磁石がくっついたって言われた。品質問題？」
+    </div>
+    <div class="easy-bubble-a">
+      <strong>🏭 生産管理：</strong>「問題なし！SUS430はフェライト系で磁石につくのが正常。SUS304（オーステナイト系）と混同されてるだけ。フェライト系はNiが入ってないから安くて、さびにくさも十分。ただし"絶対非磁性"が必要な用途ならSUS304への変更を提案してね！」
+    </div>
+
+    <div style="margin-top:20px;">
+      <div class="easy-bubble-q">
+        <strong>🗣 営業さん：</strong>「800℃でH₂S雰囲気の反応管、SUSで大丈夫？」
+      </div>
+      <div class="easy-bubble-a">
+        <strong>🏭 生産管理：</strong>「それはSUSが苦手な条件！800℃＋H₂Sだと不動態皮膜（Cr₂O₃）が硫化クロム（Cr₂S₃）に変わって腐食が進む——"高温硫化腐食"って言う。SUSでは対応できない可能性が高いから、Ni基合金（Alloy 800HやInconel 625）が候補になる。まずH₂S分圧と使用時間を確認してきて！」
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="card vocab">
-  <h2>用語メモ</h2>
-  <dl>
-    <dt>オーステナイト系</dt>
-    <dd>Cr+NiでFCC組織。非磁性・高耐食・高延性。最多流通。SUS304/316/310Sが代表</dd>
-    <dt>フェライト系</dt>
-    <dd>CrのみでBCC組織。磁性あり・Niなしで安価。SUS430が代表</dd>
-    <dt>マルテンサイト系</dt>
-    <dd>Cr+C高め。焼入れで硬化できる唯一のステンレス。磁性あり。SUS410/420が代表</dd>
-    <dt>二相（デュプレックス）系</dt>
-    <dd>オーステナイト+フェライト共存組織。高強度・耐SCC。SUS329J1が代表</dd>
-    <dt>析出硬化（PH）系</dt>
-    <dd>時効処理で高強度化。航空機・精密部品向け。SUS630（17-4PH）が代表</dd>
-  </dl>
+  <div class="normal-only">
+    <h2>用語メモ</h2>
+    <dl>
+      <dt>不動態皮膜</dt>
+      <dd>SUSの表面に自然形成されるCr₂O₃の薄い保護膜。腐食を防ぐ本体。酸素がないと形成されない</dd>
+      <dt>高温硫化腐食（sulfidation）</dt>
+      <dd>高温H₂S環境でCr₂O₃が硫化物に置換され保護能を失う腐食。SUS系の限界環境</dd>
+      <dt>時効処理（aging / precipitation hardening）</dt>
+      <dd>固溶化後に低温で保持し析出物を出して硬化させる熱処理。SUS630で使われる</dd>
+      <dt>二相ステンレス（Duplex SUS）</dt>
+      <dd>オーステナイト＋フェライトの混合組織。高強度・高耐孔食性が特徴</dd>
+      <dt>PREN（孔食耐性指標）</dt>
+      <dd>Cr% + 3.3×Mo% + 16×N%。値が高いほど塩化物環境での耐孔食性が高い</dd>
+    </dl>
+  </div>
+  <div class="easy-only">
+    <h2>📖 今日のことば</h2>
+    <dl>
+      <dt>🛡️ 不動態皮膜（ふどうたいひまく）</dt>
+      <dd>SUSの表面に自然にできる超薄い保護コーティング（Cr₂O₃）。これがさびを防いでいる！</dd>
+      <dt>🌋 高温硫化腐食</dt>
+      <dd>800℃以上のH₂S環境で保護皮膜が壊れる腐食。SUSが苦手な特殊環境</dd>
+      <dt>⏳ 時効処理（じこうしょり）</dt>
+      <dd>加熱して析出物を出し、硬さを上げる熱処理。SUS630（17-4PH）のキモ</dd>
+      <dt>🔀 二相ステンレス（デュプレックスSUS）</dt>
+      <dd>オーステナイト＋フェライトの混合組織。強さと耐孔食性を両立した上位材！</dd>
+    </dl>
+  </div>
 </div>
 
 <div class="card quiz">
-  <h2>今日の小テスト1問</h2>
-  <div class="q-text">問：営業から「お客さんの使用温度は800℃で、炉内に硫化水素ガスがある環境らしい。ステンレスで治具を作れますか？」と丸投げ相談が来た。5分類の知識を使って、可否と推奨鋼種・その理由を生産管理として答えよ。</div>
-  <div class="note">解答は第12回で配信</div>
+  <div class="normal-only">
+    <h2>今日の小テスト1問</h2>
+    <div class="q-text">問：営業から「800℃のH₂S＋CO₂混合雰囲気で使う熱処理炉部品の材料を選んでほしい。現在SCH22（HK40）を使っているが交換サイクルが半年と短い」という相談が来た。SCH22の限界と、次の候補材料（Alloy 800H・HP-Mod系）への変更の要点を答えよ。</div>
+    <div class="note">解答は次回（第12回）配信</div>
+  </div>
+  <div class="easy-only">
+    <h2>🎯 今日のチャレンジ問題！</h2>
+    <div class="q-text">問：「800℃のH₂S＋CO₂環境の炉部品がSCH22で半年しか持たない。次の材料は？」<br>候補：① Alloy 800H（Ni基合金）　② HP-Mod系（高Ni鋳鋼）<br>ヒント：H₂S環境でのSCHの弱点は？Ni基合金が強い理由は何？</div>
+    <div class="note">解答は次回（第12回）配信</div>
+  </div>
 </div>
 
 <footer>
   <a href="index.html">← 目次に戻る</a>
 </footer>
 
+<button class="mode-btn" id="modeBtn" onclick="toggleMode()">🌟 やさしいとくしゅこうで読む</button>
+<script>
+function toggleMode() {
+  const body = document.body;
+  const btn = document.getElementById('modeBtn');
+  if (body.classList.contains('easy-mode')) {
+    body.classList.remove('easy-mode');
+    btn.textContent = '🌟 やさしいとくしゅこうで読む';
+    localStorage.setItem('studyMode', 'normal');
+  } else {
+    body.classList.add('easy-mode');
+    btn.textContent = '📚 通常モードに戻す';
+    localStorage.setItem('studyMode', 'easy');
+  }
+}
+(function() {
+  if (localStorage.getItem('studyMode') === 'easy') {
+    document.body.classList.add('easy-mode');
+    document.getElementById('modeBtn').textContent = '📚 通常モードに戻す';
+  }
+})();
+</script>
 </body>
 </html>

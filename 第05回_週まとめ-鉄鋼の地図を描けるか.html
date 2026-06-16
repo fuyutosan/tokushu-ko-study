@@ -48,117 +48,279 @@
   footer a:hover { background: #2d6a9f; color: white; }
   strong { color: #1a3a5c; }
   .week-badge { display: inline-block; background: #1a3a5c; color: white; font-size: 0.8em; padding: 3px 10px; border-radius: 10px; margin-bottom: 14px; }
+  /* ===== Easy Mode ===== */
+  .easy-only { display: none; }
+  .normal-only { display: block; }
+  body.easy-mode .easy-only { display: block; }
+  body.easy-mode .normal-only { display: none; }
+  body.easy-mode { background: linear-gradient(160deg, #fff9f0 0%, #f0f4ff 100%); font-size: 16px; }
+  body.easy-mode header { background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; }
+  body.easy-mode .card { border-top: 5px solid #ce93d8; }
+  body.easy-mode h2 { color: #6a1b9a; border-color: #ce93d8; }
+  body.easy-mode h3 { color: #e65100; }
+  body.easy-mode .summary { background: #fce4ec; border-left-color: #f48fb1; }
+  body.easy-mode .summary h2 { color: #c2185b; }
+  .easy-bubble-q { background: #fce4ec; border: 2px solid #f48fb1; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-bubble-a { background: #e3f2fd; border: 2px solid #90caf9; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-point { background: #fff9c4; border-left: 4px solid #f9a825; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 12px 0; }
+  .easy-example { background: #e8f5e9; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .easy-steps { background: #e8eaf6; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .easy-steps ol { padding-left: 20px; margin: 8px 0 0; }
+  .mode-btn { position: fixed; top: 16px; right: 16px; z-index: 1000; background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; border: none; border-radius: 24px; padding: 10px 18px; font-size: 0.9em; font-weight: bold; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  body.easy-mode .mode-btn { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; }
 </style>
 </head>
 <body>
 
 <header>
   <div class="session">第05回（週まとめ） ・ 2026-06-11</div>
-  <h1>週まとめ：鉄鋼の地図を描けるか</h1>
+  <div class="normal-only">
+    <h1>週まとめ：鉄鋼の地図を描けるか</h1>
+  </div>
+  <div class="easy-only">
+    <h1>第1週まるごとおさらい！📚 鉄鋼の地図を完成させよう</h1>
+  </div>
   <span class="week">第1週：鉄鋼・特殊鋼の全体像</span>
 </header>
 
 <div class="summary">
-  <h2>今日の3行サマリ</h2>
-  <ul>
-    <li>第1週で「鉄の分類→JIS記号→状態図→組織と性質」という鉄鋼の地図の骨格を一通り押さえた</li>
-    <li>4回の知識は独立していない。炭素量が組織を決め、組織が性質を決め、性質が材料選定を決める一本の流れとして繋がっている</li>
-    <li>営業からの丸投げ相談に「炭素量・組織・使用環境」の3点を軸に返せるようになれば第1週の目標達成</li>
-  </ul>
+  <div class="normal-only">
+    <h2>今日の3行サマリ</h2>
+    <ul>
+      <li>第1週で「鉄の分類→JIS記号→状態図→組織と性質」という鉄鋼の地図の骨格を一通り押さえた</li>
+      <li>4回の知識は独立していない。炭素量が組織を決め、組織が性質を決め、性質が材料選定を決める一本の流れとして繋がっている</li>
+      <li>営業からの丸投げ相談に「炭素量・組織・使用環境」の3点を軸に返せるようになれば第1週の目標達成</li>
+    </ul>
+  </div>
+  <div class="easy-only">
+    <h2>🎯 今週のまとめポイント 3つ！</h2>
+    <ul>
+      <li>🗺️ 今週は「鉄の種類→名前のルール→組織の変化→強さの関係」という地図の骨格を作った</li>
+      <li>🔗 この4つはバラバラじゃない！炭素量→組織→性質→材料選定というひとつながりの流れ</li>
+      <li>💬 営業の相談に「炭素量・組織・使用環境」の3点で答えられたら今週の目標クリア！</li>
+    </ul>
+  </div>
 </div>
 
 <div class="card">
-  <h2>今週学んだ4本の要点まとめ</h2>
+  <div class="normal-only">
+    <h2>今週学んだ4本の要点まとめ</h2>
 
-  <div class="week-badge">第1回：鉄とは何か</div>
-  <h3>純鉄・鋼・鋳鉄の境界</h3>
-  <table>
-    <tr><th>分類</th><th>炭素量</th><th>代表材料</th></tr>
-    <tr><td>純鉄</td><td>〜0.02%</td><td>実用品ほぼなし</td></tr>
-    <tr><td>鋼</td><td>0.02〜2.14%</td><td>S45C、SUS304、SCH22</td></tr>
-    <tr><td>鋳鉄</td><td>2.14〜6.67%</td><td>FC250、FCD450</td></tr>
-  </table>
-  <p>炭素量が多いほど硬くなるが脆くなる。「鋼か鋳鉄か」の境界2.14%は、状態図上でセメンタイトが連続析出し始めるポイントだ。</p>
+    <div class="week-badge">第1回：鉄とは何か</div>
+    <h3>純鉄・鋼・鋳鉄の境界</h3>
+    <table>
+      <tr><th>分類</th><th>炭素量</th><th>代表材料</th></tr>
+      <tr><td>純鉄</td><td>〜0.02%</td><td>実用品ほぼなし</td></tr>
+      <tr><td>鋼</td><td>0.02〜2.14%</td><td>S45C、SUS304、SCH22</td></tr>
+      <tr><td>鋳鉄</td><td>2.14〜6.67%</td><td>FC250、FCD450</td></tr>
+    </table>
+    <p>炭素量が多いほど硬くなるが脆くなる。「鋼か鋳鉄か」の境界2.14%は、状態図上でセメンタイトが連続析出し始めるポイントだ。</p>
 
-  <div class="week-badge">第2回：普通鋼と特殊鋼</div>
-  <h3>JIS分類の地図</h3>
-  <table>
-    <tr><th>記号</th><th>分類</th><th>代表例</th></tr>
-    <tr><td>S＋数字＋C</td><td>機械構造用炭素鋼</td><td>S45C</td></tr>
-    <tr><td>SUS</td><td>ステンレス鋼</td><td>SUS304・316</td></tr>
-    <tr><td>SCH</td><td>耐熱鋳鋼</td><td>SCH22</td></tr>
-    <tr><td>SCS</td><td>ステンレス鋳鋼</td><td>SCS13</td></tr>
-  </table>
-  <p>特殊鋼は「目的の機能（耐食・耐熱・高強度）を付加した鋼」。自社製品のほぼ全てが特殊鋼の範疇に入る。</p>
+    <div class="week-badge">第2回：普通鋼と特殊鋼</div>
+    <h3>JIS分類の地図</h3>
+    <table>
+      <tr><th>記号</th><th>分類</th><th>代表例</th></tr>
+      <tr><td>S＋数字＋C</td><td>機械構造用炭素鋼</td><td>S45C</td></tr>
+      <tr><td>SUS</td><td>ステンレス鋼</td><td>SUS304・316</td></tr>
+      <tr><td>SCH</td><td>耐熱鋳鋼</td><td>SCH22</td></tr>
+      <tr><td>SCS</td><td>ステンレス鋳鋼</td><td>SCS13</td></tr>
+    </table>
+    <p>特殊鋼は「目的の機能（耐食・耐熱・高強度）を付加した鋼」。自社製品のほぼ全てが特殊鋼の範疇に入る。</p>
 
-  <div class="week-badge">第3回：鉄-炭素状態図</div>
-  <h3>組織の地図（縦軸=温度・横軸=炭素量）</h3>
-  <table>
-    <tr><th>組織</th><th>生成条件</th><th>性質の要点</th></tr>
-    <tr><td>オーステナイト</td><td>A1変態点（723℃）以上</td><td>軟らかく加工しやすい。炭素を多く固溶できる</td></tr>
-    <tr><td>フェライト</td><td>低温・低炭素側</td><td>延性・靭性高。強度低</td></tr>
-    <tr><td>パーライト</td><td>共析冷却後（炭素0.77%付近）</td><td>強度・延性のバランス型</td></tr>
-    <tr><td>セメンタイト</td><td>炭素過剰域</td><td>硬いが脆い</td></tr>
-    <tr><td>マルテンサイト</td><td>急冷（焼入れ）後</td><td>非常に硬いが脆い。焼戻しで実用化</td></tr>
-  </table>
-  <p>自社治具（SCH22）は常温でもオーステナイトを維持する。Cr・Ni多量添加でA1変態点が下がっているため。</p>
+    <div class="week-badge">第3回：鉄-炭素状態図</div>
+    <h3>組織の地図（縦軸=温度・横軸=炭素量）</h3>
+    <table>
+      <tr><th>組織</th><th>生成条件</th><th>性質の要点</th></tr>
+      <tr><td>オーステナイト</td><td>A1変態点（723℃）以上</td><td>軟らかく加工しやすい。炭素を多く固溶できる</td></tr>
+      <tr><td>フェライト</td><td>低温・低炭素側</td><td>延性・靭性高。強度低</td></tr>
+      <tr><td>パーライト</td><td>共析冷却後（炭素0.77%付近）</td><td>強度・延性のバランス型</td></tr>
+      <tr><td>セメンタイト</td><td>炭素過剰域</td><td>硬いが脆い</td></tr>
+      <tr><td>マルテンサイト</td><td>急冷（焼入れ）後</td><td>非常に硬いが脆い。焼戻しで実用化</td></tr>
+    </table>
+    <p>自社治具（SCH22）は常温でもオーステナイトを維持する。Cr・Ni多量添加でA1変態点が下がっているため。</p>
 
-  <div class="week-badge">第4回：組織と機械的性質</div>
-  <h3>「硬い＝強い」は誤解</h3>
-  <table>
-    <tr><th>指標</th><th>高い組織</th><th>低い組織</th></tr>
-    <tr><td>硬さ</td><td>マルテンサイト、セメンタイト</td><td>フェライト、オーステナイト</td></tr>
-    <tr><td>引張強さ</td><td>マルテンサイト焼戻し、微細パーライト</td><td>フェライト</td></tr>
-    <tr><td>靭性</td><td>オーステナイト、焼戻しマルテンサイト</td><td>生マルテンサイト、セメンタイト</td></tr>
-    <tr><td>延性</td><td>フェライト、オーステナイト</td><td>セメンタイト、白鋳鉄</td></tr>
-  </table>
-  <p>FC材が衝撃に弱い理由は黒鉛が応力集中点になるから。SUS304が低温でも割れにくい理由はFCC構造が低温脆性を示さないから。</p>
+    <div class="week-badge">第4回：組織と機械的性質</div>
+    <h3>「硬い＝強い」は誤解</h3>
+    <table>
+      <tr><th>指標</th><th>高い組織</th><th>低い組織</th></tr>
+      <tr><td>硬さ</td><td>マルテンサイト、セメンタイト</td><td>フェライト、オーステナイト</td></tr>
+      <tr><td>引張強さ</td><td>マルテンサイト焼戻し、微細パーライト</td><td>フェライト</td></tr>
+      <tr><td>靭性</td><td>オーステナイト、焼戻しマルテンサイト</td><td>生マルテンサイト、セメンタイト</td></tr>
+      <tr><td>延性</td><td>フェライト、オーステナイト</td><td>セメンタイト、白鋳鉄</td></tr>
+    </table>
+    <p>FC材が衝撃に弱い理由は黒鉛が応力集中点になるから。SUS304が低温でも割れにくい理由はFCC構造が低温脆性を示さないから。</p>
+  </div>
+
+  <div class="easy-only">
+    <h2>📚 今週の4回を一気におさらい！</h2>
+
+    <h3>🔩 第1回：鉄は3種類に分かれる</h3>
+    <div class="easy-example">
+      <table>
+        <tr><th>名前</th><th>炭素の量</th><th>ひとことで</th></tr>
+        <tr><td>純鉄</td><td>ほぼゼロ</td><td>やわらかすぎて使えない</td></tr>
+        <tr><td>鋼（はがね）</td><td>0.02〜2.14%</td><td>熱処理で強さを変えられる！</td></tr>
+        <tr><td>鋳鉄（ちゅうてつ）</td><td>2.14%超</td><td>型に流せるが割れやすい</td></tr>
+      </table>
+    </div>
+
+    <h3>📋 第2回：JIS記号——鉄の名前のルール</h3>
+    <div class="easy-example">
+      <p>頭文字で仲間がわかる！</p>
+      <ul>
+        <li>S45C → 炭素量0.45%の機械用鋼（普通鋼）</li>
+        <li>SUS304 → ステンレス鋼（さびにくい特殊鋼）</li>
+        <li>SCH22 → 耐熱鋳鋼（炉の中で使える特殊鋼）</li>
+      </ul>
+    </div>
+
+    <h3>🌡️ 第3回：温度と炭素量で「組織」が変わる</h3>
+    <div class="easy-example">
+      <table>
+        <tr><th>組織</th><th>特徴</th></tr>
+        <tr><td>🟡 フェライト</td><td>やわらかく延びやすい</td></tr>
+        <tr><td>🟠 パーライト</td><td>強さとやわらかさのバランス</td></tr>
+        <tr><td>⚡ マルテンサイト</td><td>焼入れでできる超硬組織（脆い）</td></tr>
+        <tr><td>🔵 オーステナイト</td><td>SUSや治具の組織。粘り強く安定</td></tr>
+      </table>
+    </div>
+
+    <h3>💪 第4回：「硬い＝強い」は誤解！</h3>
+    <div class="easy-example">
+      <p>硬さ ↑ になると → 靭性（粘り）↓ になる！</p>
+      <p>衝撃に強い材料がほしい → 「粘り強い（靭性が高い）」素材を選ぶ<br>
+      具体的には → オーステナイト系SUS（304・316）または焼入れ焼戻し品</p>
+    </div>
+
+    <div class="easy-point">🔗 まとめの流れ：炭素量 → 組織 → 性質 → 材料選定<br>
+    この一本の流れで考えると、営業の相談に答えやすくなる！</div>
+  </div>
 </div>
 
 <div class="card">
-  <h2>第1週全体の振り返り（営業相談への応用）</h2>
-  <div class="qa-block">
-    <div class="qa-q">Q：今週学んだ知識を使って「S45C製治具→SUS316への変更提案」をどう説明するか？</div>
-    <blockquote>S45Cは炭素量0.45%の機械構造用炭素鋼（普通鋼）。Crを含まないため耐食性が低く、繰り返し加熱するとA1変態点（723℃）を超えて相変態が起き、寸法が安定しない。発錆も早く治具が製品品質に影響する。<br><br>
-    SUS316はオーステナイト系SUS（Cr18%・Ni10%・Mo2%）で常温でオーステナイト組織を維持。相変態なし・高耐食性・高靭性の3点で治具用途に適する。Mo添加で塩素系薬液への耐食性も強化。</blockquote>
-    <div class="qa-point">営業へのトーン：「S45Cは治具には普通鋼すぎる。SUS316なら相変態なし・錆なし・靭性高で3課題が一気に解決。コスト増でも治具交換頻度が下がれば実質コストで有利になる場合も多い。見積ベースはSUS316で出す。」</div>
+  <div class="normal-only">
+    <h2>第1週全体の振り返り（営業相談への応用）</h2>
+    <div class="qa-block">
+      <div class="qa-q">Q：今週学んだ知識を使って「S45C製治具→SUS316への変更提案」をどう説明するか？</div>
+      <blockquote>S45Cは炭素量0.45%の機械構造用炭素鋼（普通鋼）。Crを含まないため耐食性が低く、繰り返し加熱するとA1変態点（723℃）を超えて相変態が起き、寸法が安定しない。発錆も早く治具が製品品質に影響する。<br><br>
+      SUS316はオーステナイト系SUS（Cr18%・Ni10%・Mo2%）で常温でオーステナイト組織を維持。相変態なし・高耐食性・高靭性の3点で治具用途に適する。Mo添加で塩素系薬液への耐食性も強化。</blockquote>
+      <div class="qa-point">営業へのトーン：「S45Cは治具には普通鋼すぎる。SUS316なら相変態なし・錆なし・靭性高で3課題が一気に解決。コスト増でも治具交換頻度が下がれば実質コストで有利になる場合も多い。見積ベースはSUS316で出す。」</div>
+    </div>
+  </div>
+
+  <div class="easy-only">
+    <h2>💬 今週の知識を使った会話例</h2>
+    <div class="easy-bubble-q">
+      <strong>🗣 営業さん：</strong>「S45Cで作ってた治具をSUS316に変えたい。でも客先が"なぜ変えるの？"って聞いてくる。どう説明すればいい？」
+    </div>
+    <div class="easy-bubble-a">
+      <strong>🏭 生産管理：</strong>「S45Cは普通鋼だから2つの弱点がある：①クロムが入ってないのでさびやすい、②繰り返し熱するとA1変態点を超えて組織が変わって寸法が狂う。<br>SUS316はオーステナイト系で常温から組織が安定していて、さびない＋変形しない＋粘り強いの3点セット。Moも入ってるから薬液にも強い。コストは上がるけど治具の交換頻度が減って、トータルで得することも多い！」
+    </div>
+    <div class="easy-point">📌 第1週のまとめ実践例：炭素量→組織→性質→選材の流れで答えると説得力が上がる！</div>
   </div>
 </div>
 
 <div class="card answer">
-  <h2>昨日の小テスト解答</h2>
-  <div class="q-restate">問：営業から「客先が熱処理後の部品（S45C、焼入れ焼戻し品）に"もっと硬くしてほしい"と言っているけど、現在HRC40、要求はHRC55。これは可能？やるとしたらどうすれば良いか？リスクも含めて教えて」という相談が来た。S45Cの硬さの限界と、HRC55を達成するための方向性、その際のリスクをどう返すか。</div>
-  <p>S45Cの炭素量0.45%での理論上の最大硬さはHRC約55〜58が上限だが、実際の焼入れ品で表面HRC55前後が限界に近い。現在HRC40なら焼入れ条件（温度・冷媒・焼戻し温度）の最適化でHRC55に近づける可能性はある。ただし3点のリスクがある。</p>
-  <p><strong>①焼割れリスクの増大</strong>：焼戻し温度を下げてHRCを上げると、マルテンサイトが硬くなりすぎて内部応力に耐えられず割れやすくなる。角部・段付き・穴のある形状は特に要注意。</p>
-  <p><strong>②靭性の著しい低下</strong>：HRC55付近では靭性が大きく落ちる。衝撃荷重・繰り返し荷重がある用途では折損リスクが高まる。</p>
-  <p><strong>③鋼種変更が現実的な選択肢</strong>：S45Cで無理に硬さを出すより、高炭素鋼（SK材）や合金鋼（SCM440など）への変更のほうが工程が安定する。</p>
-  <div class="key-msg">営業へのトーン：「S45CでHRC55は出せなくはないが、割れリスクと靭性低下が伴う。"なぜHRC55が必要か（耐摩耗？）"を確認してほしい。耐摩耗目的なら高炭素鋼か表面処理（浸炭・窒化）のほうが現実的。条件確認してから最適案を提示する。」</div>
+  <div class="normal-only">
+    <h2>昨日の小テスト解答</h2>
+    <div class="q-restate">問：営業から「客先が熱処理後の部品（S45C、焼入れ焼戻し品）に"もっと硬くしてほしい"と言っているけど、現在HRC40、要求はHRC55。これは可能？やるとしたらどうすれば良いか？リスクも含めて教えて」という相談が来た。S45Cの硬さの限界と、HRC55を達成するための方向性、その際のリスクをどう返すか。</div>
+    <p>S45Cの炭素量0.45%での理論上の最大硬さはHRC約55〜58が上限だが、実際の焼入れ品で表面HRC55前後が限界に近い。現在HRC40なら焼入れ条件（温度・冷媒・焼戻し温度）の最適化でHRC55に近づける可能性はある。ただし3点のリスクがある。</p>
+    <p><strong>①焼割れリスクの増大</strong>：焼戻し温度を下げてHRCを上げると、マルテンサイトが硬くなりすぎて内部応力に耐えられず割れやすくなる。角部・段付き・穴のある形状は特に要注意。</p>
+    <p><strong>②靭性の著しい低下</strong>：HRC55付近では靭性が大きく落ちる。衝撃荷重・繰り返し荷重がある用途では折損リスクが高まる。</p>
+    <p><strong>③鋼種変更が現実的な選択肢</strong>：S45Cで無理に硬さを出すより、高炭素鋼（SK材）や合金鋼（SCM440など）への変更のほうが工程が安定する。</p>
+    <div class="key-msg">営業へのトーン：「S45CでHRC55は出せなくはないが、割れリスクと靭性低下が伴う。"なぜHRC55が必要か（耐摩耗？）"を確認してほしい。耐摩耗目的なら高炭素鋼か表面処理（浸炭・窒化）のほうが現実的。条件確認してから最適案を提示する。」</div>
+  </div>
+  <div class="easy-only">
+    <h2>📝 昨日のチャレンジ問題の答え</h2>
+    <div class="easy-bubble-q">
+      <strong>昨日の問題：</strong>「S45C部品をHRC40からHRC55に硬くしてほしい。できる？リスクは？」
+    </div>
+    <div class="easy-bubble-a">
+      <strong>答え：</strong> 理論上はできるけど、リスクが3つある！<br>
+      ① 硬くすると割れやすくなる（焼割れリスク増大）<br>
+      ② 粘り強さが大幅に下がる（靭性低下）<br>
+      ③ 実は鋼種を変えた方が安全で安定する
+    </div>
+    <div class="easy-steps">
+      <p><strong>営業への返し方：</strong></p>
+      <ol>
+        <li>「なぜHRC55が必要か？（耐摩耗？耐傷？）」を確認してきてもらう</li>
+        <li>耐摩耗が目的なら→高炭素鋼（SK材）か表面処理（浸炭・窒化）の方が向いてる</li>
+        <li>条件を確認してから最適案を提示！</li>
+      </ol>
+    </div>
+  </div>
 </div>
 
 <div class="card quiz">
-  <h2>今週の確認テスト3問</h2>
+  <div class="normal-only">
+    <h2>今週の確認テスト3問</h2>
 
-  <div class="q-item">
-    <div class="q-num">問1</div>
-    <div class="q-text">炭素量2.14%超の鉄合金を一般に何と呼ぶか。また、その代表的な組織上の特徴（炭素の存在形態）を一言で述べよ。</div>
+    <div class="q-item">
+      <div class="q-num">問1</div>
+      <div class="q-text">炭素量2.14%超の鉄合金を一般に何と呼ぶか。また、その代表的な組織上の特徴（炭素の存在形態）を一言で述べよ。</div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-num">問2</div>
+      <div class="q-text">SUS304が熱処理治具に向かない主な理由を「組織」と「高温強度」の観点から答えよ。（ヒント：SCH22との比較で考えると整理しやすい）</div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-num">問3</div>
+      <div class="q-text">営業から「ダクタイル鋳鉄（FCD）とねずみ鋳鉄（FC）、どっちが衝撃に強いの？」と聞かれた。黒鉛の形状の違いをもとに答えよ。</div>
+    </div>
+
+    <div class="note">解答は第2週第1回（第6回）配信時に掲載</div>
   </div>
 
-  <div class="q-item">
-    <div class="q-num">問2</div>
-    <div class="q-text">SUS304が熱処理治具に向かない主な理由を「組織」と「高温強度」の観点から答えよ。（ヒント：SCH22との比較で考えると整理しやすい）</div>
-  </div>
+  <div class="easy-only">
+    <h2>🎯 今週の確認テスト3問！</h2>
 
-  <div class="q-item">
-    <div class="q-num">問3</div>
-    <div class="q-text">営業から「ダクタイル鋳鉄（FCD）とねずみ鋳鉄（FC）、どっちが衝撃に強いの？」と聞かれた。黒鉛の形状の違いをもとに答えよ。</div>
-  </div>
+    <div class="q-item">
+      <div class="q-num">問1</div>
+      <div class="q-text">炭素量が2.14%を超える鉄合金を何と呼ぶ？また、その中の炭素はどんな形で存在している？（ヒント：今週の第1・3回を思い出して！）</div>
+    </div>
 
-  <div class="note">解答は第2週第1回（第6回）配信時に掲載</div>
+    <div class="q-item">
+      <div class="q-num">問2</div>
+      <div class="q-text">SUS304を炉内の治具に使うのはなぜ向かないの？SCH22と比べて何が違う？（ヒント：Crの量とNiの量を比べてみよう！）</div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-num">問3</div>
+      <div class="q-text">ダクタイル鋳鉄（FCD）とねずみ鋳鉄（FC）のどちらが衝撃に強い？黒鉛の「形の違い」で説明してみよう！（ヒント：丸い形と細長い形——どっちが応力集中しやすい？）</div>
+    </div>
+
+    <div class="note">解答は来週月曜（第6回）で発表！</div>
+  </div>
 </div>
 
 <footer>
   <a href="index.html">← 目次に戻る</a>
 </footer>
 
+<button class="mode-btn" id="modeBtn" onclick="toggleMode()">🌟 やさしいとくしゅこうで読む</button>
+<script>
+function toggleMode() {
+  const body = document.body;
+  const btn = document.getElementById('modeBtn');
+  if (body.classList.contains('easy-mode')) {
+    body.classList.remove('easy-mode');
+    btn.textContent = '🌟 やさしいとくしゅこうで読む';
+    localStorage.setItem('studyMode', 'normal');
+  } else {
+    body.classList.add('easy-mode');
+    btn.textContent = '📚 通常モードに戻す';
+    localStorage.setItem('studyMode', 'easy');
+  }
+}
+(function() {
+  if (localStorage.getItem('studyMode') === 'easy') {
+    document.body.classList.add('easy-mode');
+    document.getElementById('modeBtn').textContent = '📚 通常モードに戻す';
+  }
+})();
+</script>
 </body>
 </html>

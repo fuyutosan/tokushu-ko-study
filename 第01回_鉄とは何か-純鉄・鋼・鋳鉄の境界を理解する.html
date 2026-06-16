@@ -40,99 +40,257 @@
   footer a { color: #2d6a9f; text-decoration: none; padding: 8px 20px; border: 1px solid #2d6a9f; border-radius: 5px; font-size: 0.9em; }
   footer a:hover { background: #2d6a9f; color: white; }
   strong { color: #1a3a5c; }
+  /* ===== Easy Mode ===== */
+  .easy-only { display: none; }
+  .normal-only { display: block; }
+  body.easy-mode .easy-only { display: block; }
+  body.easy-mode .normal-only { display: none; }
+  body.easy-mode { background: linear-gradient(160deg, #fff9f0 0%, #f0f4ff 100%); font-size: 16px; }
+  body.easy-mode header { background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; }
+  body.easy-mode .card { border-top: 5px solid #ce93d8; }
+  body.easy-mode h2 { color: #6a1b9a; border-color: #ce93d8; }
+  body.easy-mode h3 { color: #e65100; }
+  body.easy-mode .summary { background: #fce4ec; border-left-color: #f48fb1; }
+  body.easy-mode .summary h2 { color: #c2185b; }
+  .easy-bubble-q { background: #fce4ec; border: 2px solid #f48fb1; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-bubble-a { background: #e3f2fd; border: 2px solid #90caf9; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-point { background: #fff9c4; border-left: 4px solid #f9a825; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 12px 0; }
+  .easy-example { background: #e8f5e9; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .easy-steps { background: #e8eaf6; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .easy-steps ol { padding-left: 20px; margin: 8px 0 0; }
+  .mode-btn { position: fixed; top: 16px; right: 16px; z-index: 1000; background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; border: none; border-radius: 24px; padding: 10px 18px; font-size: 0.9em; font-weight: bold; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  body.easy-mode .mode-btn { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; }
 </style>
 </head>
 <body>
 
 <header>
   <div class="session">第01回 ・ 2026-06-11</div>
-  <h1>鉄とは何か：純鉄・鋼・鋳鉄の境界を理解する</h1>
+  <div class="normal-only">
+    <h1>鉄とは何か：純鉄・鋼・鋳鉄の境界を理解する</h1>
+  </div>
+  <div class="easy-only">
+    <h1>鉄って何種類あるの？🔩 炭素の量で大変身！</h1>
+  </div>
   <span class="week">第1週：鉄鋼・特殊鋼の全体像</span>
 </header>
 
 <div class="summary">
-  <h2>今日の3行サマリ</h2>
-  <ul>
-    <li>鉄は炭素量によって「純鉄」「鋼」「鋳鉄」の3種類に大別され、性質が大きく変わる</li>
-    <li>鋼（炭素量0.02〜2.14%）は熱処理で強さと粘りを自在に調整できる材料</li>
-    <li>特殊鋼は鋼にさらに合金元素を加えることで、普通鋼にない機能を持たせたもの</li>
-  </ul>
+  <div class="normal-only">
+    <h2>今日の3行サマリ</h2>
+    <ul>
+      <li>鉄は炭素量によって「純鉄」「鋼」「鋳鉄」の3種類に大別され、性質が大きく変わる</li>
+      <li>鋼（炭素量0.02〜2.14%）は熱処理で強さと粘りを自在に調整できる材料</li>
+      <li>特殊鋼は鋼にさらに合金元素を加えることで、普通鋼にない機能を持たせたもの</li>
+    </ul>
+  </div>
+  <div class="easy-only">
+    <h2>🎯 今日わかること 3つ！</h2>
+    <ul>
+      <li>🔩 鉄は「炭素（すみ）の量」で3種類に分かれる——純鉄・鋼（はがね）・鋳鉄（ちゅうてつ）</li>
+      <li>🔥 鋼は熱の加え方を変えるだけで硬さが変わる「変身できる素材」</li>
+      <li>⭐ 特殊鋼はクロムやニッケルを混ぜた「スペック強化版の鋼」</li>
+    </ul>
+  </div>
 </div>
 
 <div class="card">
-  <h2>本文</h2>
+  <div class="normal-only">
+    <h2>本文</h2>
 
-  <h3>鉄は「炭素量」で顔が変わる</h3>
-  <p>鉄（Fe）単体は実は柔らかくて脆い金属だ。純粋な鉄（純鉄）は炭素をほとんど含まない（0.02%未満）が、工業的に使われることはほとんどない。実際に構造物や機械に使われる鉄鋼材料は、ほぼすべて炭素（C）が微量から数%混ざった合金である。</p>
-  <p>この炭素量の違いが、材料の名前と性質を決定づける。</p>
+    <h3>鉄は「炭素量」で顔が変わる</h3>
+    <p>鉄（Fe）単体は実は柔らかくて脆い金属だ。純粋な鉄（純鉄）は炭素をほとんど含まない（0.02%未満）が、工業的に使われることはほとんどない。実際に構造物や機械に使われる鉄鋼材料は、ほぼすべて炭素（C）が微量から数%混ざった合金である。</p>
+    <p>この炭素量の違いが、材料の名前と性質を決定づける。</p>
 
-  <table>
-    <tr><th>名称</th><th>炭素量</th><th>主な特徴</th></tr>
-    <tr><td>純鉄</td><td>＜0.02%</td><td>柔らかい。工業用途はほぼなし</td></tr>
-    <tr><td>鋼（こう）</td><td>0.02〜2.14%</td><td>強度と延性のバランス。熱処理で調整可</td></tr>
-    <tr><td>鋳鉄（ちゅうてつ）</td><td>＞2.14%</td><td>溶融点が低く流動性が高い。複雑形状に向く。脆い</td></tr>
-  </table>
+    <table>
+      <tr><th>名称</th><th>炭素量</th><th>主な特徴</th></tr>
+      <tr><td>純鉄</td><td>＜0.02%</td><td>柔らかい。工業用途はほぼなし</td></tr>
+      <tr><td>鋼（こう）</td><td>0.02〜2.14%</td><td>強度と延性のバランス。熱処理で調整可</td></tr>
+      <tr><td>鋳鉄（ちゅうてつ）</td><td>＞2.14%</td><td>溶融点が低く流動性が高い。複雑形状に向く。脆い</td></tr>
+    </table>
 
-  <h3>鋼の強みは「熱処理で変えられる」こと</h3>
-  <p>鋼の最大の魅力は、加熱と冷却のパターン（熱処理）によって組織を変え、強度・硬さ・粘り（靭性）を使途に合わせて変えられる点だ。炭素量0.45%の中炭素鋼を例にとると、焼入れして急冷すれば硬くて強くなり、そこから再加熱（焼戻し）すれば粘りが回復する。この調整幅こそが鋼を汎用材料の王にしている理由だ。</p>
-  <p>自社が扱う<strong>熱処理治具</strong>は、この熱処理工程でワーク（被熱処理品）を保持する道具そのものだ。治具は炉の中に繰り返し入るため、鋼どころか通常の鋳鉄では高温で変形・酸化してしまう。だから治具には耐熱合金が使われる。</p>
+    <h3>鋼の強みは「熱処理で変えられる」こと</h3>
+    <p>鋼の最大の魅力は、加熱と冷却のパターン（熱処理）によって組織を変え、強度・硬さ・粘り（靭性）を使途に合わせて変えられる点だ。炭素量0.45%の中炭素鋼を例にとると、焼入れして急冷すれば硬くて強くなり、そこから再加熱（焼戻し）すれば粘りが回復する。この調整幅こそが鋼を汎用材料の王にしている理由だ。</p>
+    <p>自社が扱う<strong>熱処理治具</strong>は、この熱処理工程でワーク（被熱処理品）を保持する道具そのものだ。治具は炉の中に繰り返し入るため、鋼どころか通常の鋳鉄では高温で変形・酸化してしまう。だから治具には耐熱合金が使われる。</p>
 
-  <h3>鋳鉄は「形が作りやすい」材料</h3>
-  <p>鋳鉄は炭素が2.14%を超える。炭素が多いほど融点（溶ける温度）が下がり、溶けた鉄が型の隅々まで流れやすくなる。これが鋳造（ちゅうぞう：溶かして型に流し込む工法）に向く理由だ。自社製品の<strong>鋳物（鋳鋼・ステンレス鋳鋼）</strong>はまさにこの性質を活かして複雑形状を作っている。</p>
-  <p>ただし鋳鉄は炭素が多い分、折れやすい（脆性が高い）。引張力には弱く、衝撃荷重がかかる部品には使えない。後日学ぶダクタイル鋳鉄（球状黒鉛鋳鉄）はこの脆さを改良したものだが、それは第5週のテーマだ。</p>
+    <h3>鋳鉄は「形が作りやすい」材料</h3>
+    <p>鋳鉄は炭素が2.14%を超える。炭素が多いほど融点（溶ける温度）が下がり、溶けた鉄が型の隅々まで流れやすくなる。これが鋳造（ちゅうぞう：溶かして型に流し込む工法）に向く理由だ。自社製品の<strong>鋳物（鋳鋼・ステンレス鋳鋼）</strong>はまさにこの性質を活かして複雑形状を作っている。</p>
+    <p>ただし鋳鉄は炭素が多い分、折れやすい（脆性が高い）。引張力には弱く、衝撃荷重がかかる部品には使えない。後日学ぶダクタイル鋳鉄（球状黒鉛鋳鉄）はこの脆さを改良したものだが、それは第5週のテーマだ。</p>
 
-  <h3>「特殊鋼」はどこが違うのか</h3>
-  <p>普通鋼（炭素鋼）は炭素量で特性を調整する。これに対して<strong>特殊鋼</strong>は、クロム・ニッケル・モリブデンなどの合金元素を加えて、普通鋼では出せない特性（耐食性・高温強度・耐摩耗性など）を持たせた鋼だ。</p>
-  <p>自社が扱うオーステナイト系ステンレスはその代表格。クロムとニッケルを大量に添加することで、腐食環境や高温でも強度を保つ。熱処理治具に耐熱合金を使うのも、普通鋼では1000℃超の炉内で使えないからだ。</p>
-  <p>鉄鋼材料を理解する地図の起点は「炭素量」。ここを押さえておくと、この先3か月の話がすべてつながってくる。</p>
+    <h3>「特殊鋼」はどこが違うのか</h3>
+    <p>普通鋼（炭素鋼）は炭素量で特性を調整する。これに対して<strong>特殊鋼</strong>は、クロム・ニッケル・モリブデンなどの合金元素を加えて、普通鋼では出せない特性（耐食性・高温強度・耐摩耗性など）を持たせた鋼だ。</p>
+    <p>自社が扱うオーステナイト系ステンレスはその代表格。クロムとニッケルを大量に添加することで、腐食環境や高温でも強度を保つ。熱処理治具に耐熱合金を使うのも、普通鋼では1000℃超の炉内で使えないからだ。</p>
+    <p>鉄鋼材料を理解する地図の起点は「炭素量」。ここを押さえておくと、この先3か月の話がすべてつながってくる。</p>
+  </div>
+
+  <div class="easy-only">
+    <h2>💡 やさしく解説！</h2>
+
+    <h3>🍫 チョコレートで考えよう——炭素量で3種類に変身！</h3>
+    <div class="easy-example">
+      <p><strong>純鉄（じゅんてつ）</strong> ＝ ホワイトチョコ<br>
+      炭素（カカオ）がほぼゼロ。柔らかすぎて機械部品には使えない。</p>
+      <p><strong>鋼（はがね）</strong> ＝ ミルクチョコ<br>
+      炭素を少し混ぜると強くなる。熱の加え方で「やわらか↔かたい」を調節できる便利な素材。</p>
+      <p><strong>鋳鉄（ちゅうてつ）</strong> ＝ ビターチョコ<br>
+      炭素がたっぷり。溶けやすいから型に流しやすいけど、パキッと割れやすい。</p>
+    </div>
+
+    <table>
+      <tr><th>名前</th><th>炭素の量</th><th>特徴</th></tr>
+      <tr><td>純鉄</td><td>ほぼゼロ（0.02%未満）</td><td>やわらかすぎて使えない</td></tr>
+      <tr><td>鋼</td><td>0.02〜2.14%</td><td>熱処理で硬さを変えられる！</td></tr>
+      <tr><td>鋳鉄</td><td>2.14%超</td><td>型に流しやすいが割れやすい</td></tr>
+    </table>
+
+    <h3>🔥 鋼のすごさ：熱で変身できる！</h3>
+    <div class="easy-example">
+      <p>鋼は「どう熱して、どう冷やすか」で性格が変わります。</p>
+      <ul>
+        <li>🐌 ゆっくり冷やす → やわらかくなる（焼なまし）</li>
+        <li>💨 急いで冷やす → カチカチに硬くなる（焼入れ）</li>
+        <li>🌡️ ちょっと再加熱 → 硬さを保ちながら粘りが出る（焼戻し）</li>
+      </ul>
+    </div>
+    <div class="easy-point">自社の<strong>熱処理治具（ちぐ）</strong>は炉（1000℃超！）の中でワークを支える台みたいなもの。普通の鋼では高温で変形してしまうから、特別な耐熱合金を使っています。</div>
+
+    <h3>🧊 型に流して作る——鋳鉄のひみつ</h3>
+    <p>炭素が多いと鉄は溶けやすくなる（融点が下がる）。溶けた鉄を型に流し込む＝ゼリーを型に入れるイメージで複雑な形が作れます。<br>
+    ただし炭素が多すぎると「脆い（もろい）」＝少しの力でパキンと割れてしまう。</p>
+
+    <h3>⭐ 特殊鋼って何が違うの？</h3>
+    <div class="easy-example">
+      <p>普通鋼 = スマホの普通モデル（安くて使いやすい）<br>
+      特殊鋼 = フラグシップモデル（クロム・ニッケルなどを加えて機能強化）</p>
+      <p>自社製品（熱処理治具・SUS鋳物・メッシュベルト）はほぼ全部「特殊鋼」の仲間です！</p>
+    </div>
+  </div>
 </div>
 
 <div class="card">
-  <h2>営業からの相談に効く知識</h2>
+  <div class="normal-only">
+    <h2>営業からの相談に効く知識</h2>
 
-  <div class="qa-block">
-    <div class="qa-q">ケース1：「お客さんから鋳物の材質をSUSに変えたいって話があるんだけど、できる？」</div>
-    <blockquote>できる。ただ「SUS」だけだと鋼種が特定できないから確認が要る。オーステナイト系（304・316系）ならうちの主戦場。マルテンサイト系・析出硬化系は鋳造条件が変わるから、まず鋼種と使用環境（温度・腐食条件）を客先から取ってきてくれ。</blockquote>
-    <div class="qa-point">ポイント：「鋳物をSUSに」は可能だが、SUSの中身が問われる。営業への一言は「鋼種と使用環境を確認して」。</div>
+    <div class="qa-block">
+      <div class="qa-q">ケース1：「お客さんから鋳物の材質をSUSに変えたいって話があるんだけど、できる？」</div>
+      <blockquote>できる。ただ「SUS」だけだと鋼種が特定できないから確認が要る。オーステナイト系（304・316系）ならうちの主戦場。マルテンサイト系・析出硬化系は鋳造条件が変わるから、まず鋼種と使用環境（温度・腐食条件）を客先から取ってきてくれ。</blockquote>
+      <div class="qa-point">ポイント：「鋳物をSUSに」は可能だが、SUSの中身が問われる。営業への一言は「鋼種と使用環境を確認して」。</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">ケース2：「普通の鉄（炭素鋼）と特殊鋼って何が違うの？って聞かれた」</div>
+      <blockquote>炭素鋼は炭素だけで性質を決める。特殊鋼はクロムやニッケルを加えて、錆びにくい・高温に強い・硬いという追加機能をつけた鋼だ。値段が高い分、普通鋼では対応できない環境で使う。</blockquote>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">ケース3：「メッシュベルトやヒーターって、鋼なの？特殊鋼なの？」</div>
+      <blockquote>特殊鋼。メッシュベルトは工業炉・食品機械の高温環境で使うため、耐食性と耐熱性が必要で、オーステナイト系ステンレス（SUS310Sなど）で作られることが多い。ヒーターエレメントは発熱体そのものだから、酸化しにくいNi-Cr系合金やFe-Cr-Al系合金が使われる。どちらも「普通鋼では高温で酸化・変形して使えない」という理由で特殊鋼になっている。</blockquote>
+      <div class="qa-point">ポイント：「メッシュベルトもヒーターも特殊鋼の仲間」と覚えておくと、炉周辺設備の材料相談が来たときに対応の糸口になる。</div>
+    </div>
   </div>
 
-  <div class="qa-block">
-    <div class="qa-q">ケース2：「普通の鉄（炭素鋼）と特殊鋼って何が違うの？って聞かれた」</div>
-    <blockquote>炭素鋼は炭素だけで性質を決める。特殊鋼はクロムやニッケルを加えて、錆びにくい・高温に強い・硬いという追加機能をつけた鋼だ。値段が高い分、普通鋼では対応できない環境で使う。</blockquote>
-  </div>
+  <div class="easy-only">
+    <h2>💬 営業さんとの会話で使える知識</h2>
 
-  <div class="qa-block">
-    <div class="qa-q">ケース3：「メッシュベルトやヒーターって、鋼なの？特殊鋼なの？」</div>
-    <blockquote>特殊鋼。メッシュベルトは工業炉・食品機械の高温環境で使うため、耐食性と耐熱性が必要で、オーステナイト系ステンレス（SUS310Sなど）で作られることが多い。ヒーターエレメントは発熱体そのものだから、酸化しにくいNi-Cr系合金やFe-Cr-Al系合金が使われる。どちらも「普通鋼では高温で酸化・変形して使えない」という理由で特殊鋼になっている。</blockquote>
-    <div class="qa-point">ポイント：「メッシュベルトもヒーターも特殊鋼の仲間」と覚えておくと、炉周辺設備の材料相談が来たときに対応の糸口になる。</div>
+    <div class="easy-bubble-q">
+      <strong>🗣 営業さん：</strong>「お客さんから鋳物をSUSに変えたいって話があるんだけど、できる？」
+    </div>
+    <div class="easy-bubble-a">
+      <strong>🏭 生産管理：</strong>「できるよ！でもSUSって一口に言っても5種類あるんだよね。何℃で使うか、腐食する環境かどうかで選ぶ種類が全然違う。まず客先に"使う温度"と"腐食環境"を確認してきてもらえる？」
+    </div>
+    <div class="easy-point">📌 「SUSなら何でもOK」は早合点！種類を確認してから判断する。</div>
+
+    <div style="margin-top:20px;">
+      <div class="easy-bubble-q">
+        <strong>🗣 営業さん：</strong>「普通の鉄と特殊鋼って何が違うの？って聞かれた」
+      </div>
+      <div class="easy-bubble-a">
+        <strong>🏭 生産管理：</strong>「普通の鋼は炭素だけで強さを調整する。特殊鋼はクロムやニッケルを加えて"さびにくい・高温に強い"という追加機能をつけた鋼。性能が高い分だけ値段も高いよ。」
+      </div>
+    </div>
+
+    <div style="margin-top:20px;">
+      <div class="easy-bubble-q">
+        <strong>🗣 営業さん：</strong>「メッシュベルトやヒーターって特殊鋼なの？」
+      </div>
+      <div class="easy-bubble-a">
+        <strong>🏭 生産管理：</strong>「そう、どっちも特殊鋼の仲間！高温の炉の中で使うから、普通の鋼だとすぐ酸化して変形しちゃう。だからクロムやニッケルを多く入れた特殊な合金を使ってるんだよ。」
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="card vocab">
-  <h2>用語メモ</h2>
-  <dl>
-    <dt>純鉄</dt>
-    <dd>炭素量0.02%未満の鉄。柔らかく、工業利用はほぼない</dd>
-    <dt>鋼（炭素鋼）</dt>
-    <dd>炭素量0.02〜2.14%。熱処理で強度調整可能な鉄鋼の主役</dd>
-    <dt>鋳鉄</dt>
-    <dd>炭素量2.14%超。流動性が高く鋳造向きだが脆い</dd>
-    <dt>特殊鋼</dt>
-    <dd>炭素鋼に合金元素（Cr・Ni・Mo等）を加えた高機能鋼</dd>
-    <dt>靭性（じんせい）</dt>
-    <dd>衝撃に耐えて割れにくい性質。硬さとトレードオフ</dd>
-  </dl>
+  <div class="normal-only">
+    <h2>用語メモ</h2>
+    <dl>
+      <dt>純鉄</dt>
+      <dd>炭素量0.02%未満の鉄。柔らかく、工業利用はほぼない</dd>
+      <dt>鋼（炭素鋼）</dt>
+      <dd>炭素量0.02〜2.14%。熱処理で強度調整可能な鉄鋼の主役</dd>
+      <dt>鋳鉄</dt>
+      <dd>炭素量2.14%超。流動性が高く鋳造向きだが脆い</dd>
+      <dt>特殊鋼</dt>
+      <dd>炭素鋼に合金元素（Cr・Ni・Mo等）を加えた高機能鋼</dd>
+      <dt>靭性（じんせい）</dt>
+      <dd>衝撃に耐えて割れにくい性質。硬さとトレードオフ</dd>
+    </dl>
+  </div>
+  <div class="easy-only">
+    <h2>📖 今日のことば</h2>
+    <dl>
+      <dt>🔩 純鉄（じゅんてつ）</dt>
+      <dd>炭素がほぼゼロの鉄。柔らかすぎて工業品には使えない</dd>
+      <dt>⚙️ 鋼（はがね）</dt>
+      <dd>炭素を0.02〜2.14%含む鉄。熱処理で硬さを変えられる便利な素材</dd>
+      <dt>🏺 鋳鉄（ちゅうてつ）</dt>
+      <dd>炭素が2.14%超の鉄。溶かして型に流せるが、割れやすい</dd>
+      <dt>⭐ 特殊鋼（とくしゅこう）</dt>
+      <dd>鋼にクロムなどを加えて特別な機能（さびない・高温に強い）を持たせたもの</dd>
+      <dt>💪 靭性（じんせい）</dt>
+      <dd>衝撃に強い＝粘り強さ。硬いものは靭性が低くなりがち</dd>
+    </dl>
+  </div>
 </div>
 
 <div class="card quiz">
-  <h2>今日の小テスト1問</h2>
-  <div class="q-text">問：営業から「お客さんから熱処理治具を鋳鉄で作れないか、安くなるからって話があるんだけど、どう思う？」という相談が来た。生産管理として、可否と技術的な理由、代替案をどう返すか。</div>
-  <div class="note">解答は次回配信</div>
+  <div class="normal-only">
+    <h2>今日の小テスト1問</h2>
+    <div class="q-text">問：営業から「お客さんから熱処理治具を鋳鉄で作れないか、安くなるからって話があるんだけど、どう思う？」という相談が来た。生産管理として、可否と技術的な理由、代替案をどう返すか。</div>
+    <div class="note">解答は次回配信</div>
+  </div>
+  <div class="easy-only">
+    <h2>🎯 今日のチャレンジ問題！</h2>
+    <div class="q-text">問：営業さんから「お客さんが熱処理治具（ちぐ）を鋳鉄（ちゅうてつ）で作りたいって言ってる。安くなるらしいんだけどどう思う？」って相談が来ました。あなたはどう返しますか？<br>ヒント：鋳鉄の特徴と、熱処理炉の温度を思い出してみよう！</div>
+    <div class="note">解答は次回配信</div>
+  </div>
 </div>
 
 <footer>
   <a href="index.html">← 目次に戻る</a>
 </footer>
 
+<button class="mode-btn" id="modeBtn" onclick="toggleMode()">🌟 やさしいとくしゅこうで読む</button>
+<script>
+function toggleMode() {
+  const body = document.body;
+  const btn = document.getElementById('modeBtn');
+  if (body.classList.contains('easy-mode')) {
+    body.classList.remove('easy-mode');
+    btn.textContent = '🌟 やさしいとくしゅこうで読む';
+    localStorage.setItem('studyMode', 'normal');
+  } else {
+    body.classList.add('easy-mode');
+    btn.textContent = '📚 通常モードに戻す';
+    localStorage.setItem('studyMode', 'easy');
+  }
+}
+(function() {
+  if (localStorage.getItem('studyMode') === 'easy') {
+    document.body.classList.add('easy-mode');
+    document.getElementById('modeBtn').textContent = '📚 通常モードに戻す';
+  }
+})();
+</script>
 </body>
 </html>

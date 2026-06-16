@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>第08回 Ni（ニッケル）の役割 - 特殊鋼学習</title>
+<title>第08回 Niの役割 - 特殊鋼学習</title>
 <style>
   * { box-sizing: border-box; }
   body { font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'Yu Gothic', sans-serif; max-width: 820px; margin: 0 auto; padding: 20px; background: #f5f5f5; color: #333; line-height: 1.9; font-size: 15px; }
@@ -32,116 +32,273 @@
   .vocab dt { font-weight: bold; color: #1a3a5c; margin-top: 10px; }
   .vocab dt:first-child { margin-top: 0; }
   .vocab dd { margin: 4px 0 0 16px; font-size: 0.95em; }
-  .answer { background: #e8eaf6; border: 1px solid #5c6bc0; border-radius: 8px; padding: 18px 20px; }
-  .answer h2 { color: #283593; border-color: #5c6bc0; }
-  .answer .q-restate { font-weight: bold; color: #555; margin-bottom: 10px; font-size: 0.95em; }
-  .answer .key-msg { font-size: 0.9em; background: #fff3e0; padding: 8px 12px; border-radius: 4px; margin-top: 10px; }
   .quiz { background: #f3e5f5; border: 1px solid #9c27b0; border-radius: 8px; padding: 18px 20px; }
   .quiz h2 { color: #6a1b9a; border-color: #9c27b0; }
   .quiz .q-text { font-weight: bold; margin-bottom: 8px; }
   .quiz .note { font-size: 0.85em; color: #777; margin-top: 12px; }
+  .answer { background: #e8eaf6; border: 1px solid #5c6bc0; border-radius: 8px; padding: 18px 20px; }
+  .answer h2 { color: #283593; border-color: #5c6bc0; }
+  .answer .q-restate { font-weight: bold; color: #555; margin-bottom: 10px; font-size: 0.95em; }
+  .answer .key-msg { font-size: 0.9em; background: #fff3e0; padding: 8px 12px; border-radius: 4px; margin-top: 10px; }
   footer { text-align: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid #ddd; }
   footer a { color: #2d6a9f; text-decoration: none; padding: 8px 20px; border: 1px solid #2d6a9f; border-radius: 5px; font-size: 0.9em; }
   footer a:hover { background: #2d6a9f; color: white; }
   strong { color: #1a3a5c; }
+  /* ===== Easy Mode ===== */
+  .easy-only { display: none; }
+  .normal-only { display: block; }
+  body.easy-mode .easy-only { display: block; }
+  body.easy-mode .normal-only { display: none; }
+  body.easy-mode { background: linear-gradient(160deg, #fff9f0 0%, #f0f4ff 100%); font-size: 16px; }
+  body.easy-mode header { background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; }
+  body.easy-mode .card { border-top: 5px solid #ce93d8; }
+  body.easy-mode h2 { color: #6a1b9a; border-color: #ce93d8; }
+  body.easy-mode h3 { color: #e65100; }
+  body.easy-mode .summary { background: #fce4ec; border-left-color: #f48fb1; }
+  body.easy-mode .summary h2 { color: #c2185b; }
+  .easy-bubble-q { background: #fce4ec; border: 2px solid #f48fb1; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-bubble-a { background: #e3f2fd; border: 2px solid #90caf9; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-point { background: #fff9c4; border-left: 4px solid #f9a825; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 12px 0; }
+  .easy-example { background: #e8f5e9; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .easy-steps { background: #e8eaf6; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .easy-steps ol { padding-left: 20px; margin: 8px 0 0; }
+  .mode-btn { position: fixed; top: 16px; right: 16px; z-index: 1000; background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; border: none; border-radius: 24px; padding: 10px 18px; font-size: 0.9em; font-weight: bold; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  body.easy-mode .mode-btn { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="session">第08回 ・ 2026-06-11</div>
-  <h1>Ni（ニッケル）の役割：オーステナイト安定化と靭性</h1>
+  <div class="session">第08回 ・ 2026-06-12</div>
+  <div class="normal-only">
+    <h1>Niの役割：オーステナイト安定化と靭性</h1>
+  </div>
+  <div class="easy-only">
+    <h1>ニッケル（Ni）って何してるの？🧲 鉄をやわらかく・粘り強くする魔法の元素！</h1>
+  </div>
   <span class="week">第2週：炭素鋼と合金元素の役割</span>
 </header>
 
 <div class="summary">
-  <h2>今日の3行サマリ</h2>
-  <ul>
-    <li>Niはオーステナイト組織を安定化させ、常温でもオーステナイトを維持させる元素</li>
-    <li>低温靭性（低温での粘り強さ）を改善する効果があり、極低温用途ではNi鋼が必須</li>
-    <li>SUS304・316がオーステナイト系で非磁性・高靭性なのはNiが骨格にあるから</li>
-  </ul>
+  <div class="normal-only">
+    <h2>今日の3行サマリ</h2>
+    <ul>
+      <li>Niはオーステナイト安定化元素：A1変態点を下げ、常温でもオーステナイト組織を維持させる</li>
+      <li>靭性（低温脆性耐性）を大幅に向上させる。SUS304の非磁性もNiがFCC構造を維持させるため</li>
+      <li>コスト面でNiは高価。SCH22→HP（高Ni系）への変更は高温強度と引き換えに大きなコスト増となる</li>
+    </ul>
+  </div>
+  <div class="easy-only">
+    <h2>🎯 今日わかること 3つ！</h2>
+    <ul>
+      <li>🧲 Niは「オーステナイト安定化元素」——常温でも鉄をオーステナイト状態に保ってくれる！</li>
+      <li>💪 Niが入ると低温でも粘り強くなる。SUS304が非磁性なのもNiのおかげ！</li>
+      <li>💰 Niは高価な元素。コスト管理のキーになる</li>
+    </ul>
+  </div>
 </div>
 
 <div class="card">
-  <h2>本文</h2>
+  <div class="normal-only">
+    <h2>本文</h2>
 
-  <h3>Niの2大効果：オーステナイト安定化と靭性向上</h3>
-  <p>ニッケル（Ni）は鉄に固溶してオーステナイト相を安定化させる元素（<strong>オーステナイト生成元素</strong>）だ。Crがフェライト相を安定化させる「フェライト生成元素」であるのと対照的で、この2元素のバランスが鋼の組織を決定する。</p>
+    <h3>Niの基本的な役割</h3>
+    <p>ニッケル（Ni）は鋼中において主に2つの役割を担う。</p>
+    <p><strong>①オーステナイト安定化</strong>：NiはA1変態点（約723℃）を押し下げる作用があり、十分なNiを含む鋼（通常Ni8%以上のSUS304系など）は常温でもオーステナイト（FCC構造）を維持する。A1変態点以上でしか存在できないはずのオーステナイトが常温に「固定」される形だ。これにより相変態がなくなり寸法安定性と靭性が確保される。</p>
+    <p><strong>②靭性向上・低温脆性防止</strong>：BCC構造（フェライト・マルテンサイト）の鋼は低温になると急激に靭性が落ちる「低温脆性」を示す。Niを加えることで遷移温度（延性-脆性遷移温度）が下がり、低温環境での使用が可能になる。液化天然ガス（LNG）タンクにNi鋼（9%Ni鋼など）が使われる理由はここにある。</p>
 
-  <h3>① オーステナイト組織の安定化</h3>
-  <p>純鉄は912〜1390℃でオーステナイト（面心立方構造：FCC）になるが、Niを添加するとオーステナイト安定温度域が下がり、十分な量があれば常温でもオーステナイトを維持できる。SUS304は<strong>Cr約18%・Ni約8%</strong>の組成（「18-8ステンレス」）により、常温で安定したオーステナイト組織を示す。</p>
-  <p>オーステナイト組織（FCC）は加工硬化しやすく、また磁性を持たないため、非磁性が必要な用途（医療機器・電子機器）でも使われる。</p>
+    <h3>SUS304の非磁性とNi</h3>
+    <p>SUS304（18Cr-8Ni）が弱磁性または非磁性なのは、Niによってオーステナイト（FCC構造）が維持されているためだ。フェライト・マルテンサイトはBCC構造で強磁性だが、オーステナイトはFCC構造で常磁性（磁石に弱くしか引き付けられない）を示す。切削・プレス加工後にSUS304が磁性を帯びる場合があるが、これは加工によって一部がマルテンサイトに変態（加工誘起マルテンサイト変態）したためで、材料自体がステンレスでないわけではない。</p>
 
-  <h3>② 低温靭性の改善</h3>
-  <p>Niは鋼の低温での衝撃値（シャルピー衝撃値）を大幅に改善する。一般的な炭素鋼は低温になるほど脆くなり、ある温度（<strong>延性−脆性遷移温度</strong>）を下回ると急激に割れやすくなる。Niはこの遷移温度を低下させる効果があり、−100℃以下の極低温でも靭性を保てる。LNG（液化天然ガス）タンクに9%Ni鋼が使われるのはこの理由だ。</p>
+    <h3>耐熱鋳鋼におけるNi</h3>
+    <p>自社製品のSCH22（HK40相当：25Cr-20Ni）ではNiが20%と高い。Niが多いほどオーステナイト組織が高温まで安定し、クリープ強度（高温下での変形抵抗）が向上する。しかしNiは高価な元素であり、HP系（35Cr-45Ni）などさらに高Ni鋳鋼への変更はコストが大幅に増す。「高温強度をもっと上げたい」という客先要望に対して、SCH22からHPへの変更コストは見積ベースで1.5〜2倍になることも多い。</p>
+    <p>また、誘導加熱炉のコイルに近い位置で使う治具では非磁性が必須になる。磁性体を入れると渦電流損失で発熱し、治具自身が加熱されてしまう。SCH22はオーステナイト系でNiが多く非磁性のため、この用途に適している。</p>
 
-  <h3>CrとNiのバランス</h3>
-  <p>Schaeffler線図（シェフラー線図）はCr当量とNi当量を軸に、溶接後の組織（フェライト・マルテンサイト・オーステナイト）を予測するための図で、溶接材料設計の基礎になる。「Crが多ければフェライト側、Niが多ければオーステナイト側」という大原則を押さえておけば十分だ。</p>
+    <h3>まとめ：Niの選択ポイント</h3>
+    <table>
+      <tr><th>目的</th><th>Ni量の目安</th><th>代表材料</th></tr>
+      <tr><td>オーステナイト安定化（耐食）</td><td>8〜12%</td><td>SUS304（8%）・SUS316（10%）</td></tr>
+      <tr><td>高温クリープ強度</td><td>20〜45%</td><td>SCH22（20%）・HP（45%）</td></tr>
+      <tr><td>低温靭性</td><td>9%前後</td><td>9%Ni鋼（LNGタンク）</td></tr>
+    </table>
+  </div>
 
-  <h3>Niの副次効果</h3>
-  <p>Niは鉄の強度・靭性にも寄与する。Ni-Cr-Mo系にすることで焼入れ後の靭性が格段に向上する。<strong>SNCM（ニッケルクロムモリブデン鋼）</strong>が高強度部品の上位材料として選ばれるのはこのためだ。高応力・繰り返し荷重がかかる航空機部品・大型シャフトでSNCMが選ばれる背景には「NiとMoが同時に靭性と焼入れ性を補完し合う」設計がある。</p>
+  <div class="easy-only">
+    <h2>💡 やさしく解説！</h2>
 
-  <h3>自社製品との関連</h3>
-  <p>SCH22（Cr約20%・Ni約10%）、HP合金（Cr約25%・Ni約35%）はNiが高温組織安定化に寄与している。高温域（1000℃超）ではNiが多いほどオーステナイト組織が安定し、クリープや高温脆化に対する抵抗性が上がる。HP合金はNiが大量に入っているため材料費が高いが、超高温・長寿命が要求される炉内治具では代替が効かない。SUS304・316のNi（約8〜12%）は主に組織の安定化と加工性確保が目的だ。</p>
-  <p><strong>ヒーターエレメント</strong>（電気抵抗発熱体）に使われるNiCr合金はNi量が多いほど耐熱性が上がる。Ni80%-Cr20%（カンタル相当品含む）はNiがオーステナイト組織を高温で安定させるため、繰り返し昇降温でも組織変化が少なく寿命が長い。Ni含有量が低いグレードはコストは下がるが最高使用温度も下がる。</p>
-  <p>耐熱治具をSUSで作るとき「なぜ磁性がない方がいいのか」も重要だ。<strong>高周波誘導加熱炉</strong>では磁性体が誘導渦電流で発熱する。非磁性のオーステナイト系SUSの治具なら炉内の温度均一性が乱れない。非磁性は「見た目上の性質」でなく炉設計上の機能的な意味を持っている。</p>
+    <h3>🧲 Niの2大仕事</h3>
+    <div class="easy-example">
+      <p><strong>仕事①：オーステナイト状態をキープする</strong><br>
+      本来オーステナイトは高温（723℃以上）でしか存在できない組織。でもNiが多く入ると「常温でもオーステナイト状態に固定」される！<br>
+      → 相変態がなくなる → 寸法が安定する → 粘り強くなる</p>
+
+      <p><strong>仕事②：低温でも割れにくくする</strong><br>
+      通常の鉄（BCC構造）は低温になると急に脆くなる（低温脆性）。Niが入るとこれを防げる！<br>
+      → LNGタンク（−162℃の液体ガス）に9%Ni鋼が使われる理由</p>
+    </div>
+
+    <h3>🔍 SUS304はなぜ磁石につかない？</h3>
+    <div class="easy-point">
+      SUS304にNi（8%）が入っているから、常温でもオーステナイト（FCC構造）のまま。<br>
+      オーステナイト＝磁石に反応しにくい構造 → 非磁性！<br><br>
+      でも加工すると一部がマルテンサイトに変わって少し磁性が出ることがある。
+    </div>
+
+    <h3>🏭 自社製品（SCH22）はNi20%——なぜ？</h3>
+    <div class="easy-example">
+      <table>
+        <tr><th>材料</th><th>Ni量</th><th>主な目的</th></tr>
+        <tr><td>SUS304</td><td>8%</td><td>耐食性・非磁性</td></tr>
+        <tr><td>SCH22（HK40）</td><td>20%</td><td>高温クリープ強度</td></tr>
+        <tr><td>HP（高Ni系）</td><td>45%</td><td>さらに高温での強度</td></tr>
+      </table>
+      <p>SCH22→HPへの変更はコストが1.5〜2倍になることも多い！Ni量が多いほど高価。</p>
+    </div>
+
+    <h3>⚡ 誘導加熱炉でSCH22が使われる理由</h3>
+    <div class="easy-steps">
+      <ol>
+        <li>誘導加熱炉は電磁誘導で金属を加熱する</li>
+        <li>磁性体（磁石につく材料）を入れると、治具自体も加熱されてしまう</li>
+        <li>SCH22はNiが多くてオーステナイト系 → 非磁性 → 治具が変に熱くならない！</li>
+      </ol>
+    </div>
+  </div>
 </div>
 
 <div class="card">
-  <h2>営業からの相談に効く知識</h2>
+  <div class="normal-only">
+    <h2>営業からの相談に効く知識</h2>
 
-  <div class="qa-block">
-    <div class="qa-q">ケース1：「客先がSUS304で作った部品が磁石にくっついて困ってるって言ってる。なんで？」</div>
-    <blockquote>加工硬化が原因の可能性が高い。SUS304は本来非磁性だが、プレス・曲げ・切削などの加工でオーステナイト組織の一部がマルテンサイト（磁性あり）に変態することがある。「加工誘起マルテンサイト変態」という現象。磁性が絶対NGなら加工後に固溶化熱処理（焼鈍）するか、より安定したSUS316またはSUS305への変更を検討してください。</blockquote>
-    <div class="qa-point">ポイント：「SUSは非磁性」は未加工の状態での話。加工後に磁性が出ることは珍しくない。</div>
+    <div class="qa-block">
+      <div class="qa-q">ケース1：「SUS304の部品が加工後に磁石に少し引き付けられるって言われた。材料が変わったの？」</div>
+      <blockquote>材料は変わっていない可能性が高い。SUS304は加工（特に冷間圧延・切削・プレス）によって一部がマルテンサイトに変態し、弱い磁性を帯びることがある（加工誘起マルテンサイト変態）。元のロットのミルシートでNi・Cr量がSUS304規格内であることを確認してください。使用環境で非磁性が絶対必要な場合はSUS310S（高Ni）や焼鈍処理を検討します。</blockquote>
+      <div class="qa-point">ポイント：「磁石につく＝SUSじゃない」は誤解。加工誘起変態は正常な現象。使用上問題かどうかを確認させる。</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">ケース2：「SCH22をHP（高Ni合金）に変えたらどのくらいコストが変わる？」</div>
+      <blockquote>HP系はNiが45%前後と大量で、素材コストが高騰します。一般的に同形状でSCH22比1.5〜2倍以上になることが多い。変更の動機が「使用温度の上昇」であれば、まず現使用温度と組織の劣化状況（カーボンスラブ・シグマ相析出など）を確認してから必要性を判断します。形状や壁厚によっては素材変更より設計変更（肉厚増し）の方が安い場合もある。詳細見積は図面をいただいてから。</blockquote>
+      <div class="qa-point">ポイント：コスト増の根拠を数字で示す。「なぜ変えたいのか」を先に確認してから代替案も検討する。</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">ケース3：「誘導加熱炉内で使う治具にSCS13（SUS304系）ではダメ？SCS13でも鋳物で耐熱ならいいのかな？」</div>
+      <blockquote>SCS13はSUS304相当（18Cr-8Ni）でオーステナイト系のため非磁性は確保できますが、1000℃以上の高温環境での長時間クリープ強度が低い。誘導加熱炉内で繰り返し昇降温すると変形や割れが早まります。温度と荷重条件を確認して、SCH22（HK40相当）かそれ以上の高Ni材が適切か判断します。非磁性が条件なら、耐熱・クリープ強度の観点からSCH22が妥当です。</blockquote>
+      <div class="qa-point">ポイント：非磁性の条件は満たせても「高温強度」が別の条件になる。使用温度を必ず確認。</div>
+    </div>
   </div>
 
-  <div class="qa-block">
-    <div class="qa-q">ケース2：「SCH22とHP合金はどっちが高い？そんなに違う？」</div>
-    <blockquote>HP合金の方が大幅に高い。Ni含有量がSCH22の約10%に対してHP合金は約35%。Niは希少元素でコストが高く、単純に含有量に比例して材料費が上がる。ただし1100℃超の長時間使用での寿命が全く違う。「炉温と使用期間をセットで比較して、どちらがトータルコストが低いか」で判断してください。</blockquote>
-    <div class="qa-point">ポイント：材料費だけで比べず、寿命を含めたトータルコストで説明する。</div>
-  </div>
+  <div class="easy-only">
+    <h2>💬 営業さんとの会話で使える知識</h2>
 
-  <div class="qa-block">
-    <div class="qa-q">ケース3：「客先が高周波誘導加熱炉で使う治具をSUS304で作りたいと言ってるんだけど、なんで磁性がないSUSじゃないといけないの？」</div>
-    <blockquote>高周波誘導加熱炉では磁性体（炭素鋼・フェライト系SUSなど）が磁界の影響を受けて発熱する。治具が意図せず加熱されると製品温度の均一性が乱れ、品質が安定しない。SUS304はNi約8%でオーステナイト組織が維持されており、非磁性のため誘導加熱の影響を受けにくい。「治具の非磁性は高周波炉では機能要件」と客先に伝えてください。</blockquote>
-    <div class="qa-point">ポイント：非磁性は「見た目上の性質」ではなく、誘導加熱炉では温度均一性を守るための設計上の意味がある。</div>
+    <div class="easy-bubble-q">
+      <strong>🗣 営業さん：</strong>「SUS304の部品が加工後に磁石に少し引き付けられるって。材料が変わった？」
+    </div>
+    <div class="easy-bubble-a">
+      <strong>🏭 生産管理：</strong>「材料は変わってないと思う！加工（切削・プレスなど）でSUS304の一部がマルテンサイトに変わって磁性が出ることがある——"加工誘起マルテンサイト変態"って言う。ミルシートでNi・Cr量を確認すればOK。どうしても非磁性が必要なら焼鈍処理や高Niグレード（SUS310S）を検討します！」
+    </div>
+
+    <div style="margin-top:20px;">
+      <div class="easy-bubble-q">
+        <strong>🗣 営業さん：</strong>「誘導加熱炉の治具にSCS13（SUS304系鋳物）じゃダメ？」
+      </div>
+      <div class="easy-bubble-a">
+        <strong>🏭 生産管理：</strong>「非磁性はOKだけど、高温クリープ強度が心配。1000℃以上で繰り返し使うと変形や割れが早まる可能性がある。使用温度を教えてもらえれば、SCH22（HK40相当）の方がいいかどうか判断できるよ！」
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card answer">
+  <div class="normal-only">
+    <h2>昨日の小テスト解答</h2>
+    <div class="q-restate">問（第07回）：「SCH22は1150℃での炉内使用中に磁石を近づけたら引き付けなかった。なぜ？」</div>
+    <p>SCH22はHK40相当（25Cr-20Ni）のオーステナイト系耐熱鋳鋼で、Niが20%と高いためA1変態点が大幅に低下（または消失）し、1150℃でも相変態が起きずオーステナイト組織を維持している。オーステナイト（FCC構造）は常磁性で磁石に引き付けられない。また1150℃という温度自体がフェライト・マルテンサイト変態の温度域ではなく、炭素鋼やフェライト系SUSと異なり強磁性を示す相が存在しない。</p>
+    <div class="key-msg">まとめ：「Niが多い→オーステナイト安定→常温〜高温ともに非磁性」という一本の理解軸で答えられる。</div>
+  </div>
+  <div class="easy-only">
+    <h2>📝 前回チャレンジ問題の答え</h2>
+    <div class="easy-bubble-q">
+      <strong>前回の問題：</strong>「SCH22に1150℃で磁石を近づけたら引き付けなかった。なんで？」
+    </div>
+    <div class="easy-bubble-a">
+      <strong>答え：</strong> SCH22はNiが20%も入っているから、1150℃でもオーステナイト組織のまま！<br>
+      オーステナイト（FCC構造）は磁石に引き付けられない構造（常磁性）。<br>
+      → 「Niが多い→オーステナイト安定→非磁性」という流れで覚えよう！
+    </div>
   </div>
 </div>
 
 <div class="card vocab">
-  <h2>用語メモ</h2>
-  <dl>
-    <dt>オーステナイト生成元素</dt>
-    <dd>Ni・Mn・Cなど。オーステナイト安定温度域を拡大する</dd>
-    <dt>フェライト生成元素</dt>
-    <dd>Cr・Mo・Si・Alなど。フェライト安定温度域を拡大する</dd>
-    <dt>延性−脆性遷移温度</dt>
-    <dd>これ以下の温度で鋼が急激に脆くなる境界温度。Niは低下させる</dd>
-    <dt>SNCM（ニッケルクロムモリブデン鋼）</dt>
-    <dd>Ni+Cr+Moの高強度・高靭性構造用特殊鋼</dd>
-    <dt>加工誘起マルテンサイト変態</dt>
-    <dd>オーステナイト系SUSが加工応力でマルテンサイト化し磁性を帯びる現象</dd>
-  </dl>
-</div>
-
-<div class="card answer">
-  <h2>昨日の小テスト解答</h2>
-  <div class="q-restate">問：営業から「客先が"SUS316の方がSUS304より高いのに、何が違うの？"って聞いてきた。一言で違いを説明してほしい」</div>
-  <p>SUS304とSUS316の基本組成はともにCr-Ni系（18-8）だが、SUS316にはさらに<strong>Mo（モリブデン）が約2%</strong>添加されている。MoはCrが作る不動態皮膜を強化し、特に塩化物（Cl⁻）に対する耐食性を大幅に上げる。SUS304は一般的な大気・水環境には強いが、海水・塩素系洗浄剤・塩分の多い食品環境では孔食（ピンホール状の腐食）が起きることがある。SUS316はMoのおかげでこの孔食に対する耐性が高い。</p>
-  <div class="key-msg">営業に渡すキーメッセージ：「使う環境に塩分・塩素が多いなら316一択。一般環境なら304で十分。価格差の理由はMo添加です。」</div>
+  <div class="normal-only">
+    <h2>用語メモ</h2>
+    <dl>
+      <dt>オーステナイト安定化元素</dt>
+      <dd>Ni・Mn・C・Nなど。A1変態点を下げてオーステナイト組織を常温でも維持させる元素群</dd>
+      <dt>フェライト安定化元素</dt>
+      <dd>Cr・Mo・Si・Wなど。反対にフェライト組織を安定させる（オーステナイトを不安定化）</dd>
+      <dt>加工誘起マルテンサイト変態</dt>
+      <dd>準安定オーステナイトが加工（変形・衝撃）によってマルテンサイトに変態する現象。SUS304で発生しやすい</dd>
+      <dt>低温脆性</dt>
+      <dd>温度が下がるにつれて靭性が急激に低下し脆くなる現象。BCC構造の鋼で顕著</dd>
+      <dt>クリープ強度</dt>
+      <dd>高温・長時間荷重下での変形（蠕動変形）に耐える強度。耐熱材選定の主要指標</dd>
+    </dl>
+  </div>
+  <div class="easy-only">
+    <h2>📖 今日のことば</h2>
+    <dl>
+      <dt>🔵 オーステナイト安定化元素</dt>
+      <dd>Ni・Mn・C・Nなど。これらが多いと常温でもオーステナイトのまま！（フェライト・マルテンサイトにならない）</dd>
+      <dt>🧲 加工誘起マルテンサイト変態</dt>
+      <dd>SUS304を切削・プレスすると一部がマルテンサイトに変わって磁性が出る現象。材料不良ではない！</dd>
+      <dt>🥶 低温脆性（ていおんぜいせい）</dt>
+      <dd>温度が下がると急に脆くなる現象。Niが入るとこれを防げる</dd>
+      <dt>🔥 クリープ強度</dt>
+      <dd>高温でゆっくり変形してしまう「クリープ」に耐える強さ。耐熱材の最重要指標！</dd>
+    </dl>
+  </div>
 </div>
 
 <div class="card quiz">
-  <h2>今日の小テスト1問</h2>
-  <div class="q-text">問：営業から「客先の炉内治具、今はSCH22を使ってるんだけど、使用温度が1050℃から1150℃に上がることになったと。このままSCH22でいける？」という相談が来た。SCH22の特性とNiの役割を踏まえ、生産管理としてどう返すか。</div>
-  <div class="note">解答は次回配信</div>
+  <div class="normal-only">
+    <h2>今日の小テスト1問</h2>
+    <div class="q-text">問：SCH22とHP系鋳鋼（高Ni）を比較した場合、高温環境（1100℃以上）での長時間使用にはHP系が有利とされているが、自社製品としてSCH22からHP系への変更を提案する際、コスト以外に確認・提示すべき技術的事項を2点挙げよ。</div>
+    <div class="note">解答は次回配信</div>
+  </div>
+  <div class="easy-only">
+    <h2>🎯 今日のチャレンジ問題！</h2>
+    <div class="q-text">問：SCH22（Ni20%）からHP系（Ni45%）に変えると高温強度が上がる。でも客先に提案するとき「コスト以外」で確認・説明すべきことを2つ考えてみよう！<br>ヒント：使用する温度は？ 使い方（形状・荷重）は？</div>
+    <div class="note">解答は次回配信</div>
+  </div>
 </div>
 
 <footer>
   <a href="index.html">← 目次に戻る</a>
 </footer>
 
+<button class="mode-btn" id="modeBtn" onclick="toggleMode()">🌟 やさしいとくしゅこうで読む</button>
+<script>
+function toggleMode() {
+  const body = document.body;
+  const btn = document.getElementById('modeBtn');
+  if (body.classList.contains('easy-mode')) {
+    body.classList.remove('easy-mode');
+    btn.textContent = '🌟 やさしいとくしゅこうで読む';
+    localStorage.setItem('studyMode', 'normal');
+  } else {
+    body.classList.add('easy-mode');
+    btn.textContent = '📚 通常モードに戻す';
+    localStorage.setItem('studyMode', 'easy');
+  }
+}
+(function() {
+  if (localStorage.getItem('studyMode') === 'easy') {
+    document.body.classList.add('easy-mode');
+    document.getElementById('modeBtn').textContent = '📚 通常モードに戻す';
+  }
+})();
+</script>
 </body>
 </html>

@@ -32,121 +32,269 @@
   .vocab dt { font-weight: bold; color: #1a3a5c; margin-top: 10px; }
   .vocab dt:first-child { margin-top: 0; }
   .vocab dd { margin: 4px 0 0 16px; font-size: 0.95em; }
-  .answer { background: #e8eaf6; border: 1px solid #5c6bc0; border-radius: 8px; padding: 18px 20px; }
-  .answer h2 { color: #283593; border-color: #5c6bc0; }
-  .answer .q-restate { font-weight: bold; color: #555; margin-bottom: 10px; font-size: 0.95em; }
-  .answer .key-msg { font-size: 0.9em; background: #fff3e0; padding: 8px 12px; border-radius: 4px; margin-top: 10px; }
   .quiz { background: #f3e5f5; border: 1px solid #9c27b0; border-radius: 8px; padding: 18px 20px; }
   .quiz h2 { color: #6a1b9a; border-color: #9c27b0; }
   .quiz .q-text { font-weight: bold; margin-bottom: 8px; }
   .quiz .note { font-size: 0.85em; color: #777; margin-top: 12px; }
+  .answer { background: #e8eaf6; border: 1px solid #5c6bc0; border-radius: 8px; padding: 18px 20px; }
+  .answer h2 { color: #283593; border-color: #5c6bc0; }
+  .answer .q-restate { font-weight: bold; color: #555; margin-bottom: 10px; font-size: 0.95em; }
+  .answer .key-msg { font-size: 0.9em; background: #fff3e0; padding: 8px 12px; border-radius: 4px; margin-top: 10px; }
   footer { text-align: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid #ddd; }
   footer a { color: #2d6a9f; text-decoration: none; padding: 8px 20px; border: 1px solid #2d6a9f; border-radius: 5px; font-size: 0.9em; }
   footer a:hover { background: #2d6a9f; color: white; }
   strong { color: #1a3a5c; }
+  /* ===== Easy Mode ===== */
+  .easy-only { display: none; }
+  .normal-only { display: block; }
+  body.easy-mode .easy-only { display: block; }
+  body.easy-mode .normal-only { display: none; }
+  body.easy-mode { background: linear-gradient(160deg, #fff9f0 0%, #f0f4ff 100%); font-size: 16px; }
+  body.easy-mode header { background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; }
+  body.easy-mode .card { border-top: 5px solid #ce93d8; }
+  body.easy-mode h2 { color: #6a1b9a; border-color: #ce93d8; }
+  body.easy-mode h3 { color: #e65100; }
+  body.easy-mode .summary { background: #fce4ec; border-left-color: #f48fb1; }
+  body.easy-mode .summary h2 { color: #c2185b; }
+  .easy-bubble-q { background: #fce4ec; border: 2px solid #f48fb1; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-bubble-a { background: #e3f2fd; border: 2px solid #90caf9; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-point { background: #fff9c4; border-left: 4px solid #f9a825; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 12px 0; }
+  .easy-example { background: #e8f5e9; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .easy-steps { background: #e8eaf6; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .easy-steps ol { padding-left: 20px; margin: 8px 0 0; }
+  .mode-btn { position: fixed; top: 16px; right: 16px; z-index: 1000; background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; border: none; border-radius: 24px; padding: 10px 18px; font-size: 0.9em; font-weight: bold; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  body.easy-mode .mode-btn { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="session">第09回 ・ 2026-06-11</div>
-  <h1>Mo・Mn・V・Wの役割：高温強度・焼入性・析出硬化</h1>
+  <div class="session">第09回 ・ 2026-06-12</div>
+  <div class="normal-only">
+    <h1>Mo・Mn・V・Wの役割：高温強度・焼入性・析出硬化</h1>
+  </div>
+  <div class="easy-only">
+    <h1>Cr・Ni以外の合金元素を覚えよう！⚗️ Mo・Mn・V・W——それぞれ何が得意？</h1>
+  </div>
   <span class="week">第2週：炭素鋼と合金元素の役割</span>
 </header>
 
 <div class="summary">
-  <h2>今日の3行サマリ</h2>
-  <ul>
-    <li>Mo・Wは高温強度（クリープ抵抗）を担う元素。耐熱合金・工具鋼の基幹</li>
-    <li>Mnは脱酸剤兼焼入れ性向上元素。Niの安価な代替としてもオーステナイト安定化に使われる</li>
-    <li>Vは析出硬化（炭化物分散）によって高強度と靭性を両立する少量高効果元素</li>
-  </ul>
+  <div class="normal-only">
+    <h2>今日の3行サマリ</h2>
+    <ul>
+      <li>Mo：耐食性強化・クリープ強度・焼入性向上。SUS316のMoは孔食防止の核心</li>
+      <li>Mn：焼入性向上・脱酸剤。SCM440（Cr-Mo鋼）との組み合わせでSNCM材の大断面焼入れに使われる</li>
+      <li>V・W：炭化物形成で高温硬さを維持。SKH55（W系ハイス）・析出硬化型SUSに見られる</li>
+    </ul>
+  </div>
+  <div class="easy-only">
+    <h2>🎯 今日わかること 3つ！</h2>
+    <ul>
+      <li>⚙️ Mo——耐食性を強化して海水・塩素系薬液に強くする（SUS316の秘密！）</li>
+      <li>🔬 Mn——焼入れが「芯まで届きやすく」なる！大きい部品の熱処理に必須</li>
+      <li>🔧 V・W——高温でも硬さをキープ。工具鋼・ハイスに使われる</li>
+    </ul>
+  </div>
 </div>
 
 <div class="card">
-  <h2>本文</h2>
+  <div class="normal-only">
+    <h2>本文：4元素の役割一覧</h2>
 
-  <h3>Mo（モリブデン）：高温強度と孔食耐性</h3>
-  <p>Moの役割は大きく3つだ。</p>
-  <p><strong>① 高温強度（クリープ抵抗）の向上</strong><br>
-  Moは融点が約2623℃と非常に高く、鉄の結晶格子に固溶することで高温での変形（クリープ）を抑制する。耐熱合金・工具鋼・タービン材にMoが配合される理由はここにある。自社扱いのHP合金にもMoが含まれており、高温長時間使用での寸法安定性に寄与している。</p>
-  <p><strong>② 焼入れ性の向上</strong><br>
-  CrとMoを組み合わせたSCMは、Cr単独より焼入れ性が高く、大断面でも均質に硬化できる。</p>
-  <p><strong>③ 孔食耐性（SUS316のMo効果）</strong><br>
-  SUS316に含まれる約2%のMoはCrの不動態皮膜を強化し、塩化物環境での孔食（局所的な貫通腐食）を抑制する。「塩分・塩素環境＝316」の根拠がこのMo効果だ。</p>
+    <table>
+      <tr><th>元素</th><th>主な役割</th><th>代表的な鋼種</th><th>使用上のポイント</th></tr>
+      <tr><td><strong>Mo（モリブデン）</strong></td><td>耐孔食性・クリープ強度・焼入性向上</td><td>SUS316（Mo2%）・SCM440・SCH22</td><td>Clイオンへの耐食に直接効く。PREN値計算に含まれる</td></tr>
+      <tr><td><strong>Mn（マンガン）</strong></td><td>焼入性向上・脱酸・硫化物形態制御</td><td>SCM440・SNCM439・SMn材</td><td>多量添加（18%Mn）でオーステナイト安定化。耐衝撃高Mn鋼（ハドフィールド鋼）</td></tr>
+      <tr><td><strong>V（バナジウム）</strong></td><td>炭化物形成→析出硬化・高温硬さ維持・結晶粒微細化</td><td>SKH51・SKH55・V添加ツール鋼</td><td>二次硬化効果（焼戻し時に硬さが上がる）に寄与。少量（0.1〜0.3%）で効く</td></tr>
+      <tr><td><strong>W（タングステン）</strong></td><td>高温硬さ・炭化物安定化</td><td>SKH51（W6%）・高速度鋼全般</td><td>融点が元素中最高（3422℃）で高温での炭化物安定性が高い。Moと代替関係</td></tr>
+    </table>
 
-  <h3>Mn（マンガン）：安価な多機能元素</h3>
-  <p>マンガン（Mn）は鋼の精錬段階で脱酸・脱硫剤として必ず添加される元素で、ほぼすべての鋼に0.3〜1%程度含まれる。Niと同様にオーステナイト生成元素として機能し焼入れ性を改善する。Ni価格が高騰した局面ではMnをNiの代替として積極活用するケースがある（200系ステンレス）。ただし靭性改善効果はNiに比べて劣る。</p>
+    <h3>Mo：SUS316と孔食防止</h3>
+    <p>SUS304（18Cr-8Ni）に Mo 2%を加えたのがSUS316だ。Moは不動態皮膜を強化し、特に塩化物（Cl⁻）による<strong>孔食（ピッティング）</strong>への耐性を高める。孔食耐性の指標PREN（Pitting Resistance Equivalent Number）はPREN = %Cr + 3.3×%Mo + 16×%N で計算される。SUS304（PREN≈18）に対してSUS316（PREN≈25）は大幅に高く、海水・食塩水・薬液環境での腐食事例を大幅に減らせる。</p>
+    <p>自社製品のSCH22にもMoが2〜3%程度含まれる系統があり、これはクリープ強度と高温酸化への耐性を目的としている。高温でMoは炭化物を形成して析出硬化的な強化にも寄与する。</p>
 
-  <h3>V（バナジウム）：少量で強力な析出硬化元素</h3>
-  <p>バナジウム（V）は通常0.1〜0.3%という少量で添加されるが効果は大きい。炭素や窒素と結合して微細な炭化物・窒化物（VC・VN）を析出させ、この微細粒子が転位の動きを妨げることで高強度化する——これを「<strong>析出硬化（precipitation hardening）</strong>」と呼ぶ。</p>
-  <p>さらに微細析出物が結晶粒の成長を抑制（ピン止め効果）するため、焼入れ時の粒粗大化を防ぎ靭性も維持できる。高速度工具鋼（SKH系）にVが必ず入っているのはこの理由だ。</p>
+    <h3>Mn：大断面焼入れを可能にする</h3>
+    <p>焼入れ性（hardenability）は材料の「芯まで硬くなる能力」だ。MnはCr・Moと並んで焼入れ性向上に効果が大きい。SNCM439（40Ni-Cr-Mo鋼）はNi・Cr・Moを複合添加してシャフト・大型歯車など大断面部品の焼入れを可能にする。SCM440との主な違いはNiが加わって靭性がさらに向上している点だ。また少量のMnは脱酸剤として鋼の清浄度を上げ、硫黄（S）と結合してMnSを生成し被削性を向上させる作用もある。</p>
 
-  <h3>W（タングステン）：超高温・高硬度の番人</h3>
-  <p>タングステン（W）は融点が約3422℃と全金属中最高で、高温硬度と耐摩耗性の確保に使われる。高速度工具鋼（SKH51など）に10〜18%程度添加されており、切削時の摩擦熱（600℃超）でも硬さを保つ「<strong>赤熱硬度（red hardness）</strong>」を付与する。MoとWは類似した効果を持つため、コストや用途に応じて使い分けたり組み合わせたりする。</p>
-
-  <table>
-    <tr><th>元素</th><th>主な効果</th><th>代表鋼種</th></tr>
-    <tr><td>Mo</td><td>高温強度・焼入れ性・孔食耐性</td><td>SCM・SUS316・HP合金</td></tr>
-    <tr><td>Mn</td><td>脱酸・焼入れ性・Ni代替</td><td>汎用構造用鋼全般・200系SUS</td></tr>
-    <tr><td>V</td><td>析出硬化・結晶粒微細化</td><td>SKH（高速度工具鋼）・SNCM</td></tr>
-    <tr><td>W</td><td>赤熱硬度・高温耐摩耗</td><td>SKH（高速度工具鋼）・超硬</td></tr>
-  </table>
-
-  <h3>自社製品との関連</h3>
-  <p>自社扱いの耐熱合金（HK・HP）にはCr・Niに加えてMoやWが微量添加されることがある。1000℃超での長時間使用では「高温強度をどう担保するか」が寿命を左右するため、CrとNiの骨格にMo・Wが高温強度補完として機能する設計になっている。自社製品の文脈ではMoが最も身近な元素として意識すべき対象だ。</p>
-  <p><strong>搬送用台車や炉内部品（棚・ラック・ローラー）</strong>が高温炉内で長期使用中に徐々に曲がる・たわむ問題が「<strong>クリープ変形</strong>」だ。高温で応力がかかり続けると素材が少しずつ塑性変形する現象で、Mo・Wによる固溶強化がこのクリープ変形速度を下げる。「炉内部品が変形して製品が傾く」という現場トラブルの根本原因がクリープであり、材料選定でMo・Wの有無を確認することが長寿命設計の第一歩になる。</p>
-</div>
-
-<div class="card">
-  <h2>営業からの相談に効く知識</h2>
-
-  <div class="qa-block">
-    <div class="qa-q">ケース1：「客先から"工具鋼SKH51とSKH55、どっちを勧めればいい？"って聞かれた」</div>
-    <blockquote>SKH55はSKH51にCoを加えた上位グレードで赤熱硬度が高い。高速・難削材の切削ならSKH55が有利。汎用切削・コスト重視ならSKH51で十分。「何を削るか・切削速度はどのくらいか」を確認してから選定してください。</blockquote>
-    <div class="qa-point">ポイント：工具鋼の選定は「切削対象と速度」が起点。グレードだけで選ばない。</div>
+    <h3>V・W：工具鋼の高温硬さ</h3>
+    <p>SKH51（W6Mo5Cr4V2）はハイス（高速度鋼）の代表で、W・Mo・V・Crを複合添加している。焼戻し時に微細なV・W炭化物が析出し「二次硬化」（焼戻すほど硬くなる）を生む。これにより切削工具が摩擦熱で600℃以上になっても硬さを維持できる。SKH55はCoを加えてさらに高温硬さを強化したグレードだ。Vは少量（0.1〜0.3%）でも結晶粒を微細化させ、靭性と耐摩耗性を両立させる効果もある。</p>
   </div>
 
-  <div class="qa-block">
-    <div class="qa-q">ケース2：「客先がSCM440とSNCM439で迷ってると。どう違う？」</div>
-    <blockquote>SCM440はCr-Mo系、SNCM439はNi-Cr-Mo系。Niが加わることで靭性と低温衝撃特性が上がる。引張強度が同レベルでも、繰り返し衝撃荷重がかかる用途（クランク・大型シャフト）ではSNCM一択。コスト差はNi価格分だが、折損リスクを考えればSNCMが安全側。用途と断面サイズを教えてもらえれば絞り込めます。</blockquote>
-    <div class="qa-point">ポイント：強度が同じでも靭性が違う。「折れない」要求があるならNi入りのSNCMを選ぶ。</div>
+  <div class="easy-only">
+    <h2>💡 4元素をわかりやすく解説！</h2>
+
+    <h3>🌊 Mo（モリブデン）——海水・薬液に強くする元素</h3>
+    <div class="easy-example">
+      <p>SUS304にMoを2%加えたのがSUS316。Moが「不動態皮膜」を強化して、塩素イオンが攻撃してくる「孔食（穴が開く腐食）」を防ぐ！</p>
+      <p>孔食への強さを数字で表す指標：<br>
+      <strong>PREN = Cr% + 3.3×Mo% + 16×N%</strong></p>
+      <table>
+        <tr><th>材料</th><th>PREN（高いほど強い）</th></tr>
+        <tr><td>SUS304（Mo無し）</td><td>約18</td></tr>
+        <tr><td>SUS316（Mo2%）</td><td>約25</td></tr>
+      </table>
+    </div>
+
+    <h3>🔬 Mn（マンガン）——焼入れを「芯まで届かせる」元素</h3>
+    <div class="easy-example">
+      <p>焼入れは表面から冷えていくが、大きい部品だと芯まで冷えにくくて表面しか硬くならないことがある。Mnが入ると芯まで硬くなりやすくなる（焼入れ性向上）！</p>
+      <p>SNCM439（大型シャフト・歯車に使う合金鋼）はNi・Cr・Moに加えてMnも入れている。</p>
+    </div>
+
+    <h3>🔧 V（バナジウム）——少量で結晶粒を細かくする元素</h3>
+    <div class="easy-example">
+      <p>Vは0.1〜0.3%の少量でも「結晶粒を微細化」して靭性と耐摩耗性を上げる。<br>
+      工具鋼（SKH51・SKH55）に含まれて「二次硬化」——焼戻しするほど硬くなる現象——を生み出す！</p>
+    </div>
+
+    <h3>⚡ W（タングステン）——高温でも硬さをキープする元素</h3>
+    <div class="easy-example">
+      <p>WはすべてのX元素の中で融点が最高（3422℃）！<br>
+      切削工具（ハイス：SKH51）に入れて、切削中の熱（600℃以上！）でも硬さが落ちないようにする。MoとWは似た役割で「代替関係」にある。</p>
+    </div>
+
+    <div class="easy-point">🗺️ 4元素まとめ：Mo＝海水耐食、Mn＝大断面焼入れ、V＝粒の微細化、W＝高温硬さ！</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>営業からの相談に効く知識</h2>
+
+    <div class="qa-block">
+      <div class="qa-q">ケース1：「炉の中で使う治具部品が数ヶ月でクリープ変形してしまう。SCM440を使ってるらしいが……」</div>
+      <blockquote>SCM440はCr-Mo鋼で引張強度は高いが、耐熱性・クリープ強度は高温用途向けに設計されていない。使用温度が500℃を超える場合は組織が劣化しクリープが加速する。炉内治具には耐熱鋳鋼（SCH系）か耐熱ステンレス鋳鋼（SCS系）を選定すべき。使用温度・荷重・形状を確認してから適切なSCH系グレードを提案します。</blockquote>
+      <div class="qa-point">ポイント：SCM440はあくまで「機械構造用合金鋼」。高温での長時間使用には向かない。用途と温度を必ず確認。</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">ケース2：「SKH51とSKH55、どっちの工具を使うか迷っている客先への説明」</div>
+      <blockquote>SKH51（W6Mo5Cr4V2）は汎用ハイスで、一般的な切削・穿孔工具の標準。SKH55はSKH51にCo（コバルト）5〜8%を追加したグレードで、高温硬さと切削速度をさらに上げる。ステンレス・耐熱合金・高硬度素材の切削時にSKH55が有効。コストはSKH55の方が高いが、工具寿命が伸びてトータルコストで有利な場合も多い。切削対象の材種と要求速度を確認して提案します。</blockquote>
+      <div class="qa-point">ポイント：SKH55はCoで「さらに高温でも硬い」が売り。切削対象が難削材（SUS・Ni合金）であれば提案価値が高い。</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">ケース3：「SCM440とSNCM439、どっちにするか迷っている。部品は大型シャフト（φ200）」</div>
+      <blockquote>φ200という大断面ではSCM440の焼入れ性では芯まで十分に硬化しない可能性がある。SNCM439はNiを1.8%加えることで焼入れ性と低温靭性が大幅に向上し、大断面の安定した焼入れ・焼戻しに向いている。SNCM439はSCM440より高価だが、大断面部品での信頼性を優先するなら合理的な選択。使用荷重・要求硬さ・衝撃の有無を確認してから最終判断します。</blockquote>
+      <div class="qa-point">ポイント：「大断面＝SNCM」という選定の目安を持っておくと即答しやすい。Ni追加が焼入れ性と靭性の2点を改善する。</div>
+    </div>
+  </div>
+
+  <div class="easy-only">
+    <h2>💬 営業さんとの会話で使える知識</h2>
+
+    <div class="easy-bubble-q">
+      <strong>🗣 営業さん：</strong>「炉内の治具がSCM440で、クリープ変形してしまってる。どうすれば？」
+    </div>
+    <div class="easy-bubble-a">
+      <strong>🏭 生産管理：</strong>「SCM440は機械構造用の合金鋼で、高温での長時間使用には向かないよ。500℃を超える環境なら組織が劣化してクリープ（ゆっくり変形）が進む。炉内治具ならSCH系（耐熱鋳鋼）を選ぶべき。使用温度と形状を教えてもらえれば適切なグレードを提案するよ！」
+    </div>
+
+    <div style="margin-top:20px;">
+      <div class="easy-bubble-q">
+        <strong>🗣 営業さん：</strong>「大型シャフト（φ200）、SCM440かSNCM439か迷ってる客先にどう説明する？」
+      </div>
+      <div class="easy-bubble-a">
+        <strong>🏭 生産管理：</strong>「φ200は大断面だから、SCM440だと芯まで硬くならない可能性がある。SNCM439はNiが入っていて焼入れ性と靭性が両方アップ——大断面シャフトの定番！コストは上がるけど、信頼性を取るならSNCM439の一択。荷重条件と要求硬さを確認してから最終判断しよう。」
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card answer">
+  <div class="normal-only">
+    <h2>昨日の小テスト解答</h2>
+    <div class="q-restate">問（第08回）：SCH22からHP系への変更を提案する際、コスト以外に確認・提示すべき技術的事項を2点挙げよ。</div>
+    <p><strong>①使用温度とクリープ強度の要求値の確認</strong>：HP系が有利になるのは概ね1100℃以上の高負荷環境。1000℃以下ならSCH22で十分な場合も多い。温度ログや変形量のデータを取り寄せて本当にアップグレードが必要かどうかを確認する。</p>
+    <p><strong>②溶接性と補修可能性</strong>：HP系（高Ni）はオーステナイト系だが、Ni量が多いため溶接時の希釈と割れリスクが変わる。現場で溶接補修を行う可能性がある製品では、HP系に対応した溶接材と施工要領の確認が必要。</p>
+    <div class="key-msg">「変えるべきかどうか」を確認してから「変え方」を提案するのが正しい順序。コスト根拠だけで押しても客先は判断できない。</div>
+  </div>
+  <div class="easy-only">
+    <h2>📝 前回チャレンジ問題の答え</h2>
+    <div class="easy-bubble-q">
+      <strong>前回の問題：</strong>SCH22→HP系に変更提案するとき、コスト以外で確認すべきことを2つ挙げよ
+    </div>
+    <div class="easy-bubble-a">
+      <strong>答え：</strong><br>
+      ① 本当にHP系が必要な温度域かどうか（1100℃以上の高負荷環境か確認）<br>
+      ② 現場で溶接補修する可能性はないか（Ni量が増えると溶接方法も変わる）
+    </div>
+    <div class="easy-point">📌 「変えるべきか？」を確認してから「どう変えるか」を提案する順番が大事！</div>
   </div>
 </div>
 
 <div class="card vocab">
-  <h2>用語メモ</h2>
-  <dl>
-    <dt>析出硬化</dt>
-    <dd>微細な炭化物・窒化物などが析出し、転位の動きを妨げて高強度化する機構</dd>
-    <dt>赤熱硬度</dt>
-    <dd>600℃超の高温でも硬さを維持する性質。W・Moが付与する</dd>
-    <dt>ピン止め効果</dt>
-    <dd>微細析出物が結晶粒界に存在し、結晶粒の粗大化を抑制する現象</dd>
-    <dt>脱酸元素</dt>
-    <dd>溶鋼中の酸素を除去する元素。Mn・Si・Alが代表</dd>
-    <dt>高速度工具鋼（ハイス・SKH）</dt>
-    <dd>W・Mo・V・Coを多量に含む高温硬度に優れた工具鋼</dd>
-  </dl>
-</div>
-
-<div class="card answer">
-  <h2>昨日の小テスト解答</h2>
-  <div class="q-restate">問：営業から「客先の炉内治具、今はSCH22を使ってるんだけど、使用温度が1050℃から1150℃に上がることになったと。このままSCH22でいける？」</div>
-  <p>SCH22の使用上限温度は概ね1050〜1100℃程度であり、<strong>1150℃での連続使用はリスクが高い</strong>。この温度帯ではSCH22のNi約10%では組織安定性が不十分になり始め、高温クリープ（変形）と酸化スケール剥離が加速する可能性がある。</p>
-  <p>推奨代替はNiがより多い<strong>HK合金（Ni約35%）またはHP合金（Ni約35%・Mo添加）</strong>への変更。HK/HPはNi量が大幅に多いためオーステナイト組織が高温でも安定し、1100〜1200℃の連続使用に対応できる。SCH22を設計限界を超えた状態で使い続けると変形・崩壊による炉内製品混入リスクがある。</p>
-  <div class="key-msg">営業に渡すキーメッセージ：「1150℃ならSCH22の上限を超えます。HKまたはHP合金への変更を推奨します。価格はお見積りします。」</div>
+  <div class="normal-only">
+    <h2>用語メモ</h2>
+    <dl>
+      <dt>PREN（Pitting Resistance Equivalent Number）</dt>
+      <dd>孔食耐性の数値指標。PREN = Cr% + 3.3×Mo% + 16×N%。値が高いほど塩化物環境で腐食しにくい</dd>
+      <dt>二次硬化</dt>
+      <dd>焼戻し時に微細炭化物が析出して硬さが再上昇する現象。V・W・Mo添加鋼（ハイス）で顕著</dd>
+      <dt>焼入性（hardenability）</dt>
+      <dd>焼入れ時に硬化する深さ・能力。Mn・Cr・Mo・Ni添加で向上する</dd>
+      <dt>クリープ</dt>
+      <dd>高温・低応力下で時間をかけて変形が進む現象。耐熱材の選定基準になる</dd>
+      <dt>ハイス（高速度鋼 HSS：High Speed Steel）</dt>
+      <dd>W・Mo・Cr・V・Co系の複合合金鋼。高温でも硬さを保ち切削工具に使われる</dd>
+    </dl>
+  </div>
+  <div class="easy-only">
+    <h2>📖 今日のことば</h2>
+    <dl>
+      <dt>🌊 PREN（ピッティング耐性数）</dt>
+      <dd>孔食への強さを数字にしたもの。Cr+3.3×Mo+16×N で計算。高いほど海水・薬液に強い！</dd>
+      <dt>🔥 二次硬化（にじこうか）</dt>
+      <dd>焼戻し（加熱）するほど硬くなる現象。V・W入りの工具鋼で起きる</dd>
+      <dt>⚙️ 焼入性（やきいれせい）</dt>
+      <dd>焼入れしたとき芯まで硬くなる能力。大きい部品ほど「焼入性」が高い材料を選ぶ必要がある</dd>
+      <dt>🌡️ クリープ</dt>
+      <dd>高温でゆっくりゆっくり変形が進む現象。炉内部品が「いつのまにか曲がってた」の原因の多くはこれ！</dd>
+      <dt>🔩 ハイス（高速度鋼）</dt>
+      <dd>W・Mo・V・Crが複合された工具用鋼。切削中に600℃以上になっても硬さをキープできる！</dd>
+    </dl>
+  </div>
 </div>
 
 <div class="card quiz">
-  <h2>今日の小テスト1問</h2>
-  <div class="q-text">問：営業から「客先が"Mo添加のSUS316なのに海水環境で点状の腐食が出た。なぜか"と言っている。Moの効果の限界と、次に提案できる材料の方向性を教えてほしい」という相談が来た。第2週の知識を総動員して生産管理として回答せよ。</div>
-  <div class="note">解答は次回配信</div>
+  <div class="normal-only">
+    <h2>今日の小テスト1問</h2>
+    <div class="q-text">問：SUS316が海水環境でのポンプ部品に選定されているが、客先から「もっと耐食性を上げたい」という要求が来た。SUS316の限界（PREN値）を踏まえ、次の選択肢をどのように評価・提案するか。（選択肢：SAF2507、254SMO、チタン合金Ti-6Al-4V）</div>
+    <div class="note">解答は次回（第10回）配信</div>
+  </div>
+  <div class="easy-only">
+    <h2>🎯 今日のチャレンジ問題！</h2>
+    <div class="q-text">問：SUS316（Mo2%・PREN約25）で作ったポンプ部品が海水で孔食を起こした。「もっと耐食性を上げたい」という要求に対し、以下の選択肢をどう評価する？<br>① SAF2507（二相ステンレス）<br>② 254SMO（スーパーオーステナイト）<br>③ チタン合金（Ti-6Al-4V）<br>ヒント：PRENが高いほど海水に強い！各材料のCr・Mo・N量を調べてみよう。</div>
+    <div class="note">解答は次回（第10回）配信</div>
+  </div>
 </div>
 
 <footer>
   <a href="index.html">← 目次に戻る</a>
 </footer>
 
+<button class="mode-btn" id="modeBtn" onclick="toggleMode()">🌟 やさしいとくしゅこうで読む</button>
+<script>
+function toggleMode() {
+  const body = document.body;
+  const btn = document.getElementById('modeBtn');
+  if (body.classList.contains('easy-mode')) {
+    body.classList.remove('easy-mode');
+    btn.textContent = '🌟 やさしいとくしゅこうで読む';
+    localStorage.setItem('studyMode', 'normal');
+  } else {
+    body.classList.add('easy-mode');
+    btn.textContent = '📚 通常モードに戻す';
+    localStorage.setItem('studyMode', 'easy');
+  }
+}
+(function() {
+  if (localStorage.getItem('studyMode') === 'easy') {
+    document.body.classList.add('easy-mode');
+    document.getElementById('modeBtn').textContent = '📚 通常モードに戻す';
+  }
+})();
+</script>
 </body>
 </html>

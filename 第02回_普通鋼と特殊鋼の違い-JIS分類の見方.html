@@ -44,118 +44,279 @@
   footer a { color: #2d6a9f; text-decoration: none; padding: 8px 20px; border: 1px solid #2d6a9f; border-radius: 5px; font-size: 0.9em; }
   footer a:hover { background: #2d6a9f; color: white; }
   strong { color: #1a3a5c; }
+  /* ===== Easy Mode ===== */
+  .easy-only { display: none; }
+  .normal-only { display: block; }
+  body.easy-mode .easy-only { display: block; }
+  body.easy-mode .normal-only { display: none; }
+  body.easy-mode { background: linear-gradient(160deg, #fff9f0 0%, #f0f4ff 100%); font-size: 16px; }
+  body.easy-mode header { background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; }
+  body.easy-mode .card { border-top: 5px solid #ce93d8; }
+  body.easy-mode h2 { color: #6a1b9a; border-color: #ce93d8; }
+  body.easy-mode h3 { color: #e65100; }
+  body.easy-mode .summary { background: #fce4ec; border-left-color: #f48fb1; }
+  body.easy-mode .summary h2 { color: #c2185b; }
+  .easy-bubble-q { background: #fce4ec; border: 2px solid #f48fb1; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-bubble-a { background: #e3f2fd; border: 2px solid #90caf9; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-point { background: #fff9c4; border-left: 4px solid #f9a825; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 12px 0; }
+  .easy-example { background: #e8f5e9; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .easy-steps { background: #e8eaf6; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .easy-steps ol { padding-left: 20px; margin: 8px 0 0; }
+  .mode-btn { position: fixed; top: 16px; right: 16px; z-index: 1000; background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; border: none; border-radius: 24px; padding: 10px 18px; font-size: 0.9em; font-weight: bold; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  body.easy-mode .mode-btn { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; }
 </style>
 </head>
 <body>
 
 <header>
   <div class="session">第02回 ・ 2026-06-11</div>
-  <h1>普通鋼と特殊鋼の違い：JIS分類の見方</h1>
+  <div class="normal-only">
+    <h1>普通鋼と特殊鋼の違い：JIS分類の見方</h1>
+  </div>
+  <div class="easy-only">
+    <h1>鉄にも名前のルールがある！📋 JIS記号のひみつ</h1>
+  </div>
   <span class="week">第1週：鉄鋼・特殊鋼の全体像</span>
 </header>
 
 <div class="summary">
-  <h2>今日の3行サマリ</h2>
-  <ul>
-    <li>普通鋼は炭素のみで性質を調整する。特殊鋼は合金元素で「目的別の機能」を付加した鋼</li>
-    <li>JISの鋼種記号（SUS・SCH・SCM等）は頭文字で分類を判断できる</li>
-    <li>自社扱い品（治具・鋳物・SUS）はほぼ全て「特殊鋼」の範疇に入る</li>
-  </ul>
+  <div class="normal-only">
+    <h2>今日の3行サマリ</h2>
+    <ul>
+      <li>普通鋼は炭素のみで性質を調整する。特殊鋼は合金元素で「目的別の機能」を付加した鋼</li>
+      <li>JISの鋼種記号（SUS・SCH・SCM等）は頭文字で分類を判断できる</li>
+      <li>自社扱い品（治具・鋳物・SUS）はほぼ全て「特殊鋼」の範疇に入る</li>
+    </ul>
+  </div>
+  <div class="easy-only">
+    <h2>🎯 今日わかること 3つ！</h2>
+    <ul>
+      <li>🔤 鉄の種類には「JIS記号」という名前のルールがある。頭文字で何の仲間かわかる！</li>
+      <li>⭐ 普通鋼は炭素だけで調整、特殊鋼はクロムなどを加えた「機能強化版」</li>
+      <li>🏭 自社の製品はほぼ全部「特殊鋼」のグループ。高機能だから特別な環境で使われる</li>
+    </ul>
+  </div>
 </div>
 
 <div class="card">
-  <h2>本文</h2>
+  <div class="normal-only">
+    <h2>本文</h2>
 
-  <h3>普通鋼と特殊鋼の境界</h3>
-  <p>鉄の世界には大きく「普通鋼（炭素鋼）」と「特殊鋼」の2系統がある。この区別は材料選定の出発点になるため、まず整理しておきたい。</p>
-  <p>普通鋼（carbon steel）は鉄と炭素の2元系合金が基本だ。炭素量を0.02〜2.14%の範囲で調整することで強度・硬さをコントロールするが、合金元素はほとんど加えない。SS400（一般構造用圧延鋼材）やS45C（機械構造用炭素鋼）が代表例で、建築・機械の汎用品として大量に使われる。安価で入手しやすいが、耐食性・耐熱性・焼入れ性には限界がある。</p>
-  <p><strong>特殊鋼</strong>は、普通鋼に不足する性質を補うためにCr（クロム）・Ni（ニッケル）・Mo（モリブデン）・V（バナジウム）などの合金元素を意図的に添加した鋼だ。「特殊」とは希少という意味ではなく、「特定の用途に向けた機能を付加した」という意味に近い。耐食・耐熱・高強度・高靭性といった目標値が明確で、組成もJISで厳格に規定されている。</p>
+    <h3>普通鋼と特殊鋼の境界</h3>
+    <p>鉄の世界には大きく「普通鋼（炭素鋼）」と「特殊鋼」の2系統がある。この区別は材料選定の出発点になるため、まず整理しておきたい。</p>
+    <p>普通鋼（carbon steel）は鉄と炭素の2元系合金が基本だ。炭素量を0.02〜2.14%の範囲で調整することで強度・硬さをコントロールするが、合金元素はほとんど加えない。SS400（一般構造用圧延鋼材）やS45C（機械構造用炭素鋼）が代表例で、建築・機械の汎用品として大量に使われる。安価で入手しやすいが、耐食性・耐熱性・焼入れ性には限界がある。</p>
+    <p><strong>特殊鋼</strong>は、普通鋼に不足する性質を補うためにCr（クロム）・Ni（ニッケル）・Mo（モリブデン）・V（バナジウム）などの合金元素を意図的に添加した鋼だ。「特殊」とは希少という意味ではなく、「特定の用途に向けた機能を付加した」という意味に近い。耐食・耐熱・高強度・高靭性といった目標値が明確で、組成もJISで厳格に規定されている。</p>
 
-  <h3>JIS鋼種記号の読み方</h3>
-  <p>JISの鋼種記号はアルファベット＋数字の組み合わせで構成される。先頭の文字列が分類のキーになる。</p>
-  <table>
-    <tr><th>記号</th><th>分類</th><th>例</th></tr>
-    <tr><td>SS / SM</td><td>一般構造用・溶接構造用圧延鋼（普通鋼）</td><td>SS400、SM490</td></tr>
-    <tr><td>S＋数字＋C</td><td>機械構造用炭素鋼</td><td>S45C、S20C</td></tr>
-    <tr><td>SUS</td><td>ステンレス鋼（JIS独自記号）</td><td>SUS304、SUS316</td></tr>
-    <tr><td>SCM</td><td>クロムモリブデン鋼</td><td>SCM440</td></tr>
-    <tr><td>SNCM</td><td>ニッケルクロムモリブデン鋼</td><td>SNCM439</td></tr>
-    <tr><td>SCS / SCH</td><td>ステンレス鋳鋼 / 耐熱鋳鋼</td><td>SCS13、SCH22</td></tr>
-  </table>
-  <p>数字部分は鋼種番号や炭素量の目安を示す場合が多いが、規格体系が分類ごとに異なるため「記号を見たら対応するJISを引く」習慣が基本だ。記号を丸暗記する必要はない。「どの頭文字がどの系統か」を押さえておくだけで、初見の材料証明書（ミルシート）を受け取ったときにも慌てずに済む。</p>
+    <h3>JIS鋼種記号の読み方</h3>
+    <p>JISの鋼種記号はアルファベット＋数字の組み合わせで構成される。先頭の文字列が分類のキーになる。</p>
+    <table>
+      <tr><th>記号</th><th>分類</th><th>例</th></tr>
+      <tr><td>SS / SM</td><td>一般構造用・溶接構造用圧延鋼（普通鋼）</td><td>SS400、SM490</td></tr>
+      <tr><td>S＋数字＋C</td><td>機械構造用炭素鋼</td><td>S45C、S20C</td></tr>
+      <tr><td>SUS</td><td>ステンレス鋼（JIS独自記号）</td><td>SUS304、SUS316</td></tr>
+      <tr><td>SCM</td><td>クロムモリブデン鋼</td><td>SCM440</td></tr>
+      <tr><td>SNCM</td><td>ニッケルクロムモリブデン鋼</td><td>SNCM439</td></tr>
+      <tr><td>SCS / SCH</td><td>ステンレス鋳鋼 / 耐熱鋳鋼</td><td>SCS13、SCH22</td></tr>
+    </table>
+    <p>数字部分は鋼種番号や炭素量の目安を示す場合が多いが、規格体系が分類ごとに異なるため「記号を見たら対応するJISを引く」習慣が基本だ。記号を丸暗記する必要はない。「どの頭文字がどの系統か」を押さえておくだけで、初見の材料証明書（ミルシート）を受け取ったときにも慌てずに済む。</p>
 
-  <h3>自社製品と特殊鋼の対応</h3>
-  <p>自社が扱う製品を鋼種分類に当てはめると次のようになる。</p>
-  <table>
-    <tr><th>製品カテゴリ</th><th>代表鋼種</th><th>JIS分類</th></tr>
-    <tr><td>熱処理治具</td><td>SCH22・HK合金・HP合金</td><td>耐熱鋳鋼／耐熱合金</td></tr>
-    <tr><td>鋳物（構造用）</td><td>SCS13・FC250</td><td>特殊鋼鋳造品 / 鋳鉄</td></tr>
-    <tr><td>オーステナイト系SUS</td><td>SUS304・SUS316</td><td>ステンレス特殊鋼</td></tr>
-    <tr><td>メッシュベルト</td><td>SUS310S・SUS330相当</td><td>ステンレス特殊鋼（耐熱）</td></tr>
-    <tr><td>ヒーターエレメント</td><td>Ni-Cr合金・Fe-Cr-Al合金</td><td>耐熱合金（JIS区分外も含む）</td></tr>
-  </table>
-  <p>この一覧が頭に入っていると、「これはどの系統の材料か」という問いに初見でも方向性を示せるようになる。ミルシートなしで即答するための地図として使ってほしい。</p>
+    <h3>自社製品と特殊鋼の対応</h3>
+    <p>自社が扱う製品を鋼種分類に当てはめると次のようになる。</p>
+    <table>
+      <tr><th>製品カテゴリ</th><th>代表鋼種</th><th>JIS分類</th></tr>
+      <tr><td>熱処理治具</td><td>SCH22・HK合金・HP合金</td><td>耐熱鋳鋼／耐熱合金</td></tr>
+      <tr><td>鋳物（構造用）</td><td>SCS13・FC250</td><td>特殊鋼鋳造品 / 鋳鉄</td></tr>
+      <tr><td>オーステナイト系SUS</td><td>SUS304・SUS316</td><td>ステンレス特殊鋼</td></tr>
+      <tr><td>メッシュベルト</td><td>SUS310S・SUS330相当</td><td>ステンレス特殊鋼（耐熱）</td></tr>
+      <tr><td>ヒーターエレメント</td><td>Ni-Cr合金・Fe-Cr-Al合金</td><td>耐熱合金（JIS区分外も含む）</td></tr>
+    </table>
+    <p>この一覧が頭に入っていると、「これはどの系統の材料か」という問いに初見でも方向性を示せるようになる。ミルシートなしで即答するための地図として使ってほしい。</p>
 
-  <h3>なぜ特殊鋼を使うか</h3>
-  <p>コストだけ見れば普通鋼のほうが安い。それでも特殊鋼を選ぶ理由は「環境・要求性能が普通鋼の限界を超えているから」だ。熱処理炉の内部は1000℃を超える。普通鋼では数百℃でクリープ（高温でゆっくり変形する現象）が始まり、治具が曲がって製品の保持ができなくなる。耐熱鋳鋼を使うのはこのためだ。</p>
-  <p>生産管理として材料の可否を判断するとき、まず「この環境で普通鋼が持つか？」を出発点にすると、特殊鋼が必要な理由を自分の言葉で説明しやすくなる。</p>
+    <h3>なぜ特殊鋼を使うか</h3>
+    <p>コストだけ見れば普通鋼のほうが安い。それでも特殊鋼を選ぶ理由は「環境・要求性能が普通鋼の限界を超えているから」だ。熱処理炉の内部は1000℃を超える。普通鋼では数百℃でクリープ（高温でゆっくり変形する現象）が始まり、治具が曲がって製品の保持ができなくなる。耐熱鋳鋼を使うのはこのためだ。</p>
+    <p>生産管理として材料の可否を判断するとき、まず「この環境で普通鋼が持つか？」を出発点にすると、特殊鋼が必要な理由を自分の言葉で説明しやすくなる。</p>
+  </div>
+
+  <div class="easy-only">
+    <h2>💡 やさしく解説！</h2>
+
+    <h3>🏷️ 鉄の名前には「ルール」がある</h3>
+    <p>JIS（日本産業規格）という標準化されたルールで、鉄の種類に名前がついています。頭文字を見ればどの仲間かわかる！</p>
+    <div class="easy-example">
+      <p>📌 読み方の法則</p>
+      <ul>
+        <li><strong>SS400</strong>：SSで始まる → 普通の構造用鋼（ビルの鉄骨など）</li>
+        <li><strong>S45C</strong>：S＋数字＋Cの形 → 炭素量0.45%の機械用鋼</li>
+        <li><strong>SUS304</strong>：SUSで始まる → ステンレス鋼（"SUS"はJIS独自の記号）</li>
+        <li><strong>SCH22</strong>：SCHで始まる → 耐熱鋳鋼（耐熱 Cast（鋳）High temperature）</li>
+      </ul>
+    </div>
+    <div class="easy-point">💡 数字の部分は鋼種番号や炭素量のヒント。全部暗記しなくていい——「頭文字でどの仲間か判断する」だけでOK！</div>
+
+    <h3>⚙️ 普通鋼 vs 特殊鋼——どこが違う？</h3>
+    <div class="easy-example">
+      <p>🚗 車で例えると……</p>
+      <p><strong>普通鋼</strong> ＝ 軽自動車<br>安くて使いやすい。街乗りには十分。でも過酷な環境（雪山・レース）には向かない。</p>
+      <p><strong>特殊鋼</strong> ＝ SUV・スポーツカー<br>クロムやニッケルなどを加えて「さびにくい・高温に強い・硬い」などの機能を持たせた。値段は高いが、特別な環境で威力を発揮。</p>
+    </div>
+
+    <h3>🏭 自社製品は何の仲間？</h3>
+    <table>
+      <tr><th>自社の製品</th><th>JIS記号の仲間</th><th>なぜ特殊鋼？</th></tr>
+      <tr><td>熱処理治具</td><td>SCH22（耐熱鋳鋼）</td><td>1000℃超の炉に耐えるため</td></tr>
+      <tr><td>ステンレス鋳物</td><td>SCS13</td><td>さびにくさが必要なため</td></tr>
+      <tr><td>メッシュベルト</td><td>SUS310S</td><td>高温＋繰り返し加熱に耐えるため</td></tr>
+    </table>
+    <div class="easy-point">📌 自社製品はほぼ全部「特殊鋼」！普通の鉄では対応できない厳しい環境で使われています。</div>
+  </div>
 </div>
 
 <div class="card">
-  <h2>営業からの相談に効く知識</h2>
+  <div class="normal-only">
+    <h2>営業からの相談に効く知識</h2>
 
-  <div class="qa-block">
-    <div class="qa-q">ケース1：「客先から熱処理治具が欲しいって話、材質はまだ決まってないんだけど、できますか？」</div>
-    <blockquote>できます。ただし炉温と製品重量を先に確認する必要があります。800℃以下の低温炉ならSCH13相当で行ける。1000℃超の浸炭・浸窒炉ならSCH22やHK合金を使う。「最高使用温度」を客先に確認してから鋼種を確定させてください。</blockquote>
-    <div class="qa-point">ポイント：炉温を聞かずに見積を出すのはNG。材質が決まらないと価格が出ない。まず「最高使用温度」を取りに行かせる。</div>
+    <div class="qa-block">
+      <div class="qa-q">ケース1：「客先から熱処理治具が欲しいって話、材質はまだ決まってないんだけど、できますか？」</div>
+      <blockquote>できます。ただし炉温と製品重量を先に確認する必要があります。800℃以下の低温炉ならSCH13相当で行ける。1000℃超の浸炭・浸窒炉ならSCH22やHK合金を使う。「最高使用温度」を客先に確認してから鋼種を確定させてください。</blockquote>
+      <div class="qa-point">ポイント：炉温を聞かずに見積を出すのはNG。材質が決まらないと価格が出ない。まず「最高使用温度」を取りに行かせる。</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">ケース2：「客先が"ステンレス鋼で作ってほしい"って言ってるんだけど、SUS304でいい？」</div>
+      <blockquote>それだけだと絞れません。SUSは5分類あって用途で変わります。「何に使うか（食品・化学・高温・構造）」と「溶接するかどうか」を確認してもらえれば鋼種を絞れます。304で出すのは用途が分かってから。</blockquote>
+      <div class="qa-point">ポイント：「SUS＝304」は早合点。用途確認なしで鋼種を決めると、後で材質変更が発生するリスクがある。</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">ケース3：「炉と治具を一緒に提案したいんだけど、何を確認すればいい？」</div>
+      <blockquote>炉の最高使用温度・雰囲気（大気・浸炭・窒化・真空）・ワークの材質と重量を先に押さえてください。温度と雰囲気が決まれば治具材質（SCH13か22か、HK・HPか）が絞れる。炉の仕様が分かってから、それに合った治具の設計提案ができます。炉だけ・治具だけの相談より、セットで提案するほうが「使い方に合った最適設計」が出しやすい。</blockquote>
+      <div class="qa-point">ポイント：炉＋治具のワンストップ提案は強みだが、前提情報なしでは材質も設計も決められない。「温度・雰囲気・ワーク情報」の3点を必ず先に取りに行かせる。</div>
+    </div>
   </div>
 
-  <div class="qa-block">
-    <div class="qa-q">ケース2：「客先が"ステンレス鋼で作ってほしい"って言ってるんだけど、SUS304でいい？」</div>
-    <blockquote>それだけだと絞れません。SUSは5分類あって用途で変わります。「何に使うか（食品・化学・高温・構造）」と「溶接するかどうか」を確認してもらえれば鋼種を絞れます。304で出すのは用途が分かってから。</blockquote>
-    <div class="qa-point">ポイント：「SUS＝304」は早合点。用途確認なしで鋼種を決めると、後で材質変更が発生するリスクがある。</div>
-  </div>
+  <div class="easy-only">
+    <h2>💬 営業さんとの会話で使える知識</h2>
 
-  <div class="qa-block">
-    <div class="qa-q">ケース3：「炉と治具を一緒に提案したいんだけど、何を確認すればいい？」</div>
-    <blockquote>炉の最高使用温度・雰囲気（大気・浸炭・窒化・真空）・ワークの材質と重量を先に押さえてください。温度と雰囲気が決まれば治具材質（SCH13か22か、HK・HPか）が絞れる。炉の仕様が分かってから、それに合った治具の設計提案ができます。炉だけ・治具だけの相談より、セットで提案するほうが「使い方に合った最適設計」が出しやすい。</blockquote>
-    <div class="qa-point">ポイント：炉＋治具のワンストップ提案は強みだが、前提情報なしでは材質も設計も決められない。「温度・雰囲気・ワーク情報」の3点を必ず先に取りに行かせる。</div>
+    <div class="easy-bubble-q">
+      <strong>🗣 営業さん：</strong>「客先が熱処理治具欲しいって言ってるんだけど、材質まだ決まってないんだよね。できる？」
+    </div>
+    <div class="easy-bubble-a">
+      <strong>🏭 生産管理：</strong>「できるよ！でも炉温が分からないと材質が決められないんだよね。800℃以下ならSCH13、1000℃超えるならSCH22かHK合金になる。まず"最高使用温度"を客先に聞いてきてもらえる？それがないと見積も出せないんだよ。」
+    </div>
+    <div class="easy-point">📌 炉の温度を聞かずに見積を出すのはNG。まず「最高使用温度」を確認！</div>
+
+    <div style="margin-top:20px;">
+      <div class="easy-bubble-q">
+        <strong>🗣 営業さん：</strong>「ステンレスで作ってほしいって。SUS304でいい？」
+      </div>
+      <div class="easy-bubble-a">
+        <strong>🏭 生産管理：</strong>「SUSって5種類あるんだよね……304は一番一般的だけど、何に使うかによって変わってくる。食品か化学か高温か、あと溶接するかしないかで選び方が違うから、用途を先に確認してきて！」
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="card vocab">
-  <h2>用語メモ</h2>
-  <dl>
-    <dt>SS400</dt>
-    <dd>一般構造用圧延鋼。降伏点400N/mm²保証。建築・汎用機械に大量使用。特殊鋼ではない</dd>
-    <dt>S45C</dt>
-    <dd>炭素量0.45%の機械構造用炭素鋼。歯車・シャフト等の汎用品。普通鋼の範疇</dd>
-    <dt>SCM（クロムモリブデン鋼）</dt>
-    <dd>Cr-Moを加えた機械構造用特殊鋼。焼入れ性が高く、高強度部品に多用</dd>
-    <dt>クリープ</dt>
-    <dd>高温・高荷重下で材料が時間とともに変形する現象。治具寿命の主要因の一つ</dd>
-    <dt>ミルシート（材料証明書）</dt>
-    <dd>材料の化学成分・機械的性質を記した証明書。JIS規格準拠の証明</dd>
-  </dl>
+  <div class="normal-only">
+    <h2>用語メモ</h2>
+    <dl>
+      <dt>SS400</dt>
+      <dd>一般構造用圧延鋼。降伏点400N/mm²保証。建築・汎用機械に大量使用。特殊鋼ではない</dd>
+      <dt>S45C</dt>
+      <dd>炭素量0.45%の機械構造用炭素鋼。歯車・シャフト等の汎用品。普通鋼の範疇</dd>
+      <dt>SCM（クロムモリブデン鋼）</dt>
+      <dd>Cr-Moを加えた機械構造用特殊鋼。焼入れ性が高く、高強度部品に多用</dd>
+      <dt>クリープ</dt>
+      <dd>高温・高荷重下で材料が時間とともに変形する現象。治具寿命の主要因の一つ</dd>
+      <dt>ミルシート（材料証明書）</dt>
+      <dd>材料の化学成分・機械的性質を記した証明書。JIS規格準拠の証明</dd>
+    </dl>
+  </div>
+  <div class="easy-only">
+    <h2>📖 今日のことば</h2>
+    <dl>
+      <dt>🏗️ SS400</dt>
+      <dd>普通の構造用鋼。建築の鉄骨に使う一般的な鉄。特殊鋼じゃない</dd>
+      <dt>⚙️ S45C（エス・よんじゅうご・シー）</dt>
+      <dd>炭素量0.45%の機械用鋼。歯車やシャフトによく使われる普通鋼</dd>
+      <dt>🔧 SCM（クロムモリブデン鋼）</dt>
+      <dd>クロム＋モリブデンを加えた特殊鋼。焼入れしやすく高強度な部品に使う</dd>
+      <dt>🌡️ クリープ</dt>
+      <dd>高温で長時間ストレスをかけると材料がじわじわ変形する現象。治具が曲がる原因</dd>
+      <dt>📄 ミルシート（材料証明書）</dt>
+      <dd>材料の成分や強さを証明する書類。材料を納品するときに一緒に出す大事な書類</dd>
+    </dl>
+  </div>
 </div>
 
 <div class="card answer">
-  <h2>昨日の小テスト解答</h2>
-  <div class="q-restate">問：営業から「お客さんから熱処理治具を鋳鉄で作れないか、安くなるからって話があるんだけど、どう思う？」という相談が来た。可否と技術的な理由、代替案をどう返すか。</div>
-  <p>基本的にNGです。熱処理治具は繰り返し高温にさらされる用途で、鋳鉄（炭素量2.14%超）はこの環境に向かない。主な理由は2点——①脆性が高く熱衝撃（急加熱・急冷）に弱い、②一般鋳鉄は耐熱性が低く900℃超の浸炭炉では短期間で組織変化を起こして変形・崩壊するリスクがある。割れた破片が炉内の製品に混入するとクレームになる。</p>
-  <p>代替案として提示できるのは<strong>耐熱鋳鋼（SCH22など）</strong>。「鋳造品」という形状の自由度は維持しつつ、Cr・Niを加えることで高温強度と耐酸化性を確保したもの。材料費は普通鋳鉄より高くなるが、治具寿命が延びるため「1使用あたりのコスト」では逆に安くなる場合も多い。</p>
-  <div class="key-msg">営業に渡すキーメッセージ：「鋳鉄は高温でリスクがある。耐熱鋳鋼なら形状の自由度はそのままで安全に使えます。見積は耐熱鋳鋼ベースで出します。」</div>
+  <div class="normal-only">
+    <h2>昨日の小テスト解答</h2>
+    <div class="q-restate">問：営業から「お客さんから熱処理治具を鋳鉄で作れないか、安くなるからって話があるんだけど、どう思う？」という相談が来た。可否と技術的な理由、代替案をどう返すか。</div>
+    <p>基本的にNGです。熱処理治具は繰り返し高温にさらされる用途で、鋳鉄（炭素量2.14%超）はこの環境に向かない。主な理由は2点——①脆性が高く熱衝撃（急加熱・急冷）に弱い、②一般鋳鉄は耐熱性が低く900℃超の浸炭炉では短期間で組織変化を起こして変形・崩壊するリスクがある。割れた破片が炉内の製品に混入するとクレームになる。</p>
+    <p>代替案として提示できるのは<strong>耐熱鋳鋼（SCH22など）</strong>。「鋳造品」という形状の自由度は維持しつつ、Cr・Niを加えることで高温強度と耐酸化性を確保したもの。材料費は普通鋳鉄より高くなるが、治具寿命が延びるため「1使用あたりのコスト」では逆に安くなる場合も多い。</p>
+    <div class="key-msg">営業に渡すキーメッセージ：「鋳鉄は高温でリスクがある。耐熱鋳鋼なら形状の自由度はそのままで安全に使えます。見積は耐熱鋳鋼ベースで出します。」</div>
+  </div>
+  <div class="easy-only">
+    <h2>📝 昨日のチャレンジ問題の答え</h2>
+    <div class="easy-bubble-q">
+      <strong>昨日の問題：</strong>「熱処理治具を鋳鉄（ちゅうてつ）で作りたいって客先が言ってる。どう思う？」
+    </div>
+    <div class="easy-bubble-a">
+      <strong>答え：</strong> NGです！理由は2つ——<br>
+      ① 鋳鉄は割れやすい（脆い）から、急に熱したり冷やしたりすると破片が飛んで製品に混入するリスクがある<br>
+      ② 高温（900℃超）で組織が変わって変形・崩壊してしまう
+    </div>
+    <div class="easy-steps">
+      <p><strong>代替案：</strong></p>
+      <ol>
+        <li>鋳造という「型に流し込む」方法はそのまま使う</li>
+        <li>材料をクロム・ニッケルを加えた「耐熱鋳鋼（SCH22）」に変える</li>
+        <li>材料費は上がるけど治具の寿命が延びるのでトータルコストは下がることが多い</li>
+      </ol>
+    </div>
+    <div class="easy-point">📌 営業への一言：「鋳鉄は高温でリスク大。耐熱鋳鋼ベースで見積を出します！」</div>
+  </div>
 </div>
 
 <div class="card quiz">
-  <h2>今日の小テスト1問</h2>
-  <div class="q-text">問：営業から「客先の担当者が"今使ってる治具、S45CからSUSに変えたい。コストが上がってもいいから品質を安定させたい"って言ってるんだけど、なんでS45Cでうまくいってないと思う？SUSにする意味と、どの系統のSUSを勧めればいいか教えて」という相談が来た。S45Cで起きている問題を推測し、SUSへの変更理由と選定の方向性をどう返すか。</div>
-  <div class="note">解答は次回配信</div>
+  <div class="normal-only">
+    <h2>今日の小テスト1問</h2>
+    <div class="q-text">問：営業から「客先の担当者が"今使ってる治具、S45CからSUSに変えたい。コストが上がってもいいから品質を安定させたい"って言ってるんだけど、なんでS45Cでうまくいってないと思う？SUSにする意味と、どの系統のSUSを勧めればいいか教えて」という相談が来た。S45Cで起きている問題を推測し、SUSへの変更理由と選定の方向性をどう返すか。</div>
+    <div class="note">解答は次回配信</div>
+  </div>
+  <div class="easy-only">
+    <h2>🎯 今日のチャレンジ問題！</h2>
+    <div class="q-text">問：営業から「今使っている治具、S45C（普通の炭素鋼）からSUS（ステンレス）に変えたいって客先が言ってる。コストが上がってもいいから品質を安定させたいと。なんでS45Cで問題が出てると思う？SUSにする理由と、どのステンレスを選べばいいか教えて」という相談が来ました。あなたならどう返しますか？<br>ヒント：S45Cは第01回で学んだ「普通鋼」の仲間。錆びやすいかどうかを考えてみよう！</div>
+    <div class="note">解答は次回配信</div>
+  </div>
 </div>
 
 <footer>
   <a href="index.html">← 目次に戻る</a>
 </footer>
 
+<button class="mode-btn" id="modeBtn" onclick="toggleMode()">🌟 やさしいとくしゅこうで読む</button>
+<script>
+function toggleMode() {
+  const body = document.body;
+  const btn = document.getElementById('modeBtn');
+  if (body.classList.contains('easy-mode')) {
+    body.classList.remove('easy-mode');
+    btn.textContent = '🌟 やさしいとくしゅこうで読む';
+    localStorage.setItem('studyMode', 'normal');
+  } else {
+    body.classList.add('easy-mode');
+    btn.textContent = '📚 通常モードに戻す';
+    localStorage.setItem('studyMode', 'easy');
+  }
+}
+(function() {
+  if (localStorage.getItem('studyMode') === 'easy') {
+    document.body.classList.add('easy-mode');
+    document.getElementById('modeBtn').textContent = '📚 通常モードに戻す';
+  }
+})();
+</script>
 </body>
 </html>

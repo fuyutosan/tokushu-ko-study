@@ -32,10 +32,6 @@
   .vocab dt { font-weight: bold; color: #1a3a5c; margin-top: 10px; }
   .vocab dt:first-child { margin-top: 0; }
   .vocab dd { margin: 4px 0 0 16px; font-size: 0.95em; }
-  .answer { background: #e8eaf6; border: 1px solid #5c6bc0; border-radius: 8px; padding: 18px 20px; }
-  .answer h2 { color: #283593; border-color: #5c6bc0; }
-  .answer .q-restate { font-weight: bold; color: #555; margin-bottom: 10px; font-size: 0.95em; }
-  .answer .key-msg { font-size: 0.9em; background: #fff3e0; padding: 8px 12px; border-radius: 4px; margin-top: 10px; }
   .quiz { background: #f3e5f5; border: 1px solid #9c27b0; border-radius: 8px; padding: 18px 20px; }
   .quiz h2 { color: #6a1b9a; border-color: #9c27b0; }
   .quiz .q-text { font-weight: bold; margin-bottom: 8px; }
@@ -44,99 +40,238 @@
   footer a { color: #2d6a9f; text-decoration: none; padding: 8px 20px; border: 1px solid #2d6a9f; border-radius: 5px; font-size: 0.9em; }
   footer a:hover { background: #2d6a9f; color: white; }
   strong { color: #1a3a5c; }
+  /* ===== Easy Mode ===== */
+  .easy-only { display: none; }
+  .normal-only { display: block; }
+  body.easy-mode .easy-only { display: block; }
+  body.easy-mode .normal-only { display: none; }
+  body.easy-mode { background: linear-gradient(160deg, #fff9f0 0%, #f0f4ff 100%); font-size: 16px; }
+  body.easy-mode header { background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; }
+  body.easy-mode .card { border-top: 5px solid #ce93d8; }
+  body.easy-mode h2 { color: #6a1b9a; border-color: #ce93d8; }
+  body.easy-mode h3 { color: #e65100; }
+  body.easy-mode .summary { background: #fce4ec; border-left-color: #f48fb1; }
+  body.easy-mode .summary h2 { color: #c2185b; }
+  .easy-bubble-q { background: #fce4ec; border: 2px solid #f48fb1; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-bubble-a { background: #e3f2fd; border: 2px solid #90caf9; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-point { background: #fff9c4; border-left: 4px solid #f9a825; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 12px 0; }
+  .easy-example { background: #e8f5e9; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .easy-steps { background: #e8eaf6; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .easy-steps ol { padding-left: 20px; margin: 8px 0 0; }
+  .mode-btn { position: fixed; top: 16px; right: 16px; z-index: 1000; background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; border: none; border-radius: 24px; padding: 10px 18px; font-size: 0.9em; font-weight: bold; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  body.easy-mode .mode-btn { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; }
 </style>
 </head>
 <body>
 
 <header>
   <div class="session">第06回 ・ 2026-06-11</div>
-  <h1>炭素量で何が変わるか：低炭素・中炭素・高炭素鋼</h1>
+  <div class="normal-only">
+    <h1>炭素量で何が変わるか：低炭素・中炭素・高炭素鋼</h1>
+  </div>
+  <div class="easy-only">
+    <h1>炭素の量で鉄の性格が大変わり！🧪 多い？少ない？どう違う？</h1>
+  </div>
   <span class="week">第2週：炭素鋼と合金元素の役割</span>
 </header>
 
 <div class="summary">
-  <h2>今日の3行サマリ</h2>
-  <ul>
-    <li>炭素量が増えるほど硬くなるが、靭性（粘り強さ）は低下する</li>
-    <li>低炭素鋼は加工性・溶接性が高く、高炭素鋼は焼入れ後の硬さが得られる</li>
-    <li>自社扱いの耐熱鋳鋼・SUSは「炭素量のコントロール」が腐食・靭性に直結する</li>
-  </ul>
+  <div class="normal-only">
+    <h2>今日の3行サマリ</h2>
+    <ul>
+      <li>炭素量が増えるほど硬くなるが、靭性（粘り強さ）は低下する</li>
+      <li>低炭素鋼は加工性・溶接性が高く、高炭素鋼は焼入れ後の硬さが得られる</li>
+      <li>自社扱いの耐熱鋳鋼・SUSは「炭素量のコントロール」が腐食・靭性に直結する</li>
+    </ul>
+  </div>
+  <div class="easy-only">
+    <h2>🎯 今日わかること 3つ！</h2>
+    <ul>
+      <li>🧪 炭素が多い→硬くなるけど脆くなる。炭素が少ない→やわらかいけど溶接しやすい！</li>
+      <li>⚖️ 低炭素・中炭素・高炭素で「用途の向き不向き」がぜんぜん違う</li>
+      <li>🏭 自社のSUSや耐熱鋳鋼が「炭素量を低めに管理」しているのには理由がある</li>
+    </ul>
+  </div>
 </div>
 
 <div class="card">
-  <h2>本文</h2>
+  <div class="normal-only">
+    <h2>本文</h2>
 
-  <h3>炭素量が決める3つの帯域</h3>
-  <p>鋼の性質を決定する最大の因子は炭素（C）量だ。JIS機械構造用鋼では炭素量を大まかに3帯域で分類する。</p>
-  <table>
-    <tr><th>分類</th><th>炭素量（概略）</th><th>代表鋼種</th><th>特徴</th></tr>
-    <tr><td>低炭素鋼</td><td>〜0.25%</td><td>S10C、S20C</td><td>軟質・加工しやすい・溶接性良好</td></tr>
-    <tr><td>中炭素鋼</td><td>0.25〜0.60%</td><td>S45C、S55C</td><td>強度・靭性のバランスが良い</td></tr>
-    <tr><td>高炭素鋼</td><td>0.60%〜</td><td>SK系、SUP系</td><td>硬さ・耐摩耗性に優れるが脆い</td></tr>
-  </table>
+    <h3>炭素量が決める3つの帯域</h3>
+    <p>鋼の性質を決定する最大の因子は炭素（C）量だ。JIS機械構造用鋼では炭素量を大まかに3帯域で分類する。</p>
+    <table>
+      <tr><th>分類</th><th>炭素量（概略）</th><th>代表鋼種</th><th>特徴</th></tr>
+      <tr><td>低炭素鋼</td><td>〜0.25%</td><td>S10C、S20C</td><td>軟質・加工しやすい・溶接性良好</td></tr>
+      <tr><td>中炭素鋼</td><td>0.25〜0.60%</td><td>S45C、S55C</td><td>強度・靭性のバランスが良い</td></tr>
+      <tr><td>高炭素鋼</td><td>0.60%〜</td><td>SK系、SUP系</td><td>硬さ・耐摩耗性に優れるが脆い</td></tr>
+    </table>
 
-  <h3>低炭素鋼：形にしやすい素材</h3>
-  <p>炭素量が少ない（〜0.25%）鋼は、金属組織中に硬いセメンタイト（Fe₃C）がほとんど形成されない。そのため柔らかく延性に富み、プレス・溶接に向く。建築用のSS400も実質的にこの範疇に近い。ただし焼入れしてもほとんど硬化しないため、表面硬化が必要な場合は「浸炭処理」によって表面だけ炭素を拡散させる方法が採られる。</p>
+    <h3>低炭素鋼：形にしやすい素材</h3>
+    <p>炭素量が少ない（〜0.25%）鋼は、金属組織中に硬いセメンタイト（Fe₃C）がほとんど形成されない。そのため柔らかく延性に富み、プレス・溶接に向く。建築用のSS400も実質的にこの範疇に近い。ただし焼入れしてもほとんど硬化しないため、表面硬化が必要な場合は「浸炭処理」によって表面だけ炭素を拡散させる方法が採られる。</p>
 
-  <h3>中炭素鋼：汎用機械部品の主役</h3>
-  <p>0.25〜0.60%帯域は機械構造用炭素鋼（S45Cなど）の主戦場だ。焼入れ・焼戻しを施すことで硬さと靭性のバランスが取れた組織（ソルバイト・トルースタイト）が得られる。歯車・シャフト・金型の素材として圧倒的な使用量を誇る。炭素量が高いほど焼入れで到達できる最大硬さ（HRC）が上がるため、用途に合わせて鋼種を選択する。</p>
+    <h3>中炭素鋼：汎用機械部品の主役</h3>
+    <p>0.25〜0.60%帯域は機械構造用炭素鋼（S45Cなど）の主戦場だ。焼入れ・焼戻しを施すことで硬さと靭性のバランスが取れた組織（ソルバイト・トルースタイト）が得られる。歯車・シャフト・金型の素材として圧倒的な使用量を誇る。炭素量が高いほど焼入れで到達できる最大硬さ（HRC）が上がるため、用途に合わせて鋼種を選択する。</p>
 
-  <h3>高炭素鋼：硬さ優先・靭性とのトレードオフ</h3>
-  <p>0.60%を超えると焼入れ後の硬さは高いが、同時に脆さ（割れやすさ）も増す。ばね鋼（SUP系）・工具鋼（SK系）・軸受鋼（SUJ2）がこの範疇で、それぞれ「高弾性」「切削・打抜き耐性」「転がり疲労強度」を目的に使われる。薄く断面が変わる部位で<strong>焼割れ</strong>（焼入れ時のひび割れ）リスクが高くなるため、形状と炭素量の組み合わせに注意が必要だ。</p>
+    <h3>高炭素鋼：硬さ優先・靭性とのトレードオフ</h3>
+    <p>0.60%を超えると焼入れ後の硬さは高いが、同時に脆さ（割れやすさ）も増す。ばね鋼（SUP系）・工具鋼（SK系）・軸受鋼（SUJ2）がこの範疇で、それぞれ「高弾性」「切削・打抜き耐性」「転がり疲労強度」を目的に使われる。薄く断面が変わる部位で<strong>焼割れ</strong>（焼入れ時のひび割れ）リスクが高くなるため、形状と炭素量の組み合わせに注意が必要だ。</p>
 
-  <h3>自社製品との関連</h3>
-  <p>自社が扱う耐熱鋳鋼（SCH22など）はCrとNiが多量に添加されているが、炭素量は0.2〜0.5%程度のものが多い。高温強度のためにある程度炭素が必要だが、過剰になると溶接性と靭性が落ちるため意図的に制限される。<strong>SUS304・316はC≦0.08%</strong>と低炭素に抑えられており、これは炭素が少ないほど「鋭敏化（粒界腐食の原因）」リスクが下がるためだ。</p>
-  <p>砂型・遠心・ロストワックス鋳造で製造するSUS系鋳物も同様で、鋳造後に溶接補修を行う可能性がある製品では炭素量を低めに設計することが多い。鋳造法によって冷却速度が異なり組織の均質性も変わるが、炭素量のコントロールは共通の前提になる。</p>
-  <p>炭素量は数字一つだが、そこに材料設計の意図が詰まっている。鋼種記号の意味を覚えるより先に「炭素量が何%で、なぜその量にしてあるのか」を問う習慣が、材料の理解を深める最短ルートだ。</p>
+    <h3>自社製品との関連</h3>
+    <p>自社が扱う耐熱鋳鋼（SCH22など）はCrとNiが多量に添加されているが、炭素量は0.2〜0.5%程度のものが多い。高温強度のためにある程度炭素が必要だが、過剰になると溶接性と靭性が落ちるため意図的に制限される。<strong>SUS304・316はC≦0.08%</strong>と低炭素に抑えられており、これは炭素が少ないほど「鋭敏化（粒界腐食の原因）」リスクが下がるためだ。</p>
+    <p>砂型・遠心・ロストワックス鋳造で製造するSUS系鋳物も同様で、鋳造後に溶接補修を行う可能性がある製品では炭素量を低めに設計することが多い。鋳造法によって冷却速度が異なり組織の均質性も変わるが、炭素量のコントロールは共通の前提になる。</p>
+    <p>炭素量は数字一つだが、そこに材料設計の意図が詰まっている。鋼種記号の意味を覚えるより先に「炭素量が何%で、なぜその量にしてあるのか」を問う習慣が、材料の理解を深める最短ルートだ。</p>
+  </div>
+
+  <div class="easy-only">
+    <h2>💡 やさしく解説！</h2>
+
+    <h3>🍞 炭素の量でパンが変わる——3段階で考えよう！</h3>
+    <div class="easy-example">
+      <p>炭素量によって鋼は3つのタイプに分かれます：</p>
+      <table>
+        <tr><th>タイプ</th><th>炭素量</th><th>特徴</th><th>イメージ</th></tr>
+        <tr><td>🟢 低炭素鋼</td><td>〜0.25%</td><td>やわらか・溶接しやすい</td><td>やわらかいパン生地</td></tr>
+        <tr><td>🟡 中炭素鋼</td><td>0.25〜0.60%</td><td>強さと粘りのバランス</td><td>ちょうどいいフランスパン</td></tr>
+        <tr><td>🔴 高炭素鋼</td><td>0.60%〜</td><td>硬い・耐摩耗・でも割れやすい</td><td>乾パン（ポキッと割れる）</td></tr>
+      </table>
+    </div>
+
+    <h3>🔧 低炭素鋼——形にしやすい！でも硬くならない</h3>
+    <p>炭素が少ない（0.25%以下）から、柔らかくて延びやすい。プレス加工や溶接に向いている。<br>
+    ただし「焼入れしても硬くならない」のが弱点。表面だけ硬くしたい場合は「浸炭処理（表面に炭素を染み込ませる）」という方法を使う。</p>
+
+    <h3>⚙️ 中炭素鋼——万能選手！歯車・シャフトの主役</h3>
+    <p>S45C（炭素0.45%）が代表。焼入れ・焼戻しで硬さと粘りのバランスがとれた状態になる。<br>
+    歯車・シャフト・金型など「強さが必要だけど割れてもいけない」部品の定番材料。</p>
+
+    <h3>🔩 高炭素鋼——超硬だけど割れやすい</h3>
+    <p>0.6%を超えると焼入れ後はものすごく硬くなる。刃物・ばね・工具鋼に使われる。<br>
+    ただし薄い部分や穴のある形状だと「焼割れ（焼入れ中にひびが入る）」リスクがある。</p>
+
+    <h3>🏭 SUS304はなぜ炭素が少ない（0.08%以下）の？</h3>
+    <div class="easy-point">
+      炭素が多すぎると溶接した後に「鋭敏化」という現象が起きて、腐食しやすい層が生まれてしまう。<br>
+      だからステンレスは炭素を意図的に少なく管理している！
+    </div>
+  </div>
 </div>
 
 <div class="card">
-  <h2>営業からの相談に効く知識</h2>
+  <div class="normal-only">
+    <h2>営業からの相談に効く知識</h2>
 
-  <div class="qa-block">
-    <div class="qa-q">ケース1：「客先でS45C製の軸が折れたって言ってるんだけど、材料が悪いのかな？」</div>
-    <blockquote>材料不良より先に「熱処理の有無」を確認してください。S45Cは焼入れ・焼戻しをして初めて設計強度が出る。未熱処理のS45Cは柔らかすぎて疲労折損しやすい。ミルシートと熱処理記録の両方を取り寄せて。</blockquote>
-    <div class="qa-point">ポイント：材料証明書だけでは不十分。熱処理記録がなければ「熱処理実施済みかどうか不明」として先に確認させる。</div>
+    <div class="qa-block">
+      <div class="qa-q">ケース1：「客先でS45C製の軸が折れたって言ってるんだけど、材料が悪いのかな？」</div>
+      <blockquote>材料不良より先に「熱処理の有無」を確認してください。S45Cは焼入れ・焼戻しをして初めて設計強度が出る。未熱処理のS45Cは柔らかすぎて疲労折損しやすい。ミルシートと熱処理記録の両方を取り寄せて。</blockquote>
+      <div class="qa-point">ポイント：材料証明書だけでは不十分。熱処理記録がなければ「熱処理実施済みかどうか不明」として先に確認させる。</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">ケース2：「高硬度が必要だから高炭素鋼にしたいって言われたんだけど、注意点ある？」</div>
+      <blockquote>炭素量を上げると焼入れ後は硬くなるが、同時に「焼割れ」と「形状変形」リスクが上がります。薄肉部や穴周りに注意が要る。合金元素（CrやMo）を加えた工具鋼や合金鋼にすることで、硬さを維持しつつリスクを下げる選択肢もある。形状図を見てから回答します。</blockquote>
+      <div class="qa-point">ポイント：「硬さ＝高炭素」は単純すぎる。形状と炭素量の組み合わせリスクまで含めて返す。</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">ケース3：「ロストワックスで作ったSUS鋳物を現場で溶接補修したら、補修部周辺がさびてきたって言われたんだけど、なぜ？」</div>
+      <blockquote>典型的な鋭敏化（sensitization）の症状です。SUS鋳物は一般に炭素量が低めに管理されていますが、溶接時に450〜850℃の熱影響部でCrと炭素が結合してCr₂₃C₆が粒界に析出し、周辺のCrが枯渇します。Crが少ない層は不動態皮膜を維持できず腐食が進む。対策は（1）低炭素グレード（SUS304L相当）の溶接材を使う、（2）溶接後に固溶化熱処理を施して再均質化する、の2択。補修した材料のグレードと溶接棒の記録を確認してください。</blockquote>
+      <div class="qa-point">ポイント：鋳物の溶接補修トラブルは「炭素量×溶接熱」の組み合わせ問題。溶接材のグレードが一致していないケースが多い。</div>
+    </div>
   </div>
 
-  <div class="qa-block">
-    <div class="qa-q">ケース2：「高硬度が必要だから高炭素鋼にしたいって言われたんだけど、注意点ある？」</div>
-    <blockquote>炭素量を上げると焼入れ後は硬くなるが、同時に「焼割れ」と「形状変形」リスクが上がります。薄肉部や穴周りに注意が要る。合金元素（CrやMo）を加えた工具鋼や合金鋼にすることで、硬さを維持しつつリスクを下げる選択肢もある。形状図を見てから回答します。</blockquote>
-    <div class="qa-point">ポイント：「硬さ＝高炭素」は単純すぎる。形状と炭素量の組み合わせリスクまで含めて返す。</div>
-  </div>
+  <div class="easy-only">
+    <h2>💬 営業さんとの会話で使える知識</h2>
 
-  <div class="qa-block">
-    <div class="qa-q">ケース3：「ロストワックスで作ったSUS鋳物を現場で溶接補修したら、補修部周辺がさびてきたって言われたんだけど、なぜ？」</div>
-    <blockquote>典型的な鋭敏化（sensitization）の症状です。SUS鋳物は一般に炭素量が低めに管理されていますが、溶接時に450〜850℃の熱影響部でCrと炭素が結合してCr₂₃C₆が粒界に析出し、周辺のCrが枯渇します。Crが少ない層は不動態皮膜を維持できず腐食が進む。対策は（1）低炭素グレード（SUS304L相当）の溶接材を使う、（2）溶接後に固溶化熱処理を施して再均質化する、の2択。補修した材料のグレードと溶接棒の記録を確認してください。</blockquote>
-    <div class="qa-point">ポイント：鋳物の溶接補修トラブルは「炭素量×溶接熱」の組み合わせ問題。溶接材のグレードが一致していないケースが多い。</div>
+    <div class="easy-bubble-q">
+      <strong>🗣 営業さん：</strong>「S45Cの軸が折れたって言ってる。材料が悪いの？」
+    </div>
+    <div class="easy-bubble-a">
+      <strong>🏭 生産管理：</strong>「材料の前に"熱処理したかどうか"を確認して！S45Cは焼入れ・焼戻しをしないと本来の強さが出ない。熱処理なしのS45Cは意外と柔らかいから折れやすいんだよ。ミルシート（材料証明書）だけじゃなく熱処理記録も取り寄せて！」
+    </div>
+    <div class="easy-point">📌 「折れた＝材料不良」と早合点しない。まず熱処理の有無を確認！</div>
+
+    <div style="margin-top:20px;">
+      <div class="easy-bubble-q">
+        <strong>🗣 営業さん：</strong>「SUS鋳物を溶接補修したら補修した周りがさびてきたって。なんで？」
+      </div>
+      <div class="easy-bubble-a">
+        <strong>🏭 生産管理：</strong>「"鋭敏化"（けいびんか）という現象。溶接の熱でクロムと炭素がくっついて、まわりのクロムが減ってしまう。クロムが少ない場所はさびやすくなる。対策は①低炭素の溶接棒（SUS304L相当）を使う、②溶接後に熱処理して均質化する、の2択。溶接棒のグレードを確認してきて！」
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="card vocab">
-  <h2>用語メモ</h2>
-  <dl>
-    <dt>セメンタイト（Fe₃C）</dt>
-    <dd>炭素と鉄の化合物。非常に硬く脆い。炭素量が多いほど増える</dd>
-    <dt>焼入れ性（hardenability）</dt>
-    <dd>焼入れによって硬化する能力。炭素量と合金元素の両方が影響する</dd>
-    <dt>ソルバイト</dt>
-    <dd>焼入れ後に比較的高温で焼戻した組織。強度と靭性のバランスが良い</dd>
-    <dt>浸炭処理</dt>
-    <dd>低炭素鋼の表面に炭素を拡散させて表面だけ高炭素化する熱処理</dd>
-    <dt>鋭敏化</dt>
-    <dd>SUSで粒界にCrとCが結合物（Cr₂₃C₆）を生じ、Cr欠乏層が腐食しやすくなる現象</dd>
-  </dl>
+  <div class="normal-only">
+    <h2>用語メモ</h2>
+    <dl>
+      <dt>セメンタイト（Fe₃C）</dt>
+      <dd>炭素と鉄の化合物。非常に硬く脆い。炭素量が多いほど増える</dd>
+      <dt>焼入れ性（hardenability）</dt>
+      <dd>焼入れによって硬化する能力。炭素量と合金元素の両方が影響する</dd>
+      <dt>ソルバイト</dt>
+      <dd>焼入れ後に比較的高温で焼戻した組織。強度と靭性のバランスが良い</dd>
+      <dt>浸炭処理</dt>
+      <dd>低炭素鋼の表面に炭素を拡散させて表面だけ高炭素化する熱処理</dd>
+      <dt>鋭敏化</dt>
+      <dd>SUSで粒界にCrとCが結合物（Cr₂₃C₆）を生じ、Cr欠乏層が腐食しやすくなる現象</dd>
+    </dl>
+  </div>
+  <div class="easy-only">
+    <h2>📖 今日のことば</h2>
+    <dl>
+      <dt>🔴 セメンタイト（Fe₃C）</dt>
+      <dd>炭素と鉄がくっついた「超硬の化合物」。炭素が多いほど増えて鋼が硬くなる（割れやすくもなる）</dd>
+      <dt>🔥 浸炭処理（しんたんしょり）</dt>
+      <dd>炭素の少ない鋼の表面に炭素を染み込ませる熱処理。表面だけ硬くしたいときに使う</dd>
+      <dt>⚠️ 鋭敏化（けいびんか）</dt>
+      <dd>SUSを溶接すると熱でクロムと炭素がくっついて「さびやすい場所」ができる現象</dd>
+      <dt>🔨 焼割れ（やきわれ）</dt>
+      <dd>焼入れ（急冷）のときにひびが入ること。高炭素鋼＋複雑な形状で起きやすい</dd>
+      <dt>⚙️ 焼入れ性</dt>
+      <dd>焼入れしたとき「芯まで」硬くなれるかどうかの能力。炭素量とCrなどで変わる</dd>
+    </dl>
+  </div>
 </div>
 
 <div class="card quiz">
-  <h2>今日の小テスト1問</h2>
-  <div class="q-text">問：営業から「客先から"SUS304の部品を溶接してから腐食が出た。材料が悪いのか？"という指摘が来ているんだけど、どう考える？」という相談が来た。SUS304の炭素量と溶接後腐食の関連を踏まえ、生産管理としてどう返すか。</div>
-  <div class="note">解答は次回配信</div>
+  <div class="normal-only">
+    <h2>今日の小テスト1問</h2>
+    <div class="q-text">問：営業から「客先から"SUS304の部品を溶接してから腐食が出た。材料が悪いのか？"という指摘が来ているんだけど、どう考える？」という相談が来た。SUS304の炭素量と溶接後腐食の関連を踏まえ、生産管理としてどう返すか。</div>
+    <div class="note">解答は次回配信</div>
+  </div>
+  <div class="easy-only">
+    <h2>🎯 今日のチャレンジ問題！</h2>
+    <div class="q-text">問：営業から「SUS304の部品を溶接した後に腐食が出たって客先が言ってる。材料が悪い？」という相談が来ました。今日学んだ「炭素量と鋭敏化」の知識を使って答えましょう！<br>ヒント：SUS304の炭素量は0.08%以下。でも溶接するとその炭素がどこかに行ってしまう……？</div>
+    <div class="note">解答は次回配信</div>
+  </div>
 </div>
 
 <footer>
   <a href="index.html">← 目次に戻る</a>
 </footer>
 
+<button class="mode-btn" id="modeBtn" onclick="toggleMode()">🌟 やさしいとくしゅこうで読む</button>
+<script>
+function toggleMode() {
+  const body = document.body;
+  const btn = document.getElementById('modeBtn');
+  if (body.classList.contains('easy-mode')) {
+    body.classList.remove('easy-mode');
+    btn.textContent = '🌟 やさしいとくしゅこうで読む';
+    localStorage.setItem('studyMode', 'normal');
+  } else {
+    body.classList.add('easy-mode');
+    btn.textContent = '📚 通常モードに戻す';
+    localStorage.setItem('studyMode', 'easy');
+  }
+}
+(function() {
+  if (localStorage.getItem('studyMode') === 'easy') {
+    document.body.classList.add('easy-mode');
+    document.getElementById('modeBtn').textContent = '📚 通常モードに戻す';
+  }
+})();
+</script>
 </body>
 </html>
