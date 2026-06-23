@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第13回 Schaefflerの組織図の見方</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'Yu Gothic', sans-serif; max-width: 820px; margin: 0 auto; padding: 20px; background: #f5f5f5; color: #333; line-height: 1.8; font-size: 15px; }
+  header { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; padding: 28px 32px; border-radius: 10px; margin-bottom: 28px; }
+  header .session { font-size: 0.85em; opacity: 0.75; margin-bottom: 6px; }
+  header h1 { margin: 0 0 8px; font-size: 1.5em; }
+  header .week { font-size: 0.88em; opacity: 0.8; }
+  .card { background: white; border-radius: 10px; padding: 24px 28px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); border-top: 4px solid #2d6a9f; }
+  .summary { background: #e8f4fd; border-left: 4px solid #2d6a9f; border-radius: 0 10px 10px 0; padding: 18px 24px; margin-bottom: 20px; }
+  h2 { color: #1a3a5c; border-bottom: 2px solid #e0e0e0; padding-bottom: 8px; margin-top: 0; }
+  h3 { color: #2d6a9f; margin-top: 22px; }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9em; }
+  th { background: #1a3a5c; color: white; padding: 10px 12px; text-align: left; }
+  td { padding: 9px 12px; border-bottom: 1px solid #eee; }
+  tr:hover td { background: #f7faff; }
+  .qa-q { background: #fff3e0; border-left: 4px solid #ff9800; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 16px 0 8px; }
+  blockquote { background: #e8f4e8; border-left: 4px solid #4caf50; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 0 0 12px; }
+  .qa-point { background: #e3f2fd; border-radius: 8px; padding: 10px 16px; font-size: 0.9em; color: #1565c0; margin-top: 8px; }
+  .quiz { background: #f3e5f5; border-radius: 10px; padding: 20px 24px; margin-top: 20px; border-left: 4px solid #9c27b0; }
+  .quiz h2 { color: #6a1b9a; border-color: #ce93d8; }
+  .q-text { font-weight: bold; color: #4a148c; }
+  dt { font-weight: bold; color: #1a3a5c; margin-top: 10px; }
+  dd { margin-left: 20px; color: #555; }
+  .answer-box { background: #fff8e1; border-left: 4px solid #ffc107; border-radius: 0 8px 8px 0; padding: 16px 20px; }
+  a.back { display: inline-block; margin-bottom: 16px; color: #2d6a9f; text-decoration: none; font-size: 0.9em; }
+  a.back:hover { text-decoration: underline; }
+
+  /* ===== Easy Mode ===== */
+  .easy-only { display: none; }
+  .normal-only { display: block; }
+  body.easy-mode .easy-only { display: block; }
+  body.easy-mode .normal-only { display: none; }
+  body.easy-mode { background: linear-gradient(160deg, #fff9f0 0%, #f0f4ff 100%); font-size: 16px; }
+  body.easy-mode header { background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; }
+  body.easy-mode .card { border-top: 5px solid #ce93d8; }
+  body.easy-mode h2 { color: #6a1b9a; border-color: #ce93d8; }
+  body.easy-mode h3 { color: #e65100; }
+  body.easy-mode .summary { background: #fce4ec; border-left-color: #f48fb1; }
+  body.easy-mode .summary h2 { color: #c2185b; }
+  .easy-bubble-q { background: #fce4ec; border: 2px solid #f48fb1; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-bubble-a { background: #e3f2fd; border: 2px solid #90caf9; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-point { background: #fff9c4; border-left: 4px solid #f9a825; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 12px 0; }
+  .easy-example { background: #e8f5e9; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .mode-btn { position: fixed; top: 16px; right: 16px; z-index: 1000; background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; border: none; border-radius: 24px; padding: 10px 18px; font-size: 0.9em; font-weight: bold; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  body.easy-mode .mode-btn { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; }
+</style>
+</head>
+<body>
+
+<a class="back" href="index.html">← 学習ログ一覧に戻る</a>
+
+<header>
+  <div class="session">第13回 ・ 2026-06-24</div>
+  <div class="normal-only"><h1>Schaefflerの組織図の見方</h1></div>
+  <div class="easy-only"><h1>🗺️ 溶接後の組織を「地図」で予測する！</h1></div>
+  <span class="week">第3週：ステンレスの世界</span>
+</header>
+
+<div class="summary">
+  <div class="normal-only">
+    <h2>今日の3行サマリ</h2>
+    <ul>
+      <li>SchaefflerダイアグラムはCr当量・Ni当量の2軸で溶接金属の組織を予測する設計ツール</li>
+      <li>フェライト（δフェライト）が5〜10%含まれるA+Fゾーンが高温割れ防止の観点から最良</li>
+      <li>「溶接部が磁石につく」「なぜ304に308棒を使うのか」の答えがここにある</li>
+    </ul>
+  </div>
+  <div class="easy-only">
+    <h2>🎯 今日わかること 3つ！</h2>
+    <ul>
+      <li>🗺️ ステンレスの溶接後に「どんな組織になるか」を成分値から地図で読める！</li>
+      <li>🛡️ フェライトが少しだけ入った「A+Fゾーン」が一番丈夫な溶接金属</li>
+      <li>🧲 「溶接したら磁石がついた」は不良品ではなく正常！その理由がわかる</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>本文</h2>
+
+    <h3>1. Schaefflerダイアグラムとは</h3>
+    <p>ステンレス鋼の溶接金属がどんな組織になるかを、化学成分から予測する組織図です。1949年にAlton Schaefflerが発表し、現在も溶接設計の基本ツールとして使われています。</p>
+    <p>横軸に<strong>Cr当量</strong>（フェライト形成元素の合計）、縦軸に<strong>Ni当量</strong>（オーステナイト形成元素の合計）をとり、各ゾーンに対応する組織が表示されます。母材と溶接材の成分を混合した点がどのゾーンに落ちるかで、溶接金属の組織を予測します。</p>
+
+    <h3>2. Cr当量・Ni当量の計算式</h3>
+    <p><strong>Cr当量</strong> = Cr + Mo + 1.5Si + 0.5Nb（フェライト安定化、BCC組織に傾ける）</p>
+    <p><strong>Ni当量</strong> = Ni + 30C + 0.5Mn（オーステナイト安定化、FCC組織に傾ける）</p>
+    <p>C（炭素）の係数が<strong>30倍</strong>であることに注目。炭素量が0.01%変わるだけでNi当量が0.3動くため、炭素のわずかな差が組織を大きく変化させます。これが低炭素グレード（304L/316L）を溶接で使う理由の一端です。</p>
+
+    <h3>3. 各ゾーンの意味</h3>
+    <table>
+      <tr><th>ゾーン</th><th>組織</th><th>特性</th></tr>
+      <tr><td>A</td><td>オーステナイト単相</td><td>非磁性・延性◎。ただし高温割れリスク高</td></tr>
+      <tr><td>A+F</td><td>オーステナイト＋δフェライト</td><td>高温割れ耐性◎。最も健全な溶接金属ゾーン</td></tr>
+      <tr><td>F</td><td>フェライト単相</td><td>磁性あり・靭性低め</td></tr>
+      <tr><td>M</td><td>マルテンサイト</td><td>硬い・脆い・割れやすい</td></tr>
+    </table>
+    <p>溶接設計の目標は<strong>A+Fゾーン（フェライト5〜10%）</strong>に収めること。SUS304同士を308L棒で溶接するとほぼA+Fゾーンに入るよう設計されています。</p>
+
+    <h3>4. なぜA+Fゾーンが良いのか</h3>
+    <p>純オーステナイト溶接金属は、凝固時に結晶粒界に液膜が残った状態で引張応力がかかり、<strong>高温割れ（Hot Cracking）</strong>が発生しやすくなります。δフェライトが5〜10%あると液膜を分断して割れを防ぎます。</p>
+    <p>「なぜ304棒でなく308棒を使うのか」の答えもここです。308は成分をわずかに調整してA+Fゾーンに入るよう設計されています。</p>
+
+    <h3>5. 自社製品との関連</h3>
+    <p><strong>メッシュベルト（TIG溶接製）</strong>：溶接材308L/316Lを使用し、溶接金属をA+Fゾーンに設計。溶接部のδフェライトが磁性の原因ですが、品質上正常です。</p>
+    <p>客先から「フェライト量を数値で管理してほしい」という要求が来た際は、ミルシートの成分値からCr当量・Ni当量を計算するか、磁気式<strong>フェライトメーター</strong>で直接測定して証明できます。</p>
+  </div>
+
+  <div class="easy-only">
+    <h2>💡 やさしく解説！</h2>
+    <h3>🗺️ 溶接後の組織を「地図」で読む</h3>
+    <div class="easy-example">
+      <strong>日常アナロジー：</strong>天気予報の「気温×湿度マップ」みたいなイメージ。<br>
+      横軸にCr量、縦軸にNi量をとった「地図」に材料の成分をプロットすると、<br>
+      「溶接後にどんな組織になるか」がわかります。これがSchaefflerダイアグラム！
+    </div>
+    <div class="easy-point">
+      📌 ポイント：Cr（クロム）が多い→フェライト系に傾く。Ni（ニッケル）とC（炭素）が多い→オーステナイトに傾く
+    </div>
+    <h3>🏆 一番良い溶接は「A+Fゾーン」</h3>
+    <div class="easy-bubble-q"><strong>🗣 疑問：</strong>なんでオーステナイト100%じゃダメなの？</div>
+    <div class="easy-bubble-a"><strong>💡 答え：</strong>純オーステナイトだと凝固するとき「ヒビ（高温割れ）」が入りやすい！フェライトが5〜10%だけ混じると、ヒビが広がるのをブロックしてくれます。</div>
+    <div class="easy-point">
+      📌 「溶接部が磁石につく」のは、このフェライト（磁性あり）のせい。不良品じゃなくて<strong>むしろ設計通り！</strong>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>営業からの相談に効く知識</h2>
+    <div class="qa-q"><strong>Q（営業）：</strong>「お客さんが"ステンレスを溶接したら磁石がくっついた。不良品では？"って言ってるんだけど」</div>
+    <blockquote>
+      <p><strong>A（生産管理）：</strong>不良品ではないです。SUS304同士の溶接ではSchaeffler図の設計上δフェライトが5〜10%含まれる設計になっています。これが磁性の原因で、高温割れを防ぐ意図的な組織です。品質上は正常です。</p>
+    </blockquote>
+    <div class="qa-point">💬 客先への説明文：「溶接部はδフェライトを含む設計のため磁性が出ます。JIS等の品質規格上、正常な状態です」</div>
+
+    <div class="qa-q"><strong>Q（営業）：</strong>「ステンレスの溶接で"ホットクラック"というクレームが来たんだけど、材料不良？」</div>
+    <blockquote>
+      <p><strong>A（生産管理）：</strong>材料不良というより、溶接材の選定か施工管理の問題の可能性が高いです。δフェライトが少ない（純オーステナイト組織）と凝固割れが起きます。使用した溶接材のミルシートを入手してCr当量・Ni当量を計算させてください。</p>
+    </blockquote>
+  </div>
+  <div class="easy-only">
+    <h2>💼 営業からの相談、こう返す！</h2>
+    <div class="easy-bubble-q"><strong>🗣 営業：</strong>「ステンレス溶接したら磁石がついた！不良品？」</div>
+    <div class="easy-bubble-a">
+      <strong>💡 生産管理：</strong>不良品じゃないです！<br>
+      溶接金属にフェライトが5〜10%含まれるのは設計通り。そのフェライトが磁石につく原因です。<br>
+      「正常です。高温割れを防ぐための組織です」と客先に伝えてください。
+    </div>
+    <div class="easy-bubble-q"><strong>🗣 営業：</strong>「"ホットクラック（溶接割れ）"ってクレームきたんだけど？」</div>
+    <div class="easy-bubble-a">
+      <strong>💡 生産管理：</strong>溶接材の選定問題の可能性大。<br>
+      溶接材のミルシート（成分表）を持ってきてください。Cr当量・Ni当量を計算して確認します。
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>用語メモ</h2>
+    <dl>
+      <dt>Cr当量</dt><dd>Cr+Mo+1.5Si+0.5Nb。フェライト形成傾向の指標。Schaeffler図の横軸</dd>
+      <dt>Ni当量</dt><dd>Ni+30C+0.5Mn。オーステナイト形成傾向の指標。縦軸</dd>
+      <dt>δフェライト</dt><dd>溶接金属中に含まれるフェライト相。5〜10%で高温割れ防止効果。磁性あり</dd>
+      <dt>高温割れ（Hot Cracking）</dt><dd>凝固中に粒界液膜が割れる現象。δフェライト不足で起きやすい</dd>
+      <dt>フェライトメーター</dt><dd>磁気吸引力でδフェライト量を非破壊測定する器具</dd>
+    </dl>
+  </div>
+  <div class="easy-only">
+    <h2>📖 今日の用語まとめ</h2>
+    <dl>
+      <dt>🗺️ Schaefflerダイアグラム</dt><dd>Cr量×Ni量の地図。溶接後の組織を成分値から予測できる</dd>
+      <dt>🔢 Cr当量 / Ni当量</dt><dd>複数の元素を足し合わせた「フェライト方向」「オーステナイト方向」の強さ</dd>
+      <dt>🧲 δフェライト</dt><dd>溶接金属中に残るフェライト。磁石につく原因＝割れ防止の守護者</dd>
+      <dt>💥 高温割れ（ホットクラック）</dt><dd>フェライト少なすぎると溶接中に亀裂が入る現象</dd>
+      <dt>📏 フェライトメーター</dt><dd>磁石の力でフェライト量を測る道具。数字で品質証明できる</dd>
+    </dl>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>昨日の小テスト解答</h2>
+    <p><strong>問：</strong>SUS304のメッシュを自社で溶接して使いたいが、溶接部の耐食性は落ちないの？</p>
+    <div class="answer-box">
+      <p><strong>答：条件次第で落ちる可能性があります。対策が必要です。</strong></p>
+      <p>溶接熱影響部（HAZ）が450〜850℃（鋭敏化温度域）に加熱されると、CrがCr₂₃C₆として粒界析出し、周囲のCrが10.5%以下に枯渇します。Cr枯渇域では不動態皮膜が形成できず<strong>粒界腐食</strong>が起きます。</p>
+      <p>対策：①SUS304L（低炭素グレード）使用、②SUS321/SUS347（安定化グレード）使用、③溶接後固溶化熱処理（1050℃急冷）</p>
+      <p>営業への返し：「溶接後に腐食環境で使うなら304Lか321が安全です。熱処理で解決する方法もあります」</p>
+    </div>
+  </div>
+  <div class="easy-only">
+    <h2>✅ 昨日のクイズ、答え合わせ！</h2>
+    <p><strong>問：</strong>SUS304を溶接すると耐食性は落ちるの？</p>
+    <div class="answer-box">
+      <div class="easy-bubble-a">
+        <strong>条件次第で落ちます！</strong><br>
+        溶接の熱（450〜850℃）でCrが粒界に逃げてしまい、「Crが足りない部分」が生まれる。<br>
+        そこは不動態皮膜が作れないので腐食しやすくなります（粒界腐食）。
+      </div>
+      <div class="easy-point">
+        📌 対策：<strong>SUS304L（低炭素版）</strong>を使う、または溶接後に熱処理する！<br>
+        営業には「溶接するなら304Lにしてください」と伝える
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="quiz">
+  <div class="normal-only">
+    <h2>今日の小テスト1問</h2>
+    <p class="q-text">問：客先から「自社で溶接したSUS304のタンクを検査したところ、溶接ビード（溶接金属部）が磁石に引っ張られた。ステンレスなのに磁石につくのは不良品では？」と問い合わせが来た。生産管理として正しく回答せよ。</p>
+    <p style="color:#666; font-size:0.9em;">（解答は第14回で配信）</p>
+  </div>
+  <div class="easy-only">
+    <h2>🧩 今日の小テスト1問</h2>
+    <p class="q-text">問：客先から「SUS304のタンクを溶接したら、溶接した部分に磁石がくっついた。これって不良品？」と問い合わせ。どう答える？</p>
+    <div class="easy-point">💡 ヒント：今日学んだ「δフェライト」を思い出して！</div>
+    <p style="color:#666; font-size:0.9em;">（解答は第14回で配信）</p>
+  </div>
+</div>
+
+<button class="mode-btn" id="modeBtn" onclick="toggleMode()">🌟 やさしいとくしゅこうで読む</button>
+<script>
+function toggleMode() {
+  const body = document.body;
+  const btn = document.getElementById('modeBtn');
+  if (body.classList.contains('easy-mode')) {
+    body.classList.remove('easy-mode');
+    btn.textContent = '🌟 やさしいとくしゅこうで読む';
+    localStorage.setItem('studyMode', 'normal');
+  } else {
+    body.classList.add('easy-mode');
+    btn.textContent = '📚 通常モードに戻す';
+    localStorage.setItem('studyMode', 'easy');
+  }
+}
+(function() {
+  if (localStorage.getItem('studyMode') === 'easy') {
+    document.body.classList.add('easy-mode');
+    document.getElementById('modeBtn').textContent = '📚 通常モードに戻す';
+  }
+})();
+</script>
+</body>
+</html>

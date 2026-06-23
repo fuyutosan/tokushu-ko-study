@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第14回 ステンレスの代表鋼種一覧（304・316・430・410・17-4PH）</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'Yu Gothic', sans-serif; max-width: 820px; margin: 0 auto; padding: 20px; background: #f5f5f5; color: #333; line-height: 1.8; font-size: 15px; }
+  header { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; padding: 28px 32px; border-radius: 10px; margin-bottom: 28px; }
+  header .session { font-size: 0.85em; opacity: 0.75; margin-bottom: 6px; }
+  header h1 { margin: 0 0 8px; font-size: 1.5em; }
+  header .week { font-size: 0.88em; opacity: 0.8; }
+  .card { background: white; border-radius: 10px; padding: 24px 28px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); border-top: 4px solid #2d6a9f; }
+  .summary { background: #e8f4fd; border-left: 4px solid #2d6a9f; border-radius: 0 10px 10px 0; padding: 18px 24px; margin-bottom: 20px; }
+  h2 { color: #1a3a5c; border-bottom: 2px solid #e0e0e0; padding-bottom: 8px; margin-top: 0; }
+  h3 { color: #2d6a9f; margin-top: 22px; }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.88em; }
+  th { background: #1a3a5c; color: white; padding: 10px 12px; text-align: left; }
+  td { padding: 9px 12px; border-bottom: 1px solid #eee; }
+  tr:hover td { background: #f7faff; }
+  .qa-q { background: #fff3e0; border-left: 4px solid #ff9800; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 16px 0 8px; }
+  blockquote { background: #e8f4e8; border-left: 4px solid #4caf50; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 0 0 12px; }
+  .qa-point { background: #e3f2fd; border-radius: 8px; padding: 10px 16px; font-size: 0.9em; color: #1565c0; margin-top: 8px; }
+  .quiz { background: #f3e5f5; border-radius: 10px; padding: 20px 24px; margin-top: 20px; border-left: 4px solid #9c27b0; }
+  .quiz h2 { color: #6a1b9a; border-color: #ce93d8; }
+  .q-text { font-weight: bold; color: #4a148c; }
+  dt { font-weight: bold; color: #1a3a5c; margin-top: 10px; }
+  dd { margin-left: 20px; color: #555; }
+  .answer-box { background: #fff8e1; border-left: 4px solid #ffc107; border-radius: 0 8px 8px 0; padding: 16px 20px; }
+  a.back { display: inline-block; margin-bottom: 16px; color: #2d6a9f; text-decoration: none; font-size: 0.9em; }
+  a.back:hover { text-decoration: underline; }
+
+  /* ===== Easy Mode ===== */
+  .easy-only { display: none; }
+  .normal-only { display: block; }
+  body.easy-mode .easy-only { display: block; }
+  body.easy-mode .normal-only { display: none; }
+  body.easy-mode { background: linear-gradient(160deg, #fff9f0 0%, #f0f4ff 100%); font-size: 16px; }
+  body.easy-mode header { background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; }
+  body.easy-mode .card { border-top: 5px solid #ce93d8; }
+  body.easy-mode h2 { color: #6a1b9a; border-color: #ce93d8; }
+  body.easy-mode h3 { color: #e65100; }
+  body.easy-mode .summary { background: #fce4ec; border-left-color: #f48fb1; }
+  body.easy-mode .summary h2 { color: #c2185b; }
+  .easy-bubble-q { background: #fce4ec; border: 2px solid #f48fb1; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-bubble-a { background: #e3f2fd; border: 2px solid #90caf9; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-point { background: #fff9c4; border-left: 4px solid #f9a825; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 12px 0; }
+  .easy-example { background: #e8f5e9; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .easy-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.9em; }
+  .easy-table th { background: #f48fb1; color: white; padding: 8px 10px; text-align: left; }
+  .easy-table td { padding: 8px 10px; border-bottom: 1px solid #fce4ec; }
+  .mode-btn { position: fixed; top: 16px; right: 16px; z-index: 1000; background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; border: none; border-radius: 24px; padding: 10px 18px; font-size: 0.9em; font-weight: bold; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  body.easy-mode .mode-btn { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; }
+</style>
+</head>
+<body>
+
+<a class="back" href="index.html">← 学習ログ一覧に戻る</a>
+
+<header>
+  <div class="session">第14回 ・ 2026-06-25</div>
+  <div class="normal-only"><h1>ステンレスの代表鋼種一覧（304・316・430・410・17-4PH）</h1></div>
+  <div class="easy-only"><h1>🏆 ステンレス5人のヒーロー、全員紹介！</h1></div>
+  <span class="week">第3週：ステンレスの世界</span>
+</header>
+
+<div class="summary">
+  <div class="normal-only">
+    <h2>今日の3行サマリ</h2>
+    <ul>
+      <li>SUS304・316・430・410・630（17-4PH）はステンレス5系統の代表鋼種。各系統を「これ1つ」で体現する</li>
+      <li>「なぜその鋼種か」は用途・コスト・製造性の三角形で決まる。組成の数字を暗記するより意味を理解する</li>
+      <li>自社製品の材質証明書に出てくる鋼種はほぼこの5種でカバーできる</li>
+    </ul>
+  </div>
+  <div class="easy-only">
+    <h2>🎯 今日わかること 3つ！</h2>
+    <ul>
+      <li>🥇 SUS304は「まずこれ」の汎用ヒーロー。ステンレスの代名詞</li>
+      <li>🌊 SUS316は「海水・塩素に強い」上位互換。Moが守護神</li>
+      <li>⚡ この5種を押さえれば、営業の材質相談8割は即答できる！</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>本文</h2>
+    <h3>1. 5鋼種の比較一覧</h3>
+    <table>
+      <tr><th>鋼種</th><th>系統</th><th>主な組成</th><th>磁性</th><th>強み</th><th>NG条件</th></tr>
+      <tr><td>SUS304</td><td>オーステナイト</td><td>18Cr-8Ni</td><td>なし</td><td>汎用・溶接性◎・入手容易</td><td>海水・高塩素</td></tr>
+      <tr><td>SUS316</td><td>オーステナイト</td><td>18Cr-12Ni-2.5Mo</td><td>なし</td><td>孔食耐性◎・薬品・海水対応</td><td>高温H₂S</td></tr>
+      <tr><td>SUS430</td><td>フェライト</td><td>17Cr（Niなし）</td><td>あり</td><td>安価・磁性あり</td><td>溶接後脆化</td></tr>
+      <tr><td>SUS410</td><td>マルテンサイト</td><td>13Cr-0.1C</td><td>あり</td><td>焼入れ硬化可能</td><td>耐食性低・溶接困難</td></tr>
+      <tr><td>SUS630（17-4PH）</td><td>析出硬化</td><td>17Cr-4Ni-4Cu</td><td>やや</td><td>高強度（1000MPa超）×耐食</td><td>高温クリープ弱・高価</td></tr>
+    </table>
+
+    <h3>2. 各鋼種の「決め手」</h3>
+    <p><strong>SUS304：まずここから考える</strong><br>
+    最も広く使われる汎用グレード。コスト・入手性・溶接性のバランスが最高で、「特別な要求がなければ304」が材質選定の出発点です。板・棒・管・鋳物（SCS13）いずれの形態でも標準的に調達できます。弱点は塩化物と高温での鋭敏化。</p>
+
+    <p><strong>SUS316：塩化物環境の答え</strong><br>
+    Mo（約2.5%）添加で孔食電位が大幅上昇。304でNGな海水・薬品・塩素系洗浄環境に対応します。価格は304比1.3〜1.5倍。低炭素版SUS316Lは溶接後の鋭敏化リスクを低減するため、溶接構造物には316Lを優先。</p>
+
+    <p><strong>SUS430：Niなしで安価・磁性が必要な場面</strong><br>
+    Niを含まないためコストが低い。磁性があるためセンサー対応部品・家電外装・自動車排気系に適合。溶接後に粒成長→脆化が起きやすく、厚板の溶接構造には不向きです。</p>
+
+    <p><strong>SUS410：硬さが必要な唯一の選択肢</strong><br>
+    焼入れ・焼戻しで引張強さ700〜900MPaに達します。刃物・ポンプ軸・弁体・タービンブレードに使用。耐食性はSUS304より劣るため食品・海水環境はNG。溶接時は予熱（150〜260℃）と後熱が必要。</p>
+
+    <p><strong>SUS630（17-4PH）：最高強度が必要な場面</strong><br>
+    H900処理（480℃時効）で引張強さ1310MPaに達します。高強度と耐食性を両立し、高精度シャフト・医療機器・航空機構造材に使用。専門的な熱処理管理が必要で高価。</p>
+
+    <h3>3. 自社製品との対応</h3>
+    <table>
+      <tr><th>自社製品</th><th>使用鋼種</th><th>理由</th></tr>
+      <tr><td>メッシュベルト（食品用）</td><td>SUS304 / SUS316L</td><td>食品接触・塩素洗浄耐性で選択</td></tr>
+      <tr><td>メッシュベルト（工業用高温）</td><td>SUS310S</td><td>900〜1100℃の酸化環境対応</td></tr>
+      <tr><td>オーステナイト系鋳物</td><td>SCS13（≒SUS304相当）</td><td>汎用耐食・溶接性・コストのバランス</td></tr>
+      <tr><td>ヒーターエレメント</td><td>SUS310S / Ni基合金</td><td>高温長寿命</td></tr>
+      <tr><td>熱処理治具（鋳造品）</td><td>SCH22（≒SUS310S相当）</td><td>耐熱鋳鋼。高温強度・耐酸化</td></tr>
+    </table>
+  </div>
+
+  <div class="easy-only">
+    <h2>💡 5人のヒーロー、それぞれの必殺技！</h2>
+    <div class="easy-example">
+      <strong>アナロジー：スポーツチームの5ポジション</strong><br>
+      ステンレスは用途によって「誰を使うか」が変わります。5人のヒーローを覚えましょう！
+    </div>
+    <table class="easy-table">
+      <tr><th>ヒーロー</th><th>必殺技</th><th>弱点</th></tr>
+      <tr><td>🥇 SUS304</td><td>何でもこなす万能選手</td><td>海水・塩素が苦手</td></tr>
+      <tr><td>🌊 SUS316</td><td>海水・薬品に超強い</td><td>硫化ガス高温は苦手</td></tr>
+      <tr><td>🧲 SUS430</td><td>安くて磁石につく</td><td>溶接すると脆くなる</td></tr>
+      <tr><td>🔪 SUS410</td><td>焼入れで硬くなれる唯一の存在</td><td>錆びやすい・溶接困難</td></tr>
+      <tr><td>✈️ SUS630（17-4PH）</td><td>超高強度×耐食のダブル主人公</td><td>高価・高温は苦手</td></tr>
+    </table>
+
+    <div class="easy-point">📌 ポイント：選定の基本は「304から考えて、足りない部分で上位互換に変える」！</div>
+
+    <h3>🔍 自社製品はこれを使っています</h3>
+    <div class="easy-bubble-a">
+      メッシュベルト（食品）→ 304 or 316L<br>
+      メッシュベルト（工業高温）→ SUS310S<br>
+      鋳物弁体・汎用 → SCS13（304相当）<br>
+      熱処理治具 → SCH22（310S相当）
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>営業からの相談に効く知識</h2>
+    <div class="qa-q"><strong>Q（営業）：</strong>「客先から"SUS304のタンクをSUS316に変えたいが値段はどれくらい違う？"と聞かれた」</div>
+    <blockquote>
+      <p><strong>A（生産管理）：</strong>素材費ベースで1.3〜1.5倍が目安です。製品コストへの反映は加工費・製造方法によっても変わるので見積で正確に出す必要があります。「なぜ316にするのか」も確認しておくと、316Lが必要かどうかも含めて最適な鋼種を提案できます。</p>
+    </blockquote>
+    <div class="qa-point">💬 営業へのキーメッセージ：「316変更は1.3〜1.5倍目安。変更理由を教えてもらえれば最適な鋼種を提案します」</div>
+
+    <div class="qa-q"><strong>Q（営業）：</strong>「客先から"磁石につかないステンレスで高強度品を作りたい"って相談が来たんだけど」</div>
+    <blockquote>
+      <p><strong>A（生産管理）：</strong>完全非磁性＋高強度は組み合わせが難しいです。SUS630（17-4PH）は強度1000MPa超ですが若干磁性が出ます。完全非磁性が絶対条件なら固溶化処理済みのSUS316や窒素強化系（SUS316N）が候補。どのくらいの強度が必要か・非磁性の厳密さを確認してください。</p>
+    </blockquote>
+  </div>
+  <div class="easy-only">
+    <h2>💼 営業からの相談、こう返す！</h2>
+    <div class="easy-bubble-q"><strong>🗣 営業：</strong>「304→316に変えたいって言ってるんだけど、値段どのくらい違う？」</div>
+    <div class="easy-bubble-a">
+      <strong>💡 生産管理：</strong>素材費で1.3〜1.5倍が目安。<br>
+      でも「なぜ316にするの？」を確認してください。<br>
+      塩素環境なら316L、海水なら316Lか二相系…と最適な選択肢を一緒に提案できます！
+    </div>
+    <div class="easy-bubble-q"><strong>🗣 営業：</strong>「非磁性で高強度なステンレスってある？」</div>
+    <div class="easy-bubble-a">
+      <strong>💡 生産管理：</strong>難しい組み合わせです。<br>
+      SUS630（17-4PH）は超高強度だけど少し磁性あり。<br>
+      完全非磁性なら316かSUS316N。<br>
+      「どのくらい強度が必要か」と「どのくらい非磁性が必要か」を聞いてきてください！
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>用語メモ</h2>
+    <dl>
+      <dt>SUS304</dt><dd>18Cr-8Ni。汎用オーステナイト系の代名詞。材質選定のスタート地点</dd>
+      <dt>SUS316</dt><dd>18Cr-12Ni-2.5Mo。Moで孔食耐性を強化した海水・薬品対応グレード</dd>
+      <dt>SUS430</dt><dd>17Crフェライト系。Niなしで安価・磁性あり。自動車排気・家電向け</dd>
+      <dt>SUS410</dt><dd>13Crマルテンサイト系。焼入れで硬化できるステンレス。刃物・弁体向け</dd>
+      <dt>SUS630（17-4PH）</dt><dd>17Cr-4Ni-4Cu析出硬化系。時効処理で1000MPa超の高強度を実現</dd>
+    </dl>
+  </div>
+  <div class="easy-only">
+    <h2>📖 今日の用語まとめ</h2>
+    <dl>
+      <dt>🥇 SUS304</dt><dd>18Cr-8Niの万能選手。ステンレスといえばコレ。まずここから考える</dd>
+      <dt>🌊 SUS316</dt><dd>18Cr-12Ni-2.5Mo。Moが孔食を防ぐ。海水・薬品の相棒</dd>
+      <dt>🧲 SUS430</dt><dd>17Crのみ。Niなしで安い＆磁石につく。家電・自動車向け</dd>
+      <dt>🔪 SUS410</dt><dd>13Cr。ステンレスで唯一「焼入れで硬くなれる」。刃物・弁体向け</dd>
+      <dt>✈️ SUS630（17-4PH）</dt><dd>17Cr-4Ni-4Cu。時効処理で超高強度。航空機・精密部品のスター</dd>
+    </dl>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>昨日の小テスト解答</h2>
+    <p><strong>問：</strong>「SUS304のタンクを溶接したら溶接ビードが磁石に引っ張られた。不良品では？」と問い合わせが来た。正しく回答せよ。</p>
+    <div class="answer-box">
+      <p><strong>答：不良品ではありません。品質上正常な状態です。</strong></p>
+      <p>SUS304同士の溶接ではSchaeffler図の設計上δフェライトが5〜10%含まれます。このδフェライトは高温割れを防ぐために意図的に含まれるものであり、フェライトが磁性を持つため溶接部が磁石に引かれます。</p>
+      <p>客先への説明：「溶接金属はδフェライトを5〜10%含む設計になっています。高温割れを防ぐための組織であり、品質規格上正常です。フェライト量の数値確認が必要であればフェライトメーターで測定・提出も可能です」</p>
+    </div>
+  </div>
+  <div class="easy-only">
+    <h2>✅ 昨日のクイズ、答え合わせ！</h2>
+    <p><strong>問：</strong>SUS304タンクの溶接部が磁石についた。不良品？</p>
+    <div class="answer-box">
+      <div class="easy-bubble-a">
+        <strong>不良品じゃないです！</strong><br>
+        溶接金属にはδフェライト（磁性あり）が5〜10%含まれるのが設計通り。<br>
+        高温割れを防ぐための「わざと入れた組織」が磁石につく原因です。
+      </div>
+      <div class="easy-point">
+        📌 客先への返し：「設計上正常です。数値が必要ならフェライトメーターで測定もできます」
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="quiz">
+  <div class="normal-only">
+    <h2>今日の小テスト1問</h2>
+    <p class="q-text">問：営業から「お客さんの条件が"食品工場で一部海水を使う冷却ライン、ステンレス配管・バルブ全般"という案件なんだけど、SUS304でいいよね？」と確認が来た。生産管理として材質選定の判断と理由を答えよ。</p>
+    <p style="color:#666; font-size:0.9em;">（解答は第15回で配信）</p>
+  </div>
+  <div class="easy-only">
+    <h2>🧩 今日の小テスト1問</h2>
+    <p class="q-text">問：営業から「食品工場で、一部に海水を使う冷却ラインがある案件。ステンレス配管とバルブ全般なんだけど、SUS304でいいよね？」と聞いてきた。どう答える？</p>
+    <div class="easy-point">💡 ヒント：SUS304の弱点と、海水のCl⁻濃度を思い出して！</div>
+    <p style="color:#666; font-size:0.9em;">（解答は第15回で配信）</p>
+  </div>
+</div>
+
+<button class="mode-btn" id="modeBtn" onclick="toggleMode()">🌟 やさしいとくしゅこうで読む</button>
+<script>
+function toggleMode() {
+  const body = document.body;
+  const btn = document.getElementById('modeBtn');
+  if (body.classList.contains('easy-mode')) {
+    body.classList.remove('easy-mode');
+    btn.textContent = '🌟 やさしいとくしゅこうで読む';
+    localStorage.setItem('studyMode', 'normal');
+  } else {
+    body.classList.add('easy-mode');
+    btn.textContent = '📚 通常モードに戻す';
+    localStorage.setItem('studyMode', 'easy');
+  }
+}
+(function() {
+  if (localStorage.getItem('studyMode') === 'easy') {
+    document.body.classList.add('easy-mode');
+    document.getElementById('modeBtn').textContent = '📚 通常モードに戻す';
+  }
+})();
+</script>
+</body>
+</html>
