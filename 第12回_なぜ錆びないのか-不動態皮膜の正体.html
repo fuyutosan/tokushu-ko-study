@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第12回 なぜ錆びないのか：不動態皮膜の正体</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'Yu Gothic', sans-serif; max-width: 820px; margin: 0 auto; padding: 20px; background: #f5f5f5; color: #333; line-height: 1.8; font-size: 15px; }
+  header { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; padding: 28px 32px; border-radius: 10px; margin-bottom: 28px; }
+  header .session { font-size: 0.85em; opacity: 0.75; margin-bottom: 6px; }
+  header h1 { margin: 0 0 8px; font-size: 1.5em; }
+  header .week { font-size: 0.88em; opacity: 0.8; }
+  .card { background: white; border-radius: 10px; padding: 24px 28px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); border-top: 4px solid #2d6a9f; }
+  .summary { background: #e8f4fd; border-left: 4px solid #2d6a9f; border-radius: 0 10px 10px 0; padding: 18px 24px; margin-bottom: 20px; }
+  h2 { color: #1a3a5c; border-bottom: 2px solid #e0e0e0; padding-bottom: 8px; margin-top: 0; }
+  h3 { color: #2d6a9f; margin-top: 22px; }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  .qa-q { background: #fff3e0; border-left: 4px solid #ff9800; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 16px 0 8px; }
+  blockquote { background: #e8f4e8; border-left: 4px solid #4caf50; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 0 0 12px; }
+  .qa-point { background: #e3f2fd; border-radius: 8px; padding: 10px 16px; font-size: 0.9em; color: #1565c0; margin-top: 8px; }
+  .quiz { background: #f3e5f5; border-radius: 10px; padding: 20px 24px; margin-top: 20px; border-left: 4px solid #9c27b0; }
+  .quiz h2 { color: #6a1b9a; border-color: #ce93d8; }
+  .q-text { font-weight: bold; color: #4a148c; }
+  dt { font-weight: bold; color: #1a3a5c; margin-top: 10px; }
+  dd { margin-left: 20px; color: #555; }
+  .answer-box { background: #fff8e1; border-left: 4px solid #ffc107; border-radius: 0 8px 8px 0; padding: 16px 20px; }
+  a.back { display: inline-block; margin-bottom: 16px; color: #2d6a9f; text-decoration: none; font-size: 0.9em; }
+  a.back:hover { text-decoration: underline; }
+
+  /* ===== Easy Mode ===== */
+  .easy-only { display: none; }
+  .normal-only { display: block; }
+  body.easy-mode .easy-only { display: block; }
+  body.easy-mode .normal-only { display: none; }
+  body.easy-mode { background: linear-gradient(160deg, #fff9f0 0%, #f0f4ff 100%); font-size: 16px; }
+  body.easy-mode header { background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; }
+  body.easy-mode .card { border-top: 5px solid #ce93d8; }
+  body.easy-mode h2 { color: #6a1b9a; border-color: #ce93d8; }
+  body.easy-mode h3 { color: #e65100; }
+  body.easy-mode .summary { background: #fce4ec; border-left-color: #f48fb1; }
+  body.easy-mode .summary h2 { color: #c2185b; }
+  .easy-bubble-q { background: #fce4ec; border: 2px solid #f48fb1; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-bubble-a { background: #e3f2fd; border: 2px solid #90caf9; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-point { background: #fff9c4; border-left: 4px solid #f9a825; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 12px 0; }
+  .easy-example { background: #e8f5e9; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .easy-steps { background: #e8eaf6; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .easy-steps ol { padding-left: 20px; margin: 8px 0 0; }
+  .mode-btn { position: fixed; top: 16px; right: 16px; z-index: 1000; background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; border: none; border-radius: 24px; padding: 10px 18px; font-size: 0.9em; font-weight: bold; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  body.easy-mode .mode-btn { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; }
+</style>
+</head>
+<body>
+
+<a class="back" href="index.html">← 学習ログ一覧に戻る</a>
+
+<header>
+  <div class="session">第12回 ・ 2026-06-23</div>
+  <div class="normal-only"><h1>なぜ錆びないのか：不動態皮膜の正体</h1></div>
+  <div class="easy-only"><h1>🛡️ ステンレスの「見えない鎧」ってなに？</h1></div>
+  <span class="week">第3週：ステンレスの世界</span>
+</header>
+
+<!-- サマリ -->
+<div class="summary">
+  <div class="normal-only">
+    <h2>今日の3行サマリ</h2>
+    <ul>
+      <li>ステンレスが錆びない理由は、Crが表面に形成する不動態皮膜（Cr₂O₃系の極薄酸化膜）による自己保護にある</li>
+      <li>皮膜は1〜3nmと目に見えない薄さだが、傷ついても酸素があれば自己修復する</li>
+      <li>塩化物・硫化ガス・強酸環境では皮膜が破壊される。「何が錆の引き金になるか」を知ることが材質選定の肝</li>
+    </ul>
+  </div>
+  <div class="easy-only">
+    <h2>🎯 今日わかること 3つ！</h2>
+    <ul>
+      <li>🛡️ ステンレスが錆びない理由は「見えない鎧（不動態皮膜）」のせいで、傷ついても自然に直る！</li>
+      <li>🔬 その鎧の厚さは髪の毛の1/80000。でも超強力！</li>
+      <li>⚠️ 塩素・硫黄ガス・強酸には弱い。「何を守れないか」を知れば材質選定で即答できる！</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 本文 -->
+<div class="card">
+  <div class="normal-only">
+    <h2>本文</h2>
+
+    <h3>1. 「錆びない」の正体</h3>
+    <p>「ステンレスは錆びません」と言うと、金属が何か特別な物質でできているように聞こえます。しかし実体はシンプルで、ステンレスの表面には常に<strong>不動態皮膜（passivation film）</strong>と呼ばれる極薄の保護膜が自動形成されており、これが鉄の酸化（錆）を防いでいるだけです。</p>
+    <p>皮膜の主成分はCr₂O₃（酸化クロム）で、厚さは1〜3nm（ナノメートル）程度。髪の毛の直径が約80,000nmですから、文字通り原子数層分の薄さです。ところがこの薄膜が水も酸素もほぼ通さない緻密なバリア層として機能し、下の鉄マトリクスを外気から完全に遮断します。</p>
+    <p>不動態皮膜が安定して形成されるには、母材中のCr濃度が<strong>約10.5%以上</strong>必要とされます。これがJIS規格における「ステンレス鋼の定義（Cr≧10.5%）」の根拠です。Crが少ないと皮膜が粗になり、通常の炭素鋼と同様に鉄の酸化が進んで赤錆が発生します。</p>
+
+    <h3>2. 不動態皮膜の3つの性質</h3>
+    <p><strong>① 自己修復性</strong><br>
+    皮膜が機械的に傷ついても、酸素を含む空気や水が触れれば数秒〜数十秒でその場に新しいCr₂O₃が形成されます。この「治る」性質がステンレスの最大の特長であり、めっきや塗装との本質的な違いです。</p>
+    <p><strong>② Cr濃度依存</strong><br>
+    Cr量が多いほど皮膜は緻密・安定になり、耐食性が向上します。SUS304（18Cr）→SUS316（18Cr+Mo）→SUS310S（25Cr）の順に耐食性が上がる根本理由もここにあります。</p>
+    <p><strong>③ 受動性（passive）</strong><br>
+    皮膜は外部から何もしなくても大気中で自然維持されます。ただし「維持できる条件」が崩れたとき、一気に腐食が進む点には注意が必要です。</p>
+
+    <h3>3. 皮膜が破壊される3つの条件</h3>
+    <p><strong>①塩化物（Cl⁻）環境</strong><br>
+    海水・食塩水・次亜塩素酸ナトリウム中のClイオンは不動態皮膜に局所的に入り込み、<strong>孔食（pit corrosion）</strong>と呼ばれる点状の深い腐食を引き起こします。SUS304が海水環境でダメな理由はこれです。Mo（モリブデン）を加えたSUS316は孔食電位が高く、塩化物環境への耐性が大幅に向上します。</p>
+    <p><strong>②硫化ガス（H₂S・SO₂）× 高温</strong><br>
+    高温のH₂Sガス環境ではCr₂O₃が硫化クロム（Cr₂S₃）に変質し、保護力を失います。これを<strong>硫化物腐食（Sulfidation）</strong>と呼び、通常の酸化腐食とは別のメカニズムで進行します。</p>
+    <p><strong>③強酸・還元環境</strong><br>
+    塩酸（HCl）や希硫酸の強酸環境ではCr₂O₃が溶解し、不動態を維持できなくなる<strong>活性溶解</strong>が起きます。</p>
+
+    <h3>4. 自社製品との関連</h3>
+    <p><strong>メッシュベルト（SUS304/310S）</strong>：食品用は次亜塩素酸ナトリウムで洗浄するケースが多い。通常の食品工場レベル（50ppm以下・常温）ならSUS304でも実績がありますが、高濃度・高温の洗浄環境ではSUS316Lへのグレードアップを検討すべきです。</p>
+    <p><strong>ヒーターエレメント・耐熱鋳物</strong>：高温酸化環境が前提のため、Cr量が高いSUS310S（25Cr）やSCH22（25Cr-20Ni）が選ばれます。高温でも酸化スケールの密着性が維持され、実質的な「高温版不動態皮膜」として機能します。</p>
+  </div>
+
+  <div class="easy-only">
+    <h2>💡 やさしく解説！</h2>
+
+    <h3>🩹 ステンレスの「見えない鎧」って何？</h3>
+    <div class="easy-example">
+      <strong>日常アナロジー：</strong>傷口にできる「かさぶた」を想像してください。<br>
+      ステンレスの表面も、同じように「自然にできる薄い保護膜（不動態皮膜）」があります。<br>
+      かさぶたと違うのは、<strong>傷ついても数秒で自動修復する</strong>こと。まるで魔法みたいです。🧙‍♂️
+    </div>
+    <div class="easy-point">
+      📌 ポイント：この「見えない鎧（Cr₂O₃）」があるから、ステンレスは錆びません。鎧の厚さは1〜3nm（ナノメートル）。髪の毛1本の1/80000の薄さです！
+    </div>
+
+    <h3>🔑 鎧ができる条件は？</h3>
+    <div class="easy-bubble-q"><strong>🗣 疑問：</strong>なんでクロム（Cr）が10.5%以上必要なの？</div>
+    <div class="easy-bubble-a"><strong>💡 答え：</strong>Crが少ないと鎧が「スカスカ」になって穴だらけになります。10.5%以上あってはじめて「穴のない密なバリア」が完成します。これがJISでのステンレスの定義です！</div>
+
+    <h3>⚠️ 鎧が破られる3つの弱点</h3>
+    <div class="easy-steps">
+      <ol>
+        <li>🧂 <strong>塩化物（塩素系）</strong>：海水や塩素系洗剤のClイオンが鎧の隙間に入り込んで、点状に深く掘る「孔食」が発生</li>
+        <li>🔥 <strong>硫化ガス（H₂S）× 高温</strong>：鎧の成分（Cr₂O₃）が別の物質（Cr₂S₃）に変わり、保護力ゼロになる</li>
+        <li>🧪 <strong>強い酸（塩酸など）</strong>：鎧が溶けてしまう「活性溶解」という状態になる</li>
+      </ol>
+    </div>
+    <div class="easy-point">
+      📌 ポイント：SUS304のメッシュが「食品工場では使えることもある」のに「海水ではNG」なのは、塩素濃度が低ければ鎧が守り続けられるから。濃い塩素はアウト！
+    </div>
+  </div>
+</div>
+
+<!-- 営業Q&A -->
+<div class="card">
+  <div class="normal-only">
+    <h2>営業からの相談に効く知識</h2>
+
+    <div class="qa-q"><strong>Q（営業）：</strong>「食品工場のラインで毎日次亜塩素酸で洗浄するんだけど、SUS304のメッシュで大丈夫ですか？」</div>
+    <blockquote>
+      <p><strong>A（生産管理）：</strong>次亜塩素酸は塩素系なので、濃度と温度次第では孔食リスクがあります。50ppm以下・常温なら304でも実績はありますが、高濃度（200ppm超）や温水洗浄なら316Lへのグレードアップを推奨します。まず洗浄条件（濃度・温度・pH）を確認してください。</p>
+    </blockquote>
+    <div class="qa-point">💬 営業に渡すキーメッセージ：「SUS304は万能じゃないです。塩素濃度と温度を聞いてきてもらえれば、304でいけるか316Lが要るかすぐ答えられます」</div>
+
+    <div class="qa-q"><strong>Q（営業）：</strong>「鋳物の弁体をステンレスで作りたいって言ってるんだけど、海水でも問題ないですか？」</div>
+    <blockquote>
+      <p><strong>A（生産管理）：</strong>SCS13（SUS304相当）では海水は厳しいです。海水のCl⁻濃度は約2万ppmあり、304の孔食電位を大幅に下回ります。SCS16（SUS316相当）か二相系（SUS329J1相当）を選んでください。断続浸漬か常時浸漬か、流速によっても変わるので、使用条件を整理してから鋼種を確定します。</p>
+    </blockquote>
+    <div class="qa-point">💬 条件付きOK：使用条件（浸漬パターン・流速）を確認してから鋼種を確定する</div>
+  </div>
+
+  <div class="easy-only">
+    <h2>💼 営業からの相談、こう返す！</h2>
+
+    <div class="easy-bubble-q"><strong>🗣 営業：</strong>「食品工場で毎日次亜塩素酸で洗浄するラインなんだけど、SUS304のメッシュで大丈夫？」</div>
+    <div class="easy-bubble-a">
+      <strong>💡 生産管理：</strong>塩素の濃度次第！<br>
+      50ppm以下・常温→ 304でOKな実績あり<br>
+      200ppm超 or 温水洗浄→ 316Lに変えてください<br>
+      まず「塩素濃度・温度・pH」を聞いてきて！
+    </div>
+
+    <div class="easy-bubble-q"><strong>🗣 営業：</strong>「弁体をステンレス鋳物で作りたい、海水でも使えるよね？」</div>
+    <div class="easy-bubble-a">
+      <strong>💡 生産管理：</strong>SCS13（304相当）は海水NG。Cl⁻が2万ppmあってアウト。<br>
+      SCS16（316相当）か二相系にしてください。<br>
+      使用条件（常時浸漬か間欠か）も確認して！
+    </div>
+    <div class="easy-point">📌 ポイント：「ステンレスなら海水もOK」は誤解。304と316は別物です！</div>
+  </div>
+</div>
+
+<!-- 用語メモ -->
+<div class="card">
+  <div class="normal-only">
+    <h2>用語メモ</h2>
+    <dl>
+      <dt>不動態皮膜</dt>
+      <dd>Cr₂O₃主体の1〜3nm保護膜。傷ついても酸素があれば自己修復する</dd>
+      <dt>孔食（pit corrosion）</dt>
+      <dd>塩化物イオンが局所的に皮膜を破り、点状・縦方向に進む腐食。表面はきれいでも内部が深くえぐれる</dd>
+      <dt>硫化物腐食（Sulfidation）</dt>
+      <dd>H₂SやSO₂などの硫黄ガスがCr₂O₃を硫化クロムに変質させる高温腐食</dd>
+      <dt>活性溶解</dt>
+      <dd>強酸・還元環境で不動態が維持できず、金属が溶け続ける状態</dd>
+      <dt>孔食電位（Epit）</dt>
+      <dd>この電位を超えると孔食が始まる閾値。Moを添加すると高まる（耐食性向上の指標）</dd>
+    </dl>
+  </div>
+  <div class="easy-only">
+    <h2>📖 今日の用語まとめ</h2>
+    <dl>
+      <dt>🛡️ 不動態皮膜</dt>
+      <dd>Crが作る「見えない鎧」。1〜3nmの超薄膜で、傷ついても自己修復する</dd>
+      <dt>🕳️ 孔食（こうしょく）</dt>
+      <dd>塩素が鎧に穴を開けて、ぐんぐん縦に掘り進む腐食。表面は綺麗に見えてもヤバい</dd>
+      <dt>🔥 硫化物腐食</dt>
+      <dd>H₂Sガスが鎧の成分を別物に変えてしまう。高温+硫黄環境の天敵</dd>
+      <dt>🧪 活性溶解</dt>
+      <dd>強酸で鎧が溶けてしまい、金属本体が直接腐食される状態</dd>
+      <dt>⚡ 孔食電位</dt>
+      <dd>「ここを超えると孔食スタート」という電圧の閾値。Moを入れると上がる＝耐性アップ</dd>
+    </dl>
+  </div>
+</div>
+
+<!-- 前日の小テスト解答 -->
+<div class="card">
+  <div class="normal-only">
+    <h2>昨日の小テスト解答</h2>
+    <p><strong>問：</strong>営業から「使用温度800℃、炉内に硫化水素ガスがある環境でステンレス治具を作れますか？」と丸投げ相談が来た。5分類の知識を使って、可否と推奨鋼種・理由を答えよ。</p>
+    <div class="answer-box">
+      <p><strong>答：SUS304/316などの汎用オーステナイト系では不可。</strong></p>
+      <p>理由は2点——①H₂S環境ではCr₂O₃が硫化クロム（Cr₂S₃）に変質して保護力を失う硫化物腐食が起きる、②800℃は304の連続使用上限付近で酸化腐食も同時進行する。</p>
+      <p>推奨：耐熱鋳鋼カテゴリ（SCH系）の<strong>SCH22（25Cr-20Ni）以上</strong>、もしくはSi添加耐熱グレードを検討。</p>
+      <p>営業への返し方：「普通のステンレスでは持ちません。耐熱鋳鋼（SCHグレード）になります。Niも高めが必要で、コストと納期が変わります。一度仕様書を見せてもらえますか？」</p>
+    </div>
+  </div>
+  <div class="easy-only">
+    <h2>✅ 昨日のクイズ、答え合わせ！</h2>
+    <p><strong>問：</strong>800℃＋硫化水素ガス環境でステンレス治具を作れますか？</p>
+    <div class="answer-box">
+      <p>🚫 <strong>普通のステンレス（SUS304/316）はNG！</strong></p>
+      <div class="easy-bubble-a">
+        理由①：H₂SがCrの鎧を別物に変えて「鎧なし」になる<br>
+        理由②：800℃は304の使用限界ギリギリ＋酸化も同時進行
+      </div>
+      <div class="easy-point">
+        📌 正解：<strong>SCH22（25Cr-20Ni）などの耐熱鋳鋼カテゴリ</strong>を使う<br>
+        営業には「普通のステンレスは持ちません。耐熱鋳鋼になります」と返す！
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 今日の小テスト -->
+<div class="quiz">
+  <div class="normal-only">
+    <h2>今日の小テスト1問</h2>
+    <p class="q-text">問：営業から「お客さんがSUS304のメッシュを自社で溶接して使いたいって言ってるんだけど、溶接部分の耐食性は落ちないの？」と聞いてきた。不動態皮膜と溶接の観点から、可否・理由・対策を生産管理として答えよ。</p>
+    <p style="color:#666; font-size:0.9em;">（解答は第13回で配信）</p>
+  </div>
+  <div class="easy-only">
+    <h2>🧩 今日の小テスト1問</h2>
+    <p class="q-text">問：営業から「SUS304のメッシュを自社で溶接して使いたいって言ってるんだけど、溶接部分って耐食性落ちないの？」と聞いてきた。どう答える？</p>
+    <div class="easy-point">💡 ヒント：溶接するとどこかに「熱」がかかります。その熱が不動態皮膜にどんな影響を与えるか考えてみて！</div>
+    <p style="color:#666; font-size:0.9em;">（解答は第13回で配信）</p>
+  </div>
+</div>
+
+<button class="mode-btn" id="modeBtn" onclick="toggleMode()">🌟 やさしいとくしゅこうで読む</button>
+<script>
+function toggleMode() {
+  const body = document.body;
+  const btn = document.getElementById('modeBtn');
+  if (body.classList.contains('easy-mode')) {
+    body.classList.remove('easy-mode');
+    btn.textContent = '🌟 やさしいとくしゅこうで読む';
+    localStorage.setItem('studyMode', 'normal');
+  } else {
+    body.classList.add('easy-mode');
+    btn.textContent = '📚 通常モードに戻す';
+    localStorage.setItem('studyMode', 'easy');
+  }
+}
+(function() {
+  if (localStorage.getItem('studyMode') === 'easy') {
+    document.body.classList.add('easy-mode');
+    document.getElementById('modeBtn').textContent = '📚 通常モードに戻す';
+  }
+})();
+</script>
+
+</body>
+</html>
