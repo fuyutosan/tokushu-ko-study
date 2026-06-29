@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第17回 SUS316とMoの効果：耐孔食・耐隙間腐食</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'Yu Gothic', sans-serif; max-width: 820px; margin: 0 auto; padding: 20px; background: #f5f5f5; color: #333; line-height: 1.8; font-size: 15px; }
+  header { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; padding: 28px 32px; border-radius: 10px; margin-bottom: 28px; }
+  header .session { font-size: 0.85em; opacity: 0.75; margin-bottom: 6px; }
+  header h1 { margin: 0 0 8px; font-size: 1.5em; }
+  header .week { font-size: 0.88em; opacity: 0.8; }
+  .card { background: white; border-radius: 10px; padding: 24px 28px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); border-top: 4px solid #2d6a9f; }
+  .summary { background: #e8f4fd; border-left: 4px solid #2d6a9f; border-radius: 0 10px 10px 0; padding: 18px 24px; margin-bottom: 20px; }
+  h2 { color: #1a3a5c; border-bottom: 2px solid #e0e0e0; padding-bottom: 8px; margin-top: 0; }
+  h3 { color: #2d6a9f; margin-top: 22px; }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.88em; }
+  th { background: #1a3a5c; color: white; padding: 10px 12px; text-align: left; }
+  td { padding: 9px 12px; border-bottom: 1px solid #eee; }
+  tr:hover td { background: #f7faff; }
+  .qa-q { background: #fff3e0; border-left: 4px solid #ff9800; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 16px 0 8px; }
+  blockquote { background: #e8f4e8; border-left: 4px solid #4caf50; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 0 0 12px; }
+  .qa-point { background: #e3f2fd; border-radius: 8px; padding: 10px 16px; font-size: 0.9em; color: #1565c0; margin-top: 8px; }
+  .quiz { background: #f3e5f5; border-radius: 10px; padding: 20px 24px; margin-top: 20px; border-left: 4px solid #9c27b0; }
+  .quiz h2 { color: #6a1b9a; border-color: #ce93d8; }
+  .q-text { font-weight: bold; color: #4a148c; }
+  dt { font-weight: bold; color: #1a3a5c; margin-top: 10px; }
+  dd { margin-left: 20px; color: #555; }
+  .answer-box { background: #fff8e1; border-left: 4px solid #ffc107; border-radius: 0 8px 8px 0; padding: 16px 20px; }
+  a.back { display: inline-block; margin-bottom: 16px; color: #2d6a9f; text-decoration: none; font-size: 0.9em; }
+  a.back:hover { text-decoration: underline; }
+
+  /* ===== Easy Mode ===== */
+  .easy-only { display: none; }
+  .normal-only { display: block; }
+  body.easy-mode .easy-only { display: block; }
+  body.easy-mode .normal-only { display: none; }
+  body.easy-mode { background: linear-gradient(160deg, #fff9f0 0%, #f0f4ff 100%); font-size: 16px; }
+  body.easy-mode header { background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; }
+  body.easy-mode .card { border-top: 5px solid #ce93d8; }
+  body.easy-mode h2 { color: #6a1b9a; border-color: #ce93d8; }
+  body.easy-mode h3 { color: #e65100; }
+  body.easy-mode .summary { background: #fce4ec; border-left-color: #f48fb1; }
+  body.easy-mode .summary h2 { color: #c2185b; }
+  .easy-bubble-q { background: #fce4ec; border: 2px solid #f48fb1; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-bubble-a { background: #e3f2fd; border: 2px solid #90caf9; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-point { background: #fff9c4; border-left: 4px solid #f9a825; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 12px 0; }
+  .easy-example { background: #e8f5e9; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .easy-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.9em; }
+  .easy-table th { background: #f48fb1; color: white; padding: 8px 10px; text-align: left; }
+  .easy-table td { padding: 8px 10px; border-bottom: 1px solid #fce4ec; }
+  .mode-btn { position: fixed; top: 16px; right: 16px; z-index: 1000; background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; border: none; border-radius: 24px; padding: 10px 18px; font-size: 0.9em; font-weight: bold; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  body.easy-mode .mode-btn { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; }
+</style>
+</head>
+<body>
+
+<a class="back" href="index.html">← 学習ログ一覧に戻る</a>
+
+<header>
+  <div class="session">第17回 ・ 2026-06-30</div>
+  <div class="normal-only"><h1>SUS316とMoの効果：耐孔食・耐隙間腐食</h1></div>
+  <div class="easy-only"><h1>🌊 SUS316 ＝ 304に「塩バリア」を足した上位版！</h1></div>
+  <span class="week">第4週：オーステナイト系ステンレス深掘り</span>
+</header>
+
+<div class="summary">
+  <div class="normal-only">
+    <h2>今日の3行サマリ</h2>
+    <ul>
+      <li>SUS316は304に約2.5%のMo（モリブデン）を足した「塩素に強い上位互換」。組成は18Cr-12Ni-2.5Mo</li>
+      <li>Moは不動態皮膜を塩素イオンから守り、孔食・隙間腐食を抑える。耐孔食性の指標がPREN</li>
+      <li>溶接構造には低炭素のSUS316Lが基本。自社では塩素洗浄ライン・薬品環境の部品で304から格上げする</li>
+    </ul>
+  </div>
+  <div class="easy-only">
+    <h2>🎯 今日わかること 3つ！</h2>
+    <ul>
+      <li>🌊 SUS316は304に「塩バリア（Mo）」を追加した強化版</li>
+      <li>🕳 304が苦手な"塩素で穴があく（孔食）"を防げる</li>
+      <li>🍱 食品でも塩素で毎日洗うライン、薬品環境は316の出番！</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>本文</h2>
+    <h3>1. 基礎：Moが塩素から皮膜を守る</h3>
+    <p>SUS316はSUS304にMo（モリブデン＝塩素環境で皮膜の局部破壊を防ぐ元素）を約2.5%加え、Niも12%前後に増やしたオーステナイト系ステンレスです。304最大の弱点は塩素イオン（Cl⁻）による孔食（皮膜が点状に破れて穴が進む腐食）と隙間腐食（ガスケットやボルト座面など酸素が届かない隙間で進む腐食）でした。Moはこの破れた皮膜の再生を助け、局部腐食の発生電位を引き上げます。耐孔食性のおおよその序列を示す指標がPREN（＝Cr%＋3.3×Mo%＋16×N%）で、304が約18、316が約24と明確に差がつきます。</p>
+
+    <table>
+      <tr><th>項目</th><th>SUS304</th><th>SUS316</th></tr>
+      <tr><td>主組成</td><td>18Cr-8Ni</td><td>18Cr-12Ni-2.5Mo</td></tr>
+      <tr><td>PREN（耐孔食指数）</td><td>約18</td><td>約24</td></tr>
+      <tr><td>塩素・海水・薬品</td><td>× 孔食リスク</td><td>○ 対応可</td></tr>
+      <tr><td>素材コスト</td><td>基準</td><td>1.3〜1.5倍</td></tr>
+    </table>
+
+    <h3>2. 自社製品との関連</h3>
+    <p>自社では、食品ラインでも塩素系薬剤で日常洗浄する設備や、薬品・海塩粒子にさらされる環境のメッシュベルト・耐食部品で304から316へ格上げします。溶接を伴う架台・フレームは、溶接熱で炭化物が析出して耐食性が落ちる「鋭敏化」を避けるため、炭素を抑えたSUS316Lを標準にします（鋭敏化は第19回で詳説）。価格は素材費ベースで304比およそ1.3〜1.5倍。</p>
+
+    <h3>3. 営業現場での意味づけ</h3>
+    <p>「塩素・海水・薬品」というキーワードが出たら304から316への切替を検討する、というスイッチを持っておくのが生産管理の役割です。</p>
+  </div>
+
+  <div class="easy-only">
+    <h2>💡 やさしく解説！</h2>
+    <div class="easy-example">
+      <strong>🧴 たとえ：316は「日焼け止めを塗った304」</strong><br>
+      304は素肌のまま海（塩素）に行くと、すぐ日焼け（＝穴＝孔食）してしまう。<br>
+      316はMo（モリブデン）という日焼け止めを塗った状態。塩素のダメージをはね返せます。
+    </div>
+    <div class="easy-point">📌 ポイント：違いはMoが入っているかどうか。Mo＝塩素バリア。塩素・海水・薬品が出てきたら316！</div>
+
+    <div class="easy-bubble-q"><strong>🗣 疑問：</strong>じゃあ最初から全部316にすればいいのでは？</div>
+    <div class="easy-bubble-a"><strong>💡 答え：</strong>316は304より1.3〜1.5倍お高い。<br>
+    普通の常温・水・食品なら304で十分。「塩素で毎日洗う」みたいな時だけ316に格上げするのが賢い使い分けです。</div>
+
+    <h3>📊 304と316、ここが違う</h3>
+    <table class="easy-table">
+      <tr><th></th><th>304（素肌）</th><th>316（日焼け止めあり）</th></tr>
+      <tr><td>塩素・海水</td><td>穴があく😱</td><td>平気😎</td></tr>
+      <tr><td>値段</td><td>安い</td><td>1.3〜1.5倍</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>営業からの相談に効く知識</h2>
+    <div class="qa-q"><strong>Q（営業）：</strong>「客先が"304で見積もった洗浄装置の架台、薬品（次亜塩素酸）で毎日洗うんだけど大丈夫？"って心配してる。」</div>
+    <blockquote>
+      <p><strong>A（生産管理）：</strong>その用途は304だと孔食・隙間腐食のリスクが高い。<strong>Moの入ったSUS316に変更を推奨</strong>。架台は溶接構造なので鋭敏化を避けて316Lで見積もる。コストは304比1.3〜1.5倍だが、腐食で作り直すより安い。確認すべきは「薬品の種類・濃度・温度・洗浄頻度」。</p>
+    </blockquote>
+    <div class="qa-point">💬 営業へのキーメッセージ：「次亜塩素酸で毎日洗うなら304はNG。316（溶接ありなら316L）で見積もり直します。薬品の濃度と温度だけ確認お願いします」</div>
+  </div>
+  <div class="easy-only">
+    <h2>💼 営業からの相談、こう返す！</h2>
+    <div class="easy-bubble-q"><strong>🗣 営業：</strong>「304で見積もった架台、次亜塩素酸で毎日洗うらしいけど大丈夫？」</div>
+    <div class="easy-bubble-a">
+      <strong>💡 生産管理：</strong>それは304だと穴があくのでNG！<br>
+      Moの入った<strong>316</strong>（溶接するなら316L）に変えましょう。<br>
+      1.3〜1.5倍しますが、錆びて作り直すより安いです。薬品の濃度と温度だけ聞いてきてください。
+    </div>
+    <div class="easy-point">💡 営業に渡す一言：「塩素で毎日洗うなら304はNG、316で出し直します」</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>用語メモ</h2>
+    <dl>
+      <dt>SUS316</dt><dd>18Cr-12Ni-2.5Mo。Mo添加で耐孔食性を高めた304の上位グレード</dd>
+      <dt>Mo（モリブデン）</dt><dd>塩素環境で不動態皮膜を守り、孔食・隙間腐食を抑える元素</dd>
+      <dt>隙間腐食</dt><dd>ガスケット下やボルト座面など酸素が届かない隙間で進む局部腐食</dd>
+      <dt>PREN</dt><dd>耐孔食指数。Cr%＋3.3Mo%＋16N%。304≒18、316≒24</dd>
+      <dt>SUS316L</dt><dd>316の低炭素版。溶接後の鋭敏化を抑え、溶接構造物に使う</dd>
+    </dl>
+  </div>
+  <div class="easy-only">
+    <h2>📖 今日の用語まとめ</h2>
+    <dl>
+      <dt>🌊 SUS316</dt><dd>304にMo（塩バリア）を足した上位版。海水・薬品に強い</dd>
+      <dt>🛡 Mo（モリブデン）</dt><dd>塩素から皮膜を守る「日焼け止め」役の元素</dd>
+      <dt>🕳 隙間腐食</dt><dd>すき間（ボルトの下など）で進む錆び方</dd>
+      <dt>📊 PREN</dt><dd>「塩素への強さ」を表す点数。304は18点、316は24点</dd>
+      <dt>🔧 SUS316L</dt><dd>溶接してもサビにくい、炭素少なめの316</dd>
+    </dl>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>昨日の小テスト解答</h2>
+    <p><strong>問：</strong>営業から「薬品（塩素系）を使う洗浄ラインのステンレス架台を304で見積もりたい」と相談がきた。304のまま進めてよいか、技術的理由を添えて判断を返せ。</p>
+    <div class="answer-box">
+      <p><strong>答：304のまま進めてはいけない。</strong></p>
+      <p>塩素系薬品の環境ではCl⁻が304の不動態皮膜を局部的に破壊し、孔食・隙間腐食を起こす。架台は溶接構造になりやすく、ボルト座面などの隙間も腐食起点になる。→ Mo入りのSUS316（溶接があるなら鋭敏化を避けて316L）を推奨する。</p>
+      <p>営業への返し：「塩素で洗うなら304はNG。316で見積もり直します。薬品の種類・濃度・温度だけ教えてください」</p>
+    </div>
+  </div>
+  <div class="easy-only">
+    <h2>✅ 昨日のクイズ、答え合わせ！</h2>
+    <p><strong>問：</strong>塩素系薬品で洗う洗浄ラインの架台、304で見積もっていい？</p>
+    <div class="answer-box">
+      <div class="easy-bubble-a">
+        <strong>ダメです！</strong><br>
+        塩素は304の弱点。穴（孔食）やすき間の錆び（隙間腐食）が起きます。<br>
+        Mo入りの<strong>316</strong>（溶接するなら316L）に変えましょう。
+      </div>
+      <div class="easy-point">📌 営業への返し：「塩素で洗うなら304はNG、316で出し直します」</div>
+    </div>
+  </div>
+</div>
+
+<div class="quiz">
+  <div class="normal-only">
+    <h2>今日の小テスト1問</h2>
+    <p class="q-text">問：営業から「客先に納めたSUS304の曲げ加工部品が"磁石にくっつく、304じゃないんじゃないか"とクレームになっている。不良品なのか？」と相談がきた。生産管理としてどう技術判断を返すか。</p>
+    <p style="color:#666; font-size:0.9em;">（解答は第18回で配信）</p>
+  </div>
+  <div class="easy-only">
+    <h2>🧩 今日の小テスト1問</h2>
+    <p class="q-text">問：客先に納めた304の曲げ加工部品が「磁石にくっつく、304じゃないのでは？」とクレームに。不良品？どう答える？</p>
+    <div class="easy-point">💡 ヒント：オーステナイトは「曲げる」と性質が変わる…？ 明日の第18回がテーマです。</div>
+    <p style="color:#666; font-size:0.9em;">（解答は第18回で配信）</p>
+  </div>
+</div>
+
+<button class="mode-btn" id="modeBtn" onclick="toggleMode()">🌟 やさしいとくしゅこうで読む</button>
+<script>
+function toggleMode() {
+  const body = document.body;
+  const btn = document.getElementById('modeBtn');
+  if (body.classList.contains('easy-mode')) {
+    body.classList.remove('easy-mode');
+    btn.textContent = '🌟 やさしいとくしゅこうで読む';
+    localStorage.setItem('studyMode', 'normal');
+  } else {
+    body.classList.add('easy-mode');
+    btn.textContent = '📚 通常モードに戻す';
+    localStorage.setItem('studyMode', 'easy');
+  }
+}
+(function() {
+  if (localStorage.getItem('studyMode') === 'easy') {
+    document.body.classList.add('easy-mode');
+    document.getElementById('modeBtn').textContent = '📚 通常モードに戻す';
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第18回 加工硬化と磁性：オーステナイトが磁化するとき</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'Yu Gothic', sans-serif; max-width: 820px; margin: 0 auto; padding: 20px; background: #f5f5f5; color: #333; line-height: 1.8; font-size: 15px; }
+  header { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; padding: 28px 32px; border-radius: 10px; margin-bottom: 28px; }
+  header .session { font-size: 0.85em; opacity: 0.75; margin-bottom: 6px; }
+  header h1 { margin: 0 0 8px; font-size: 1.5em; }
+  header .week { font-size: 0.88em; opacity: 0.8; }
+  .card { background: white; border-radius: 10px; padding: 24px 28px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); border-top: 4px solid #2d6a9f; }
+  .summary { background: #e8f4fd; border-left: 4px solid #2d6a9f; border-radius: 0 10px 10px 0; padding: 18px 24px; margin-bottom: 20px; }
+  h2 { color: #1a3a5c; border-bottom: 2px solid #e0e0e0; padding-bottom: 8px; margin-top: 0; }
+  h3 { color: #2d6a9f; margin-top: 22px; }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.88em; }
+  th { background: #1a3a5c; color: white; padding: 10px 12px; text-align: left; }
+  td { padding: 9px 12px; border-bottom: 1px solid #eee; }
+  tr:hover td { background: #f7faff; }
+  .qa-q { background: #fff3e0; border-left: 4px solid #ff9800; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 16px 0 8px; }
+  blockquote { background: #e8f4e8; border-left: 4px solid #4caf50; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 0 0 12px; }
+  .qa-point { background: #e3f2fd; border-radius: 8px; padding: 10px 16px; font-size: 0.9em; color: #1565c0; margin-top: 8px; }
+  .quiz { background: #f3e5f5; border-radius: 10px; padding: 20px 24px; margin-top: 20px; border-left: 4px solid #9c27b0; }
+  .quiz h2 { color: #6a1b9a; border-color: #ce93d8; }
+  .q-text { font-weight: bold; color: #4a148c; }
+  dt { font-weight: bold; color: #1a3a5c; margin-top: 10px; }
+  dd { margin-left: 20px; color: #555; }
+  .answer-box { background: #fff8e1; border-left: 4px solid #ffc107; border-radius: 0 8px 8px 0; padding: 16px 20px; }
+  a.back { display: inline-block; margin-bottom: 16px; color: #2d6a9f; text-decoration: none; font-size: 0.9em; }
+  a.back:hover { text-decoration: underline; }
+
+  /* ===== Easy Mode ===== */
+  .easy-only { display: none; }
+  .normal-only { display: block; }
+  body.easy-mode .easy-only { display: block; }
+  body.easy-mode .normal-only { display: none; }
+  body.easy-mode { background: linear-gradient(160deg, #fff9f0 0%, #f0f4ff 100%); font-size: 16px; }
+  body.easy-mode header { background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; }
+  body.easy-mode .card { border-top: 5px solid #ce93d8; }
+  body.easy-mode h2 { color: #6a1b9a; border-color: #ce93d8; }
+  body.easy-mode h3 { color: #e65100; }
+  body.easy-mode .summary { background: #fce4ec; border-left-color: #f48fb1; }
+  body.easy-mode .summary h2 { color: #c2185b; }
+  .easy-bubble-q { background: #fce4ec; border: 2px solid #f48fb1; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-bubble-a { background: #e3f2fd; border: 2px solid #90caf9; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-point { background: #fff9c4; border-left: 4px solid #f9a825; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 12px 0; }
+  .easy-example { background: #e8f5e9; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .easy-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.9em; }
+  .easy-table th { background: #f48fb1; color: white; padding: 8px 10px; text-align: left; }
+  .easy-table td { padding: 8px 10px; border-bottom: 1px solid #fce4ec; }
+  .mode-btn { position: fixed; top: 16px; right: 16px; z-index: 1000; background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; border: none; border-radius: 24px; padding: 10px 18px; font-size: 0.9em; font-weight: bold; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  body.easy-mode .mode-btn { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; }
+</style>
+</head>
+<body>
+
+<a class="back" href="index.html">← 学習ログ一覧に戻る</a>
+
+<header>
+  <div class="session">第18回 ・ 2026-07-01</div>
+  <div class="normal-only"><h1>加工硬化と磁性：オーステナイトが磁化するとき</h1></div>
+  <div class="easy-only"><h1>🧲 「304なのに磁石につく」のナゾを解く！</h1></div>
+  <span class="week">第4週：オーステナイト系ステンレス深掘り</span>
+</header>
+
+<div class="summary">
+  <div class="normal-only">
+    <h2>今日の3行サマリ</h2>
+    <ul>
+      <li>オーステナイト系は本来非磁性だが、冷間加工（曲げ・絞り・引抜き）で一部がマルテンサイトに変態し磁性を帯びる</li>
+      <li>同時に硬く強くなる＝加工硬化。ばね材SUS304-CSPなどはこれを積極利用している</li>
+      <li>「304なのに磁石につく＝不良」ではない。加工硬化と磁性はオーステナイト系の正常な性質。クレーム対応の必須知識</li>
+    </ul>
+  </div>
+  <div class="easy-only">
+    <h2>🎯 今日わかること 3つ！</h2>
+    <ul>
+      <li>🧲 304は曲げたり絞ったりすると磁石につくようになる（正常です！）</li>
+      <li>💪 同時に硬くなる＝加工硬化。ばねはこれを利用している</li>
+      <li>📞 「磁石につくから不良では？」のクレームに正しく即答できる！</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>本文</h2>
+    <h3>1. 基礎：曲げると磁石につく理由</h3>
+    <p>SUS304などのオーステナイト系は常温で非磁性ですが、その組織は実は「常温では準安定」な状態です。曲げ・絞り・引抜き・切削といった冷間加工で塑性変形を受けると、一部が加工誘起マルテンサイト（加工によって生じる磁性を持つ硬い組織）へ変態します。これにより①磁石に反応するようになり、②硬さ・強度が上がります（＝加工硬化）。304は変態しやすく、Niやモリブデンを多く含み組織が安定な316は変態しにくい、という差があります。加工硬化を利用したのがばね用のSUS304-CSPで、引張強さ1000MPa超も得られます。一方で加工硬化は切削の難しさ（被削性の悪さ）の原因にもなります。</p>
+
+    <table>
+      <tr><th>現象</th><th>原因</th><th>実務での意味</th></tr>
+      <tr><td>磁石につく</td><td>加工誘起マルテンサイト</td><td>不良ではない（成分が規格内なら正常）</td></tr>
+      <tr><td>硬く強くなる</td><td>加工硬化</td><td>ばね材に活用／切削は難しくなる</td></tr>
+      <tr><td>性質を元に戻したい</td><td>固溶化熱処理</td><td>約1050℃→急冷で非磁性・軟質に回復</td></tr>
+    </table>
+
+    <h3>2. 自社製品との関連</h3>
+    <p>自社のメッシュベルトは細い線材を曲げ・編み込みして作るため、加工部が加工硬化し局所的に磁性を帯びることがあります。これは品質異常ではなく当然の挙動です。完全な非磁性が要求される用途（一部の電子・計測機器）では、固溶化熱処理（約1050℃から急冷し組織をオーステナイトに戻す処理）で磁性と加工硬化を回復させるか、より安定なSUS316を選びます。</p>
+
+    <h3>3. 営業現場での意味づけ</h3>
+    <p>「磁石につくから不良では？」という問い合わせは現場で頻出します。即座に正しく返せると信頼を得られる定番論点です。</p>
+  </div>
+
+  <div class="easy-only">
+    <h2>💡 やさしく解説！</h2>
+    <div class="easy-example">
+      <strong>🍝 たとえ：パスタの「ゆで前」と「曲げた後」</strong><br>
+      乾いたパスタはまっすぐで折れやすい。でも力を加えて変形させると性質が変わる…のと似て、<br>
+      304も「曲げる・絞る」と中身の組織が一部変身して、磁石につく＆硬くなる体質に変わります。
+    </div>
+    <div class="easy-point">📌 ポイント：304は「曲げると磁石につく」。これは故障でも材質ミスでもなく、もともとそういう体質！</div>
+
+    <div class="easy-bubble-q"><strong>🗣 疑問：</strong>磁石についたら304じゃない証拠では？</div>
+    <div class="easy-bubble-a"><strong>💡 答え：</strong>逆です。304は曲げ加工で磁石につくのが普通。<br>
+    成分（ミルシート）が規格内ならちゃんとした304。<br>
+    どうしても磁石につくのが困るなら、熱処理（約1050℃→急冷）で元に戻すか、変身しにくい316を使います。</div>
+
+    <h3>💪 ついでに「硬くなる」も覚えよう</h3>
+    <div class="easy-point">曲げると硬く強くなる＝加工硬化。これを利用したのが「ステンレスのばね」。ただし硬くなりすぎて削りにくくもなる。</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>営業からの相談に効く知識</h2>
+    <div class="qa-q"><strong>Q（営業）：</strong>「客先が"納めてもらった304部品、磁石にくっつくんだけど材質間違ってない？"と疑っている。どう答えれば？」</div>
+    <blockquote>
+      <p><strong>A（生産管理）：</strong><strong>材質間違いではなく正常</strong>。オーステナイト系は曲げ・絞りなどの冷間加工で加工誘起マルテンサイトが生じ磁性を帯びる。成分がJIS規格内なら問題ない。完全非磁性が要件なら固溶化熱処理で回復可能、または最初から安定な316を選ぶ選択肢を提示する。ミルシートで成分を示せば客先も納得しやすい。</p>
+    </blockquote>
+    <div class="qa-point">💬 営業へのキーメッセージ：「304が磁石につくのは加工による正常な現象で材質間違いではありません。成分はミルシートで証明できます。非磁性が必須なら熱処理か316で対応します」</div>
+  </div>
+  <div class="easy-only">
+    <h2>💼 営業からの相談、こう返す！</h2>
+    <div class="easy-bubble-q"><strong>🗣 営業：</strong>「304の部品が磁石につくって客先が言ってる。材質間違ってない？」</div>
+    <div class="easy-bubble-a">
+      <strong>💡 生産管理：</strong>間違ってません、正常です！<br>
+      304は曲げ加工すると磁石につく体質になります。<br>
+      成分は<strong>ミルシート</strong>で証明できます。どうしても非磁性が必要なら熱処理か316で対応しましょう。
+    </div>
+    <div class="easy-point">💡 営業に渡す一言：「304が磁石につくのは加工による正常現象。ミルシートで証明できます」</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>用語メモ</h2>
+    <dl>
+      <dt>加工誘起マルテンサイト</dt><dd>冷間加工でオーステナイトの一部が変態した磁性・高硬度の組織</dd>
+      <dt>加工硬化</dt><dd>塑性変形で硬さ・強度が上がる現象。オーステナイト系で顕著</dd>
+      <dt>準安定オーステナイト</dt><dd>常温で安定に見えるが加工で変態しうる状態。304が代表</dd>
+      <dt>固溶化熱処理</dt><dd>約1050℃加熱→急冷で組織をオーステナイトに戻し、磁性・加工硬化を回復する処理</dd>
+      <dt>SUS304-CSP</dt><dd>加工硬化を利用したばね用ステンレス鋼帯</dd>
+    </dl>
+  </div>
+  <div class="easy-only">
+    <h2>📖 今日の用語まとめ</h2>
+    <dl>
+      <dt>🧲 加工誘起マルテンサイト</dt><dd>曲げ加工でできる「磁石につく硬い組織」</dd>
+      <dt>💪 加工硬化</dt><dd>曲げる・絞ると硬く強くなること</dd>
+      <dt>⚖️ 準安定オーステナイト</dt><dd>「普段は安定だけど加工で変身する」304の体質</dd>
+      <dt>🔥 固溶化熱処理</dt><dd>約1050℃に熱して急冷し、元の非磁性・やわらかい状態に戻す</dd>
+      <dt>🌀 SUS304-CSP</dt><dd>硬くなる性質を活かしたステンレスのばね材</dd>
+    </dl>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>昨日の小テスト解答</h2>
+    <p><strong>問：</strong>客先に納めたSUS304の曲げ加工部品が「磁石にくっつく、304じゃないんじゃないか」とクレームになっている。不良品なのか？</p>
+    <div class="answer-box">
+      <p><strong>答：不良品ではない。</strong></p>
+      <p>オーステナイト系は準安定で、曲げ加工部が冷間加工により加工誘起マルテンサイトへ変態し磁性を帯びる。成分がJIS規格内であれば材質は正しく、品質上の問題はない。</p>
+      <p>客先への説明：「加工部が磁化するのは正常な現象です。成分はミルシートで証明可能。完全非磁性が必要なら固溶化熱処理または316で対応します」</p>
+    </div>
+  </div>
+  <div class="easy-only">
+    <h2>✅ 昨日のクイズ、答え合わせ！</h2>
+    <p><strong>問：</strong>304の曲げ加工部品が磁石につく。不良品？</p>
+    <div class="answer-box">
+      <div class="easy-bubble-a">
+        <strong>不良品じゃないです！</strong><br>
+        304は曲げると加工誘起マルテンサイトができて磁石につく体質に。<br>
+        成分が規格内ならちゃんとした304です。
+      </div>
+      <div class="easy-point">📌 客先への返し：「磁化は正常。ミルシートで成分証明できます。非磁性が必要なら熱処理か316で」</div>
+    </div>
+  </div>
+</div>
+
+<div class="quiz">
+  <div class="normal-only">
+    <h2>今日の小テスト1問</h2>
+    <p class="q-text">問：営業から「客先のSUS304溶接タンクで、溶接ビードに沿った帯状の部分だけ錆びてきた・割れが出たという報告がある。原因と対策を教えてほしい」と相談がきた。生産管理としてどう答えるか。</p>
+    <p style="color:#666; font-size:0.9em;">（解答は第19回で配信）</p>
+  </div>
+  <div class="easy-only">
+    <h2>🧩 今日の小テスト1問</h2>
+    <p class="q-text">問：304の溶接タンクで、溶接線に沿った帯状の部分だけ錆び・割れが出た。原因と対策は？どう答える？</p>
+    <div class="easy-point">💡 ヒント：溶接の「熱」で何かが起きた…？ 明日の第19回「鋭敏化」がテーマです。</div>
+    <p style="color:#666; font-size:0.9em;">（解答は第19回で配信）</p>
+  </div>
+</div>
+
+<button class="mode-btn" id="modeBtn" onclick="toggleMode()">🌟 やさしいとくしゅこうで読む</button>
+<script>
+function toggleMode() {
+  const body = document.body;
+  const btn = document.getElementById('modeBtn');
+  if (body.classList.contains('easy-mode')) {
+    body.classList.remove('easy-mode');
+    btn.textContent = '🌟 やさしいとくしゅこうで読む';
+    localStorage.setItem('studyMode', 'normal');
+  } else {
+    body.classList.add('easy-mode');
+    btn.textContent = '📚 通常モードに戻す';
+    localStorage.setItem('studyMode', 'easy');
+  }
+}
+(function() {
+  if (localStorage.getItem('studyMode') === 'easy') {
+    document.body.classList.add('easy-mode');
+    document.getElementById('modeBtn').textContent = '📚 通常モードに戻す';
+  }
+})();
+</script>
+</body>
+</html>
