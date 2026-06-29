@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第16回 SUS304の組成・特性・用途</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'Yu Gothic', sans-serif; max-width: 820px; margin: 0 auto; padding: 20px; background: #f5f5f5; color: #333; line-height: 1.8; font-size: 15px; }
+  header { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; padding: 28px 32px; border-radius: 10px; margin-bottom: 28px; }
+  header .session { font-size: 0.85em; opacity: 0.75; margin-bottom: 6px; }
+  header h1 { margin: 0 0 8px; font-size: 1.5em; }
+  header .week { font-size: 0.88em; opacity: 0.8; }
+  .card { background: white; border-radius: 10px; padding: 24px 28px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); border-top: 4px solid #2d6a9f; }
+  .summary { background: #e8f4fd; border-left: 4px solid #2d6a9f; border-radius: 0 10px 10px 0; padding: 18px 24px; margin-bottom: 20px; }
+  h2 { color: #1a3a5c; border-bottom: 2px solid #e0e0e0; padding-bottom: 8px; margin-top: 0; }
+  h3 { color: #2d6a9f; margin-top: 22px; }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.88em; }
+  th { background: #1a3a5c; color: white; padding: 10px 12px; text-align: left; }
+  td { padding: 9px 12px; border-bottom: 1px solid #eee; }
+  tr:hover td { background: #f7faff; }
+  .qa-q { background: #fff3e0; border-left: 4px solid #ff9800; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 16px 0 8px; }
+  blockquote { background: #e8f4e8; border-left: 4px solid #4caf50; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 0 0 12px; }
+  .qa-point { background: #e3f2fd; border-radius: 8px; padding: 10px 16px; font-size: 0.9em; color: #1565c0; margin-top: 8px; }
+  .quiz { background: #f3e5f5; border-radius: 10px; padding: 20px 24px; margin-top: 20px; border-left: 4px solid #9c27b0; }
+  .quiz h2 { color: #6a1b9a; border-color: #ce93d8; }
+  .q-text { font-weight: bold; color: #4a148c; }
+  dt { font-weight: bold; color: #1a3a5c; margin-top: 10px; }
+  dd { margin-left: 20px; color: #555; }
+  .answer-box { background: #fff8e1; border-left: 4px solid #ffc107; border-radius: 0 8px 8px 0; padding: 16px 20px; }
+  a.back { display: inline-block; margin-bottom: 16px; color: #2d6a9f; text-decoration: none; font-size: 0.9em; }
+  a.back:hover { text-decoration: underline; }
+
+  /* ===== Easy Mode ===== */
+  .easy-only { display: none; }
+  .normal-only { display: block; }
+  body.easy-mode .easy-only { display: block; }
+  body.easy-mode .normal-only { display: none; }
+  body.easy-mode { background: linear-gradient(160deg, #fff9f0 0%, #f0f4ff 100%); font-size: 16px; }
+  body.easy-mode header { background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; }
+  body.easy-mode .card { border-top: 5px solid #ce93d8; }
+  body.easy-mode h2 { color: #6a1b9a; border-color: #ce93d8; }
+  body.easy-mode h3 { color: #e65100; }
+  body.easy-mode .summary { background: #fce4ec; border-left-color: #f48fb1; }
+  body.easy-mode .summary h2 { color: #c2185b; }
+  .easy-bubble-q { background: #fce4ec; border: 2px solid #f48fb1; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-bubble-a { background: #e3f2fd; border: 2px solid #90caf9; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-point { background: #fff9c4; border-left: 4px solid #f9a825; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 12px 0; }
+  .easy-example { background: #e8f5e9; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .easy-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.9em; }
+  .easy-table th { background: #f48fb1; color: white; padding: 8px 10px; text-align: left; }
+  .easy-table td { padding: 8px 10px; border-bottom: 1px solid #fce4ec; }
+  .mode-btn { position: fixed; top: 16px; right: 16px; z-index: 1000; background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; border: none; border-radius: 24px; padding: 10px 18px; font-size: 0.9em; font-weight: bold; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  body.easy-mode .mode-btn { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; }
+</style>
+</head>
+<body>
+
+<a class="back" href="index.html">← 学習ログ一覧に戻る</a>
+
+<header>
+  <div class="session">第16回 ・ 2026-06-29</div>
+  <div class="normal-only"><h1>SUS304の組成・特性・用途</h1></div>
+  <div class="easy-only"><h1>👕 SUS304 ＝ ステンレス界の「白いTシャツ」！</h1></div>
+  <span class="week">第4週：オーステナイト系ステンレス深掘り</span>
+</header>
+
+<div class="summary">
+  <div class="normal-only">
+    <h2>今日の3行サマリ</h2>
+    <ul>
+      <li>SUS304は「18Cr-8Ni」が基本組成。ステンレスの世界標準で、迷ったらまずこれ</li>
+      <li>常温でオーステナイト組織＝非磁性・高靭性・溶接性良好。だが熱や応力で性質が動く</li>
+      <li>自社の食品用メッシュベルト・一般耐食部品の主力材。耐熱治具には力不足な点が要注意</li>
+    </ul>
+  </div>
+  <div class="easy-only">
+    <h2>🎯 今日わかること 3つ！</h2>
+    <ul>
+      <li>👕 SUS304は「とりあえずコレ」の定番。ステンレスの代名詞</li>
+      <li>🧲 磁石につかない・粘り強い・溶接しやすいの三拍子そろった優等生</li>
+      <li>⚠️ でも「熱い場所」と「塩素・海水」はニガテ。ここを外すと失敗する！</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>本文</h2>
+    <h3>1. 基礎：18Cr-8Niという黄金比</h3>
+    <p>SUS304は18%のCr（クロム＝錆を防ぐ不動態皮膜をつくる元素）と8%のNi（ニッケル＝常温でオーステナイト組織を安定させる元素）を柱とする、最も普及したステンレスです。炭素は0.08%以下に抑えられ、組織は面心立方（FCC）のオーステナイト単相。このため①磁石につかない（非磁性）、②伸びが大きく靭性が高い、③溶接しやすい、という三拍子が揃います。耐食性は大気・水・多くの有機物に対して十分で、常温の一般環境ならまず錆びません。</p>
+
+    <h3>2. 自社製品との関連</h3>
+    <p>自社では食品用・工業用メッシュベルト、洗浄装置まわりの一般耐食部品、各種オーステナイト系ステンレス製品の標準材として304が中心になります。溶接性が良いのでベルトの金網接合・フレーム製作にTIG溶接で素直に対応できる点が大きい。一方で<strong>熱処理治具の主材には向きません</strong>。304の高温強度は550℃あたりから急落し、繰り返し加熱でクリープ変形・酸化が進むためです。耐熱用途はSCH（耐熱鋳鋼）やHK・HP系の出番になります（第24回で扱う領域）。</p>
+
+    <h3>3. 営業現場での意味づけ</h3>
+    <p>「とりあえずステンレスで」という相談の多くは実質304で足りますが、<strong>塩素・高温・荷重がからむと一気に304の守備範囲外</strong>になります。ここを切り分けるのが生産管理の仕事です。</p>
+
+    <table>
+      <tr><th>条件</th><th>304で可否</th><th>NGなら次の一手</th></tr>
+      <tr><td>常温・大気・水・食品</td><td>◎ 標準対応</td><td>—</td></tr>
+      <tr><td>塩素系洗浄・海水</td><td>× 孔食リスク</td><td>SUS316 / 316L</td></tr>
+      <tr><td>550℃超の高温・繰り返し加熱</td><td>× 強度低下・酸化</td><td>SUS310S / SCH / HK・HP</td></tr>
+    </table>
+  </div>
+
+  <div class="easy-only">
+    <h2>💡 やさしく解説！</h2>
+    <div class="easy-example">
+      <strong>🍫 たとえ：SUS304は「白いTシャツ」</strong><br>
+      クローゼットに必ずある定番の白Tシャツ。何にでも合うし、安くて手に入りやすい。「迷ったらコレ」。<br>
+      SUS304もまさにそれ。「特に条件がなければ304」がステンレス選びのスタート地点です。
+    </div>
+    <div class="easy-point">📌 ポイント：18Cr-8Ni（クロム18・ニッケル8）が黄金比。Crが錆を防ぐバリア、Niが「磁石につかない・粘り強い」体質を作る。</div>
+
+    <div class="easy-bubble-q"><strong>🗣 疑問：</strong>そんな万能なら全部304でいいのでは？</div>
+    <div class="easy-bubble-a"><strong>💡 答え：</strong>白Tシャツが「真夏の炎天下」や「泥だらけの作業」には向かないのと同じ。<br>
+    🔥 熱い場所（550℃超）→ ヘナヘナになる<br>
+    🌊 塩素・海水 → ポツポツ穴があく（孔食）<br>
+    この2つだけは別の鋼種に格上げが必要！</div>
+
+    <h3>🏠 自社ではここで使ってます</h3>
+    <table class="easy-table">
+      <tr><th>製品</th><th>304の出番</th></tr>
+      <tr><td>食品用メッシュベルト</td><td>○ 常温・食品ならコレ</td></tr>
+      <tr><td>洗浄装置まわりの部品</td><td>○ 一般耐食でOK</td></tr>
+      <tr><td>熱処理治具</td><td>✕ 熱に弱いのでNG（耐熱鋳鋼へ）</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>営業からの相談に効く知識</h2>
+    <div class="qa-q"><strong>Q（営業）：</strong>「お客さんから"ステンレスの搬送ベルト作れる？常温で食品ライン用"って話。できる？」</div>
+    <blockquote>
+      <p><strong>A（生産管理）：</strong>可否は即OK。常温・食品用途なら304メッシュベルトが王道で、溶接接合も問題なし。仕様確認は「目開き・幅・使用温度・洗浄方法（塩素系薬剤を使うか）」の4点。<strong>塩素系洗浄が日常的なら304だと孔食リスクがあるので316を推す</strong>——ここだけ握っておけば見積を外さない。</p>
+    </blockquote>
+    <div class="qa-point">💬 営業へのキーメッセージ：「常温の食品ラインなら304で標準対応可。ただし"塩素系で洗う"なら316へ格上げ提案。使用温度と洗浄方法を必ず聞いてください」</div>
+  </div>
+  <div class="easy-only">
+    <h2>💼 営業からの相談、こう返す！</h2>
+    <div class="easy-bubble-q"><strong>🗣 営業：</strong>「常温の食品ライン用のステンレス搬送ベルト、作れる？」</div>
+    <div class="easy-bubble-a">
+      <strong>💡 生産管理：</strong>常温・食品ならSUS304でバッチリ作れます！<br>
+      確認することは4つだけ →「目開き・幅・使う温度・どう洗うか」。<br>
+      もし<strong>塩素系の薬品で毎日洗う</strong>なら304だと穴があくので316に格上げ提案を。
+    </div>
+    <div class="easy-point">💡 営業に渡す一言：「常温の食品ラインなら304でOK。塩素で洗うなら316に変えましょう」</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>用語メモ</h2>
+    <dl>
+      <dt>SUS304</dt><dd>18Cr-8Niのオーステナイト系ステンレス。汎用標準材</dd>
+      <dt>オーステナイト組織</dt><dd>面心立方の鉄組織。非磁性・高靭性・良溶接性</dd>
+      <dt>不動態皮膜</dt><dd>Crが作る数nmの酸化膜。傷ついても自己修復し錆を防ぐ</dd>
+      <dt>孔食（こうしょく）</dt><dd>塩素イオンで皮膜が局部破壊され穴状に進む腐食。304の弱点</dd>
+    </dl>
+  </div>
+  <div class="easy-only">
+    <h2>📖 今日の用語まとめ</h2>
+    <dl>
+      <dt>👕 SUS304</dt><dd>クロム18・ニッケル8の定番ステンレス。「迷ったらコレ」</dd>
+      <dt>🧲 オーステナイト組織</dt><dd>磁石につかない・粘り強い・溶接しやすい体質のこと</dd>
+      <dt>🛡 不動態皮膜</dt><dd>クロムが作る目に見えないバリア。傷ついても自分で直る</dd>
+      <dt>🕳 孔食</dt><dd>塩素にやられてポツポツ穴があく錆び方。304のニガテ</dd>
+    </dl>
+  </div>
+</div>
+
+<div class="quiz">
+  <div class="normal-only">
+    <h2>今日の小テスト1問</h2>
+    <p class="q-text">問：営業から「客先の工場で、薬品（塩素系）を使う洗浄ラインのステンレス架台を304で見積もりたい」と相談がきた。生産管理として304のまま進めてよいか、技術的理由を添えて判断を返せ。</p>
+    <p style="color:#666; font-size:0.9em;">（解答は第17回で配信）</p>
+  </div>
+  <div class="easy-only">
+    <h2>🧩 今日の小テスト1問</h2>
+    <p class="q-text">問：営業から「塩素系の薬品で洗う洗浄ラインのステンレス架台、304で見積もりたいんだけど」と相談がきた。どう答える？</p>
+    <div class="easy-point">💡 ヒント：304のニガテ「孔食」を思い出して！塩素＝穴があくサイン。</div>
+    <p style="color:#666; font-size:0.9em;">（解答は第17回で配信）</p>
+  </div>
+</div>
+
+<button class="mode-btn" id="modeBtn" onclick="toggleMode()">🌟 やさしいとくしゅこうで読む</button>
+<script>
+function toggleMode() {
+  const body = document.body;
+  const btn = document.getElementById('modeBtn');
+  if (body.classList.contains('easy-mode')) {
+    body.classList.remove('easy-mode');
+    btn.textContent = '🌟 やさしいとくしゅこうで読む';
+    localStorage.setItem('studyMode', 'normal');
+  } else {
+    body.classList.add('easy-mode');
+    btn.textContent = '📚 通常モードに戻す';
+    localStorage.setItem('studyMode', 'easy');
+  }
+}
+(function() {
+  if (localStorage.getItem('studyMode') === 'easy') {
+    document.body.classList.add('easy-mode');
+    document.getElementById('modeBtn').textContent = '📚 通常モードに戻す';
+  }
+})();
+</script>
+</body>
+</html>
