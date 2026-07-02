@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第19回 鋭敏化と粒界腐食：溶接熱影響部のリスク</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'Yu Gothic', sans-serif; max-width: 820px; margin: 0 auto; padding: 20px; background: #f5f5f5; color: #333; line-height: 1.8; font-size: 15px; }
+  header { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; padding: 28px 32px; border-radius: 10px; margin-bottom: 28px; }
+  header .session { font-size: 0.85em; opacity: 0.75; margin-bottom: 6px; }
+  header h1 { margin: 0 0 8px; font-size: 1.5em; }
+  header .week { font-size: 0.88em; opacity: 0.8; }
+  .card { background: white; border-radius: 10px; padding: 24px 28px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); border-top: 4px solid #2d6a9f; }
+  .summary { background: #e8f4fd; border-left: 4px solid #2d6a9f; border-radius: 0 10px 10px 0; padding: 18px 24px; margin-bottom: 20px; }
+  h2 { color: #1a3a5c; border-bottom: 2px solid #e0e0e0; padding-bottom: 8px; margin-top: 0; }
+  h3 { color: #2d6a9f; margin-top: 22px; }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.88em; }
+  th { background: #1a3a5c; color: white; padding: 10px 12px; text-align: left; }
+  td { padding: 9px 12px; border-bottom: 1px solid #eee; }
+  tr:hover td { background: #f7faff; }
+  .qa-q { background: #fff3e0; border-left: 4px solid #ff9800; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 16px 0 8px; }
+  blockquote { background: #e8f4e8; border-left: 4px solid #4caf50; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 0 0 12px; }
+  .qa-point { background: #e3f2fd; border-radius: 8px; padding: 10px 16px; font-size: 0.9em; color: #1565c0; margin-top: 8px; }
+  .quiz { background: #f3e5f5; border-radius: 10px; padding: 20px 24px; margin-top: 20px; border-left: 4px solid #9c27b0; }
+  .quiz h2 { color: #6a1b9a; border-color: #ce93d8; }
+  .q-text { font-weight: bold; color: #4a148c; }
+  dt { font-weight: bold; color: #1a3a5c; margin-top: 10px; }
+  dd { margin-left: 20px; color: #555; }
+  .answer-box { background: #fff8e1; border-left: 4px solid #ffc107; border-radius: 0 8px 8px 0; padding: 16px 20px; }
+  a.back { display: inline-block; margin-bottom: 16px; color: #2d6a9f; text-decoration: none; font-size: 0.9em; }
+  a.back:hover { text-decoration: underline; }
+
+  /* ===== Easy Mode ===== */
+  .easy-only { display: none; }
+  .normal-only { display: block; }
+  body.easy-mode .easy-only { display: block; }
+  body.easy-mode .normal-only { display: none; }
+  body.easy-mode { background: linear-gradient(160deg, #fff9f0 0%, #f0f4ff 100%); font-size: 16px; }
+  body.easy-mode header { background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; }
+  body.easy-mode .card { border-top: 5px solid #ce93d8; }
+  body.easy-mode h2 { color: #6a1b9a; border-color: #ce93d8; }
+  body.easy-mode h3 { color: #e65100; }
+  body.easy-mode .summary { background: #fce4ec; border-left-color: #f48fb1; }
+  body.easy-mode .summary h2 { color: #c2185b; }
+  .easy-bubble-q { background: #fce4ec; border: 2px solid #f48fb1; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-bubble-a { background: #e3f2fd; border: 2px solid #90caf9; border-radius: 16px; padding: 14px 18px; margin: 12px 0; }
+  .easy-point { background: #fff9c4; border-left: 4px solid #f9a825; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 12px 0; }
+  .easy-example { background: #e8f5e9; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .easy-steps { background: #e8eaf6; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .easy-steps ol { padding-left: 20px; margin: 8px 0 0; }
+  .mode-btn { position: fixed; top: 16px; right: 16px; z-index: 1000; background: linear-gradient(135deg, #f6d365, #fda085); color: #3d1800; border: none; border-radius: 24px; padding: 10px 18px; font-size: 0.9em; font-weight: bold; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  body.easy-mode .mode-btn { background: linear-gradient(135deg, #1a3a5c, #2d6a9f); color: white; }
+</style>
+</head>
+<body>
+
+<a class="back" href="index.html">← 学習ログ一覧に戻る</a>
+
+<header>
+  <div class="session">第19回 ・ 2026-07-02</div>
+  <div class="normal-only"><h1>鋭敏化と粒界腐食：溶接熱影響部のリスク</h1></div>
+  <div class="easy-only"><h1>🔥 「溶接した線に沿って錆びる」ナゾを解く！</h1></div>
+  <span class="week">第4週：オーステナイト系ステンレス深掘り</span>
+</header>
+
+<div class="summary">
+  <div class="normal-only">
+    <h2>今日の3行サマリ</h2>
+    <ul>
+      <li>SUS304を約500〜800℃に晒すと、Crが炭素と結びつきCr炭化物として粒界に析出。周囲がCr欠乏になり耐食性を失う＝鋭敏化</li>
+      <li>Cr欠乏帯が優先的に錆びる・割れる現象が粒界腐食。溶接の熱影響部（HAZ）で帯状に発生しやすい</li>
+      <li>対策は低炭素のL材（304L/316L）、Ti・Nb添加の安定化鋼（321/347）、または固溶化熱処理。営業クレーム対応の頻出テーマ</li>
+    </ul>
+  </div>
+  <div class="easy-only">
+    <h2>🎯 今日わかること 3つ！</h2>
+    <ul>
+      <li>🔥 304は溶接の熱で「錆びやすい体質」に変わることがある</li>
+      <li>🧵 錆びるのは溶接線に沿った帯だけ。中央ではなく「脇」がやられる</li>
+      <li>🛡 防ぐには「炭素の少ない304L」を選ぶのが基本ワザ！</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>本文</h2>
+    <h3>1. 基礎：なぜ溶接線に沿って錆びるのか</h3>
+    <p>オーステナイト系ステンレスは、Cr（クロム）が表面に不動態皮膜（ちみつな酸化膜のバリア）を作ることで錆びません。ところが約500〜800℃の温度帯に一定時間置かれると、鋼中の炭素（C）がCrと結合し、Cr炭化物（Cr₂₃C₆）が結晶粒界に析出します。炭化物は多量のCrを消費するため、粒界のすぐ周囲がCr濃度の低い「Cr欠乏帯」になります。Crが不足すれば不動態皮膜を維持できず、その帯だけが腐食に弱くなる。これが鋭敏化（えいびんか）です。鋭敏化した材料が腐食環境に置かれると、Cr欠乏帯＝粒界に沿って選択的に腐食が進む＝粒界腐食。応力が加われば応力腐食割れ（SCC）にもつながります。溶接では溶接金属の両脇が丁度この温度帯を通過するため、ビードに沿った帯状（HAZ＝熱影響部）に集中して現れます。</p>
+
+    <table>
+      <tr><th>要素</th><th>内容</th><th>実務での意味</th></tr>
+      <tr><td>鋭敏化温度帯</td><td>約500〜800℃（特に約650℃）</td><td>溶接・応力除去焼鈍・高温使用で発生</td></tr>
+      <tr><td>原因</td><td>Cr炭化物析出→粒界Cr欠乏</td><td>炭素が多いほど起きやすい</td></tr>
+      <tr><td>見え方</td><td>溶接線脇の帯状の錆・割れ</td><td>HAZに集中（母材中央ではない）</td></tr>
+    </table>
+
+    <h3>2. 自社製品との関連</h3>
+    <p>自社のオーステナイト系ステンレス製品・メッシュベルト・熱交換器などは溶接・ろう付を伴い、鋭敏化のリスクを常に抱えます。特に薄板の連続溶接や、砂型/ロストワックス鋳造後の補修溶接では熱影響が避けにくい。設計・材料選定の段階で低炭素材(L材)や安定化鋼を選ぶ、溶接後に固溶化熱処理（約1050℃→急冷でCrを再固溶させる）を入れる、といった予防がそのまま製品寿命に直結します。</p>
+
+    <h3>3. 営業現場での意味づけ</h3>
+    <p>「溶接した304製品が溶接線に沿って錆びた／割れた」というクレームは頻出かつ原因が特定しやすい。鋭敏化と即断でき、恒久対策（材質変更・熱処理）まで提示できると強いです。</p>
+  </div>
+
+  <div class="easy-only">
+    <h2>💡 やさしく解説！</h2>
+    <div class="easy-example">
+      <strong>🍞 たとえ：食パンの「耳のちょい内側」だけ焦げる</strong><br>
+      トーストを焼くと、真っ黒に焦げた縁のすぐ内側が「一番もろい」ゾーンになりますよね。<br>
+      304の溶接も同じで、溶けた部分そのものより「その脇（熱がほどよく効いた帯）」が一番錆びやすくなるんです。
+    </div>
+    <div class="easy-point">📌 ポイント：304は500〜800℃に熱せられると、錆を防ぐ「クロム」が別のものにくっついて手薄になる。その手薄になった帯が錆びる！</div>
+
+    <div class="easy-bubble-q"><strong>🗣 疑問：</strong>なんで溶接した「線に沿って」錆びるの？真ん中じゃなくて？</div>
+    <div class="easy-bubble-a"><strong>💡 答え：</strong>溶接で一番熱いのは真ん中だけど、真ん中は溶けて別物に。<br>
+    その両脇が「500〜800℃という危ない温度」を通過するので、脇に沿って帯状に弱くなるんです。</div>
+
+    <h3>🛡 どうやって防ぐ？</h3>
+    <div class="easy-steps">
+      <strong>3つの防ぎワザ</strong>
+      <ol>
+        <li>炭素が少ない「304L」を使う（一番ラク）</li>
+        <li>321や347という「守り役の金属入り」を使う</li>
+        <li>作った後に約1050℃で焼いて急冷し、リセットする</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>営業からの相談に効く知識</h2>
+    <div class="qa-q"><strong>Q（営業）：</strong>「客先の304溶接タンクで、溶接ビードに沿った帯だけ錆び・割れが出たって。ウチの材料不良？」</div>
+    <blockquote>
+      <p><strong>A（生産管理）：</strong>材料不良ではなく<strong>鋭敏化による粒界腐食</strong>の典型。溶接熱でHAZがCr炭化物を析出しCr欠乏帯ができ、そこが選択腐食した。対策は3択：①次回から<strong>304L等の低炭素材</strong>、②<strong>321/347の安定化鋼</strong>、③既存品なら<strong>固溶化熱処理</strong>で回復（大型で炉に入らなければ不可なので要確認）。原因は成分ではなく熱履歴なので、ミルシートが規格内でも起こりうる点を押さえて説明する。</p>
+    </blockquote>
+    <div class="qa-point">💬 営業へのキーメッセージ：「溶接線沿いの錆は鋭敏化という現象。材料成分の不良ではなく、次は低炭素の304Lか安定化材にすれば防げます」</div>
+  </div>
+  <div class="easy-only">
+    <h2>💼 営業からの相談、こう返す！</h2>
+    <div class="easy-bubble-q"><strong>🗣 営業：</strong>「304タンクの溶接線に沿って錆びたって。ウチの材料が不良だった？」</div>
+    <div class="easy-bubble-a">
+      <strong>💡 生産管理：</strong>材料不良じゃないです！<br>
+      溶接の熱で「錆びやすい帯」ができた＝鋭敏化という現象です。<br>
+      次からは<strong>炭素の少ない304L</strong>にすれば防げます。今のモノは焼き直し（熱処理）で戻せる場合もあります。
+    </div>
+    <div class="easy-point">💡 営業に渡す一言：「溶接線の錆は鋭敏化。材料不良ではなく、次は304Lにすれば防げます」</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>用語メモ</h2>
+    <dl>
+      <dt>鋭敏化（sensitization）</dt><dd>500〜800℃でCr炭化物が粒界に析出し、周囲がCr欠乏になって耐食性が落ちる現象</dd>
+      <dt>粒界腐食</dt><dd>Cr欠乏帯（粒界）に沿って選択的に進む腐食</dd>
+      <dt>HAZ（熱影響部）</dt><dd>溶接金属の脇で溶けてはいないが熱で組織・性質が変わった領域</dd>
+      <dt>L材（低炭素材）</dt><dd>C≦0.03%の304L/316L。炭化物を作りにくく鋭敏化しにくい</dd>
+      <dt>安定化鋼</dt><dd>Ti(321)やNb(347)を添加し、Crより先にこれらが炭化物を作ってCrを守る鋼</dd>
+    </dl>
+  </div>
+  <div class="easy-only">
+    <h2>📖 今日の用語まとめ</h2>
+    <dl>
+      <dt>🔥 鋭敏化</dt><dd>熱でクロムが手薄になり、錆びやすくなること</dd>
+      <dt>🧵 粒界腐食</dt><dd>金属のつなぎ目（粒界）に沿って錆びること</dd>
+      <dt>♨️ HAZ（熱影響部）</dt><dd>溶接で「溶けてないけど熱の影響を受けた」脇のゾーン</dd>
+      <dt>🛡 304L</dt><dd>炭素を減らして鋭敏化しにくくした304</dd>
+      <dt>🦸 安定化鋼（321/347）</dt><dd>クロムの身代わりになる金属を入れて守った鋼</dd>
+    </dl>
+  </div>
+</div>
+
+<div class="card">
+  <div class="normal-only">
+    <h2>昨日の小テスト解答</h2>
+    <p><strong>問：</strong>客先のSUS304溶接タンクで、溶接ビードに沿った帯状の部分だけ錆び・割れが出たと報告。原因と対策は？</p>
+    <div class="answer-box">
+      <p><strong>答：原因は溶接熱による鋭敏化と、それに伴う粒界腐食（＋応力腐食割れ）。</strong></p>
+      <p>HAZが500〜800℃を通過してCr炭化物が析出、Cr欠乏帯が溶接線に沿って腐食した。対策は①304L/316Lなど低炭素材への変更、②321/347安定化鋼、③固溶化熱処理でCr再固溶。</p>
+      <p>営業へは「材料成分の不良ではなく溶接の熱が原因。低炭素材にすれば防げる」と返す。</p>
+    </div>
+  </div>
+  <div class="easy-only">
+    <h2>✅ 昨日のクイズ、答え合わせ！</h2>
+    <p><strong>問：</strong>304溶接タンクの溶接線に沿った帯だけ錆び・割れが出た。原因と対策は？</p>
+    <div class="answer-box">
+      <div class="easy-bubble-a">
+        <strong>原因は「鋭敏化」！</strong><br>
+        溶接の熱でクロムが手薄になった帯が錆びました。<br>
+        対策は炭素の少ない304Lに変える／321・347を使う／焼き直して戻す。
+      </div>
+      <div class="easy-point">📌 客先への返し：「溶接の熱が原因。材料不良ではなく、304Lにすれば防げます」</div>
+    </div>
+  </div>
+</div>
+
+<div class="quiz">
+  <div class="normal-only">
+    <h2>今日の小テスト1問</h2>
+    <p class="q-text">問：営業から「客先が『304Lは304より錆びにくいの？普通の304じゃダメなの？』と聞いてきた。何が違うか教えて」と相談がきた。生産管理としてどう答えるか。</p>
+    <p style="color:#666; font-size:0.9em;">（解答は第20回で配信）</p>
+  </div>
+  <div class="easy-only">
+    <h2>🧩 今日の小テスト1問</h2>
+    <p class="q-text">問：「304Lは304より錆びにくいの？普通の304じゃダメ？」と聞かれた。何が違う？どう答える？</p>
+    <div class="easy-point">💡 ヒント：Lは「Low Carbon（低炭素）」の頭文字。今日の「鋭敏化」を思い出して！</div>
+    <p style="color:#666; font-size:0.9em;">（解答は第20回で配信）</p>
+  </div>
+</div>
+
+<button class="mode-btn" id="modeBtn" onclick="toggleMode()">🌟 やさしいとくしゅこうで読む</button>
+<script>
+function toggleMode() {
+  const body = document.body;
+  const btn = document.getElementById('modeBtn');
+  if (body.classList.contains('easy-mode')) {
+    body.classList.remove('easy-mode');
+    btn.textContent = '🌟 やさしいとくしゅこうで読む';
+    localStorage.setItem('studyMode', 'normal');
+  } else {
+    body.classList.add('easy-mode');
+    btn.textContent = '📚 通常モードに戻す';
+    localStorage.setItem('studyMode', 'easy');
+  }
+}
+(function() {
+  if (localStorage.getItem('studyMode') === 'easy') {
+    document.body.classList.add('easy-mode');
+    document.getElementById('modeBtn').textContent = '📚 通常モードに戻す';
+  }
+})();
+</script>
+</body>
+</html>
